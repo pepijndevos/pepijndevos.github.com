@@ -1,0 +1,34 @@
+--- 
+layout: post
+title: Bring actual image data in sync with EXIF orientation
+published: true
+tags: 
+- bash
+- batchediting
+- exif
+- photography
+---
+<div>While sorting out all my holiday photographs, I turned them to the right orientation using F-Spot photo manager. When I came home I imported them into Adobe bridge, sorted them all out using all sorts of labels, tags and ratings.</div>
+<p />
+<div>Everything was fine so far, until I looked at them with a bad viewer, or uploaded them to Facebook. F-Spot and Bridge happily adjusted the orientation in the EXIF meta-date, but left the actual image untouched.</div>
+<div>Not all viewers check the EXIF data before displaying an image, so they display it in the original orientation, corresponding to orientation 1 in EXIF.</div>
+<p />
+<div>Now I was stuck with over a thousand neatly sorted and rotated photos, that I could not publish without rotating them all again with another application.</div>
+<p />
+<div>Luckily I was saved by this page: <a href="http://sylvana.net/jpegcrop/exif_orientation.html">http://sylvana.net/jpegcrop/exif_orientation.html</a></div>
+<p />
+<div>If you run Mac and probably Linux as well, jpegtran is already installed.</div>
+<p />
+<div>Just download the C app and the Bash script, but them in the same folder and run this command to compile:</div>
+<div class="CodeRay">
+  <div class="code"><pre>gcc -o jpegexiforient jpegexiforient.c</pre></div>
+</div>
+
+<div>Now run these commands to make the files executable:</div>
+<div class="CodeRay">
+  <div class="code"><pre>chmod +x jpegexiforient
+chmod +x exifautotran</pre></div>
+</div>
+
+<div>I had to change exifautotran to read ./jpegexiforient in 2 places instead of just jpegexiforient. Otherwise it'd say "command not found".</div>
+<div>Now you can run "./exifautotran file.jpg" to convert a single file, or "./exifautotran /dir/*.jpg" to convert a whole directory of jpg files.</div>

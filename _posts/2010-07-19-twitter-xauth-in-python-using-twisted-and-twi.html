@@ -1,0 +1,67 @@
+--- 
+layout: post
+title: Twitter xAuth in Python using Twisted and Twitty Twister
+published: true
+tags: 
+- authentication
+- python
+- twisted
+- twitter
+---
+<p>This is the first post in what will most likely be a series of posts related to Twitter, POP3, SMTP and Twisted. This post will be about asynchronous authentication with Twitter using xAuth.</p>
+
+<p>xAuth is a simplified form of OAuth. Instead of doing the dance, you use credentials(like basic auth), but exchange them for an access token. You need to send a request to <a href="mailto:api@twitter.com">api@twitter.com</a> to enable it.</p>
+
+<p>This technique is also applicable to getting OAuth tokens, although that is more complicated.</p>
+
+<p>We are going to use Twitty Twister, which is a Twitter lib for Twisted which supports signing OAuth requests. It does not, however, include code for obtaining an access token.</p>
+
+<p>To obtain the token, it is suggested to use an external library. But since my app is 100% Twisted, and most OAuth libs blocking, I had a problem right there. We don&rsquo;t want to have our nice reactor sit idle while we request our token, do we?</p>
+
+<p>The solution is to use python-oauth to make the request, but just before we send it, you call request.to_postdata() and use twisted.web.client.getPage to send the request in an asynchronous manner.</p>
+
+<p>My main resources where:
+<a href="http://dev.twitter.com/pages/xauth">http://dev.twitter.com/pages/xauth</a>
+<a href="http://github.com/simplegeo/python-oauth2#readme">http://github.com/simplegeo/python-oauth2#readme</a>
+<a href="http://twistedmatrix.com/documents/10.1.0/api/twisted.web.client.getPage.html">http://twistedmatrix.com/documents/10.1.0/api/twisted.web.client.getPage.html</a></p>
+
+<p>The resulting code(insert your key, secret, username and password):</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="kw">from</span> <span class="ic">oauth</span> <span class="kw">import</span> <span class="ic">oauth</span>
+<span class="kw">from</span> <span class="ic">twisted.web.client</span> <span class="kw">import</span> <span class="ic">getPage</span>
+<span class="kw">from</span> <span class="ic">twisted.internet</span> <span class="kw">import</span> <span class="ic">reactor</span>
+<span class="kw">from</span> <span class="ic">twittytwister</span> <span class="kw">import</span> <span class="ic">twitter</span>
+<span class="kw">import</span> <span class="ic">cgi</span>
+
+url = <span class="s"><span class="dl">&quot;</span><span class="k">https://api.twitter.com/oauth/access_token</span><span class="dl">&quot;</span></span>
+consumer = oauth.OAuthConsumer(<span class="s"><span class="dl">&quot;</span><span class="k">key</span><span class="dl">&quot;</span></span>, <span class="s"><span class="dl">&quot;</span><span class="k">secret</span><span class="dl">&quot;</span></span>)
+
+<span class="kw">def</span> <span class="fu">respond</span>(tokens):
+    params = cgi.parse_qs(tokens, keep_blank_values=<span class="pc">False</span>)
+    key = params[<span class="s"><span class="dl">'</span><span class="k">oauth_token</span><span class="dl">'</span></span>][<span class="i">0</span>]
+    secret = params[<span class="s"><span class="dl">'</span><span class="k">oauth_token_secret</span><span class="dl">'</span></span>][<span class="i">0</span>]
+    <span class="kw">print</span> <span class="s"><span class="dl">&quot;</span><span class="k">got access</span><span class="dl">&quot;</span></span>
+
+    token = oauth.OAuthToken(key, secret)
+    tweet = twitter.Twitter(consumer=consumer, token=token).update(<span class="s"><span class="dl">&quot;</span><span class="k">Hello world! First tweet using xauth via #Twisted and #Python</span><span class="dl">&quot;</span></span>)
+    tweet.addCallback(posted)
+
+<span class="kw">def</span> <span class="fu">posted</span>(message):
+    <span class="kw">print</span> <span class="s"><span class="dl">&quot;</span><span class="k">message:</span><span class="dl">&quot;</span></span>, message
+
+request = oauth.OAuthRequest.from_consumer_and_token(oauth_consumer=consumer, http_method=<span class="s"><span class="dl">'</span><span class="k">POST</span><span class="dl">'</span></span>, http_url=url,
+    parameters = {
+        <span class="s"><span class="dl">'</span><span class="k">x_auth_mode</span><span class="dl">'</span></span>: <span class="s"><span class="dl">'</span><span class="k">client_auth</span><span class="dl">'</span></span>,
+        <span class="s"><span class="dl">'</span><span class="k">x_auth_username</span><span class="dl">'</span></span>: <span class="s"><span class="dl">'</span><span class="k">username</span><span class="dl">'</span></span>,
+        <span class="s"><span class="dl">'</span><span class="k">x_auth_password</span><span class="dl">'</span></span>: <span class="s"><span class="dl">'</span><span class="k">password</span><span class="dl">'</span></span>
+    }
+)
+request.sign_request(oauth.OAuthSignatureMethod_HMAC_SHA1(), consumer, <span class="pc">None</span>)
+
+page = getPage(url, method=<span class="s"><span class="dl">'</span><span class="k">POST</span><span class="dl">'</span></span>, postdata=request.to_postdata())
+page.addCallback(respond)
+
+<span class="kw">print</span> <span class="s"><span class="dl">&quot;</span><span class="k">running...</span><span class="dl">&quot;</span></span>
+reactor.run()</pre></div>
+</div>

@@ -1,0 +1,18 @@
+--- 
+layout: post
+title: Sorting obsession
+published: true
+tags: 
+- clojure
+- sorting
+---
+<p>It all started when, one day, I was thinking about the little I knew about sorting. What I knew was that sorting was usually done by comparing all items and switching them around, hitting the magical O(nlogn) barrier.</p>
+<p>Thinking about how I would sort a deck of cards, sorting seemed more like a O(n) operation. With that in mind, I started implementing what turned out to be called&nbsp;<a href="http://en.wikipedia.org/wiki/Pigeonhole_sort">Pigeonhole Sort</a>. I also learned that sorting algorithms can be classified as being a&nbsp;<a href="http://en.wikipedia.org/wiki/Comparison_sort">Comparison sort</a>&nbsp;or not.</p>
+<p><script src="https://gist.github.com/774664.js"></script></p>
+<p>With that out of the way, I started to compare my sort to the sort used by Java and Clojure, which turned out to be using&nbsp;<a href="http://sortvis.org/algorithms/timsort.html">Timsort</a>,&nbsp;originating in Python. In my quest to understand Timsort - and why it was faster than my Pigeonhole Sort - I found <a href="http://sortvis.org/index.html">this great website that graphs how different sort algorithms work</a>.</p>
+<p>Simply put, I was intrigued by the pattern displayed by&nbsp;<a href="http://sortvis.org/algorithms/heapsort.html">Heap Sort</a>. So next I found myself reading the Wikipedia pages for&nbsp;<a href="http://en.wikipedia.org/wiki/Binary_heap">Binary Heaps</a>, and shortly after that, I had started implementing that in Clojure.</p>
+<p>This is, ladies and gentleman, a persistent heap, in all its heapyness, with a heapsort implemented on top of it.</p>
+<p><script src="https://gist.github.com/781061.js"></script></p>
+<p>Some 'benchmark' results:</p>
+<p><script src="https://gist.github.com/781203.js"></script></p>
+<p>Note that heapsort is lazy, insofar that it does realize but does not sort the sequence untill requested. There is also a bug that allows for the last 2 items to be out of order.</p>

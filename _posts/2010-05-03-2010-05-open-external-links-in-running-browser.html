@@ -1,0 +1,91 @@
+--- 
+layout: post
+title: Open external links in running browser
+published: true
+tags: 
+- applescript
+- cfbundleurlschemes
+- chrome
+- developer
+- firefox
+- opera
+- safari
+- webbrowser
+---
+<img src="/images/media_httppepijncqhos_kBCFu.jpg" alt="Open external links in running browser" />As a web developer I have like 5 browsers installed which I use regularly. That is, not on daily basis, but for occasional testing and browsing.
+
+What annoys me most about this is that when I click a link in another application, no matter what browser I'm currently running, it opens a fresh Safari window.
+
+The ideal solution would be to open any urls with the browser I'm using at that moment, no mater which browser that is and which one is set as the default browser.
+
+I have written a piece of Applescript that will do just this, you might need to edit this for the browsers which you are using though.
+
+Below you'll find a zip file containing the app bundle, and all the scripts needed to generate it yourself.
+<p style="text-align: center; font-size: 1.5em;"><a href="http://pepijn.cqhosting.nl/subpress/wp-content/uploads/2010/05/Browser-Loader1.zip">Browser Loader</a></p>
+To edit the browsers you use, open "/Applications/Utilities/AppleScript Editor.app" and then open the app bundle, this will reveal the script below, where you can make adjustments to the browsers used and their order.
+
+If you want do do this yourself, or the app bundle does not work for you for some reason, this is the actual Applescript I used:
+<div class="CodeRay">
+  <div class="code"><pre>on open location the_url
+        tell application &quot;System Events&quot;
+                set browser_apps to the name of every process whose visible is true
+                if &quot;Opera&quot; is in browser_apps then
+                        tell application &quot;Opera&quot;
+                                open location the_url
+                                activate
+                        end tell
+                else if &quot;firefox-bin&quot; is in browser_apps then
+                        tell application &quot;Firefox&quot;
+                                open location the_url
+                                activate
+                        end tell
+                else if &quot;Google Chrome&quot; is in browser_apps then
+                        tell application &quot;Google Chrome&quot;
+                                open location the_url
+                                activate
+                        end tell
+                else
+                        tell application &quot;WebKit&quot;
+                                open location the_url
+                                activate
+                        end tell
+                end if
+        end tell
+end open location</pre></div>
+</div>
+
+<img src="/images/media_httppepijncqhos_ArsBd.png" alt="Open external links in running browser" />Copy this file to the Applescript editor and hit Save, before you save, choose to save as an app bundle and make sure to check the "Stay Open" box.
+
+Now we need to modify the app bundle to make it eligible for url opening. To do this, right-click on the app and select "Show Package Contents", go to "Contents" and open "Info.plist".
+
+Edit "Info.plist" to contain this xml code within the outer dict element. For an example, download the app bundle above.
+<div class="CodeRay">
+  <div class="code"><pre>&lt;key&gt;CFBundleIdentifier&lt;/key&gt;
+        &lt;string&gt;nl.pepijndevos.urlhandler&lt;/string&gt;
+        &lt;key&gt;CFBundleURLTypes&lt;/key&gt;
+        &lt;array&gt;
+                &lt;dict&gt;
+                        &lt;key&gt;CFBundleURLName&lt;/key&gt;
+                        &lt;string&gt;Applescript urls&lt;/string&gt;
+                        &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
+                        &lt;array&gt;
+                                &lt;string&gt;http&lt;/string&gt;
+                                &lt;string&gt;https&lt;/string&gt;
+                                &lt;string&gt;file&lt;/string&gt;
+                        &lt;/array&gt;
+                        &lt;key&gt;LSIsAppleDefaultForScheme&lt;/key&gt;
+                        &lt;true/&gt;
+                &lt;/dict&gt;
+        &lt;/array&gt;</pre></div>
+</div>
+
+Now, when you click an url it will just open your browser. I'm not sure what to do exactly, but here is what I did
+<ol>
+	<li>Run the app once</li>
+	<li>Set it as the default browser in Safari</li>
+</ol>
+[update]
+
+Using Linux? Try this script on <a href="http://www.humbug.in/2010/open-links-in-your-linux-distros-current-browser-instead-of-the-default/">Humbug.in</a>
+
+This script has also appeared on <a href="http://lifehacker.com/5533695/open-links-in-your-macs-current-browser-instead-of-the-default">lifehacker.com</a> <a href="http://mac.softpedia.com/get/Internet-Utilities/Browser-Loader.shtml">download.com</a> and <a href="http://www.macosxhints.com/article.php?story=20100503134708927">maxosxhints.com</a>

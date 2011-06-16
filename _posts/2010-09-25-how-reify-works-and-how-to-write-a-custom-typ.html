@@ -1,0 +1,197 @@
+--- 
+layout: post
+title: How reify works, and how to write a custom type
+published: true
+tags: 
+- clojure
+- irc
+- joyofclojure
+- reify
+---
+<p>Yesterday I had the idea of lazy sequences that can go in both directions. I dropped into #clojure on <a href="http://irc.freenode.net">irc.freenode.net</a> to ask someone about it.</p>
+<div>
+<blockquote class="posterous_medium_quote">Given the fact that Clojure-in-Clojure is possible, it is thus possible to define lazy seqs. Would it also be possible to define a lazy seq where the 0th element is actually in the middle of an infinite lazy seq extending in both ways? so like (iterate inc) with negative number included :)</blockquote>
+</div>
+<div>I found Chris Houser(Author of&nbsp;<a href="http://joyofclojure.com/">Joy of Clojure</a>) interested, and willing to help me along.</div>
+<p />
+<div>
+<blockquote class="posterous_short_quote">so... how shall we proceed? You want to see my code or should I try to drop hints or ask leading questions?</blockquote>
+</div>
+<div>I went for the later one, and had a great learning experience. Near then end Paul deGrandis chimed in to recommend Joy of Clojure. I'm convinced!</div>
+<p />
+<div>
+<blockquote>
+<div>Joy of Clojure has an awesome section on proxy, reify, defprotocol, and defrecord. I reference it often to judge if I'm abusing something</div>
+<div>At the point you're at in Clojure (based on what I follow in here), you'd get a lot of mileage out of it.</div>
+</blockquote>
+</div>
+<p />
+<div>Bellow You'll find a grep'd-over version of the log with most of the background noise canceled. The full log is at&nbsp;<a href="http://clojure-log.n01se.net/date/2010-09-24.html">http://clojure-log.n01se.net/date/2010-09-24.html</a></div>
+<p />
+<div>The final code for my version</div>
+<p />
+<div><script src="https://gist.github.com/595835.js"></script></div>
+<p />
+<div>and chousers version</div>
+<div><br /><script src="https://gist.github.com/595663.js"></script></div>
+<p />
+<div>
+<blockquote>
+<div><strong>fliebel: Given the fact that Clojure-in-Clojure is possible, it is thus possible to define lazy seqs. Would it also be possible to define a lazy seq where the 0th element is actually in the middle of an infinite lazy seq extending in both ways? so like (iterate inc) with negative number included :)</strong></div>
+<div>chouser: ISeq only provides an API for walking forwards. You'd need a different interface for walking the other direction.</div>
+<div>fliebel: Hrm :( that means I'll be unable to use with with existing functions, right?</div>
+<div>chouser: well, what existing function do you intend to call to get item before 'first'?</div>
+<div>fliebel: Dunno&sbquo; I mean, if I'm not using ISeq, I can&rsquo;t even use first, right?</div>
+<div><strong>chouser: well, your theoretical bidirectional lazy seq could implement ISeq for going forward</strong></div>
+<div>fliebel: Oh wait, Java, so I can implement ISeq and add my own interface and fns for going the other way.</div>
+<div><strong>fliebel: How about this&sbquo; you define a lazy seq like iterate but with 2 fns, for going in either direction. then you call spin on it to change which direction you're seqing over :)</strong></div>
+<div>chouser: hm, interesting.</div>
+<div>fliebel: So, what Clojure bits do I need to implement that?</div>
+<div><strong>chouser: a deftype and ... a function?</strong></div>
+<div>fliebel: *looks up deftype*</div>
+<div>chouser: actually, just a deftype would do, though it's not quite as pretty.</div>
+<div>fliebel: I don't think I get it.</div>
+<div><strong>chouser: (rseq (rest (drop 10 (IterBi. 0 inc dec)))) ;=&gt; (5 4 3 2 1 0 -1 -2 -3 -4 -5 ...)</strong></div>
+<div><strong>chouser: so that's what you wanted, right? interesting idea.</strong></div>
+<div>fliebel: I understand how I can do without the fn, but I don't understand deftype.</div>
+<div><strong>chouser: actually, you don't need deftype either. you could use reify or proxy if you prefer, and a normal function.</strong></div>
+<div>fliebel: I never worked with those 1.2 things before. So it's going to be a lot of learning :)</div>
+<div><strong>chouser: so... how shall we proceed? You want to see my code or should I try to drop hints or ask leading questions?</strong></div>
+<div><strong>fliebel: the later one :) extended with my guessing and reading</strong></div>
+<div>fliebel: So I basically need to look up the ISeq interface and overwrite a few methods?</div>
+<div><strong>chouser: ok, so how would you use deftype or reify to implement an ISeq that just repeats the same value over and over</strong></div>
+<div>fliebel: Where can I find the ISeq interface?</div>
+<div>chouser: <a href="http://github.com/clojure/clojure/blob/master/src/jvm/clojure/lang/ISeq.java">http://github.com/clojure/clojure/blob/master/src/jvm/clojure/lang/ISeq.java</a></div>
+<div><strong>fliebel: I guess it'd be (reify clojure.lang.ISeq (first [this] 1)) but that fails</strong></div>
+<div>fliebel: Do I need to implement all of them? Or can I just use a concrete subclass of ISeq?</div>
+<div>chouser: just implement the ones you need for now. What happens when you call 'first' on your reify there?</div>
+<div>fliebel: I get java.lang.AbstractMethodError when defining it, because ISeq is an abstract interface.</div>
+<div>chouser: are you sure that's why?</div>
+<div>fliebel: Hm, first works, but just defining it fails.</div>
+<div>chouser: Ah, repl evaluates</div>
+<div>chouser: yep, and after E is P</div>
+<div>fliebel: ?</div>
+<div>chouser: REPL</div>
+<div>fliebel: ah</div>
+<div>chouser: and printing a seq means walking it an printing each of the items. we're not ready for that.</div>
+<div>fliebel: I see</div>
+<div><strong>chouser: so, (first ...) works. what about (next ...)?</strong></div>
+<div>fliebel: let me try..</div>
+<div>fliebel: What about more and cons?</div>
+<div>chouser: ignore them for now.</div>
+<div>fliebel: yea, but not doing second on it still gives me the error.</div>
+<div>chouser: it's a shame it doesn't tell you the specific method it's trying to call that fails.</div>
+<div>fliebel: It doesn't even give a line or file.</div>
+<div>chouser: right, so use (.printStackTrace *e)</div>
+<div><strong>fliebel: But seq isn't in ISeq, or is that up in Seqable?</strong></div>
+<div><strong>chouser: Yea, but you can put it under ISeq in your reify</strong></div>
+<div>fliebel: I know, but I need to know it&rsquo;s interface.</div>
+<div>chouser: <a href="http://github.com/clojure/clojure/blob/master/src/jvm/clojure/lang/Seqable.java#L16">http://github.com/clojure/clojure/blob/master/src/jvm/clojure/lang/Seqable.java#L16</a></div>
+<div>fliebel: right&sbquo; Now I made it return a list. It prints that and *then* gives the same error.</div>
+<div>chouser: yeah. so that final error is it calling equiv. not sure why</div>
+<div>fliebel: hm, Do we need to fix that?</div>
+<div>chouser: probably not</div>
+<div><strong>fliebel: (reify clojure.lang.ISeq (first [this] 1) (next [this] this) (seq [this] (list 1 2 3)))</strong></div>
+<div><strong>chouser: do you have an ISeq handy already for your 'seq' to return?</strong></div>
+<div><strong>fliebel: this?</strong></div>
+<div>chouser: what happens when you try it?</div>
+<div><strong>fliebel: I guess it'll print a lot of 1s</strong></div>
+<div>fliebel: okay, it does :)</div>
+<div>chouser: good job!</div>
+<div>fliebel: but take 10 doesn't work yet</div>
+<div><strong>chouser: take is calling your (unimplemented) rest method</strong></div>
+<div><strong>fliebel: I keep forgetting the difference between next and rest. There aren&rsquo;t any docstrings on ISeq :(</strong></div>
+<div><strong>chouser: the difference between more (called by clojure.core/rest) and next only matters when being very careful about nearly vs. complete laziness.</strong></div>
+<div>ohpauleez: new rest is almost always what you want, except when you don't</div>
+<div>chouser: that is, we don't really care much. So what happens if your 'more' is the same as your 'next'?</div>
+<div>fliebel: Works :)</div>
+<div>chouser: congrats!</div>
+<div><strong>fliebel: I know how to reverse it :D</strong></div>
+<div>chouser: :-P</div>
+<div><strong>chouser: ok, but you want to apply a function instead of just repeating, right? how would you do that?</strong></div>
+<div>fliebel: Hey, my ISeq doesn't implement clojure.lang.Reversible</div>
+<div>chouser: hm, what are going to do about that?</div>
+<div><strong>fliebel: I don't think reify allows me to define multiple ancestors :(</strong></div>
+<div><strong>fliebel: I would not have led you astray</strong></div>
+<div>fliebel: Can I nest reifies? :P</div>
+<div>chouser: yes, but that's not what you want here.</div>
+<div>fliebel: Nope :(</div>
+<div><strong>chouser: according to the deftype docs, "Each spec consists of..."?</strong></div>
+<div>fliebel: ah...</div>
+<div>fliebel: I added clojure.lang.Reversible (rev [this] this)</div>
+<div><strong>fliebel: (. rev (rseq)) what is this?</strong></div>
+<div><strong>chouser: ancient syntax. the same as (.rseq rev)</strong></div>
+<div>fliebel: lol</div>
+<div>fliebel: Can we go somewhat more down the inheritance tree to find something that covers the basics? Or do we need everything customized anyway?</div>
+<div><strong>chouser: reify doesn't let you inherit from anything but pure interfaces.</strong></div>
+<div>fliebel: So what is next?</div>
+<div>fliebel: I'm now struggling with where to keep state and how to modify things without an endless recursion.</div>
+<div><strong>chouser: yep. hint: fn args are state</strong></div>
+<p />
+<div>== diner &amp; work pause ==</div>
+<p />
+<div>fliebel: sure :) I nearly got it working :)</div>
+<div>chouser: ok, back. That's great. what have you got?</div>
+<div><strong>fliebel: <script src="https://gist.github.com/595835.js"></script></strong></div>
+<div>chouser: nice!</div>
+<div>fliebel: thanks :) You're a good teacher :)</div>
+<div>chouser: I think that's the same as what I have. but you said "nearly"?</div>
+<div>fliebel: The problem I had was that first was defined as the first of this, but I couldn't do (first this) of course.</div>
+<div><strong>chouser: if you want to "check" your answer: <script src="https://gist.github.com/595663.js"></script></strong></div>
+<div>fliebel: this is your version?</div>
+<div>chouser: yep</div>
+<div>fliebel: very close :) Only you have equiv defined and next uses more. Does it matter if you use (.more method call) or rest?</div>
+<div>chouser: not really. yours is probably faster</div>
+<div>but duplicates half a line of code. :-)</div>
+<div>fliebel: yea... :(</div>
+<div>chouser: so take your pick. what you've got is good.</div>
+<div><strong>fliebel: One problem I have is that drop 5 returns a lazy seq which I can't reverse</strong>.</div>
+<div>chouser: yeah, you see how I work around that in my example?</div>
+<div>fliebel: rest, I used seq to do the job</div>
+<div>chouser: oh! smart!</div>
+<div>chouser: interesting -- I hadn't considered that, and wouldn't have been sure it would work. nicely done.</div>
+<div><strong>fliebel: I wasn&rsquo;t sure it would work, but seq is magic you know..</strong>.</div>
+<div>fliebel: One thing I haven't figured out yet is how to make a seq that goes 1 2 3 4 5 4 3 2 1, so changes direction in the middle.</div>
+<div><strong>chouser: ((fn f [s] (lazy-seq (cons (first s) (f (rest (if (zero? (rem (first s) 5)) (rseq (seq s)) s)))))) (iter-bi 1 inc dec))</strong></div>
+<div>fliebel: I'm going to try and understand :)</div>
+<div><strong>chouser: BTW, I wanted to call attention to my comment on rseq. I think we're abusing it here and probably ought to define a new protocol instead. (defprotocol Spinnable (spin [_])) or something.</strong></div>
+<div>fliebel: Okay. that simple?</div>
+<div>chouser: yep</div>
+<div>fliebel: So now in reify I replace reversible with spinnable?</div>
+<div><strong>chouser: there, now you don't have to call seq manually on lazy-seqs: <script src="https://gist.github.com/595663.js"></script></strong></div>
+<div>fliebel: What? You can just add behavior to existing types? Am I in #ruby?</div>
+<div>chouser: nope. in clojure we do it without monkey patching or adapter classes. :-)</div>
+<div>chouser: I mean "nope" you're not in #ruby. Of course you can write new functions that take existing classes as args that then do their own thing with them.</div>
+<div>fliebel: But you just added extra behavior to LazySeq, right?</div>
+<div>dnolen: it's a properly namespaced extension tho. It's not visible to other namespaces.</div>
+<div><strong>chouser: it certainly looks like I did. In this case we could have written spin like: (defn spin [x] (if (instance? LazySeq x) ...))) right?</strong></div>
+<div>fliebel: I think so...</div>
+<div><strong>chouser: it's our function, we just defined it with defprotocol which allows us to add new cases on the fly</strong></div>
+<div>fliebel: yay</div>
+<div>chouser: essentially. Except then rhickey sprinkled it with magic dust to make it very fast.</div>
+<div>fliebel: :)</div>
+<div>chouser: it's good to know not everyone knows about this yet -- it's my topic at Strange Loop</div>
+<div>fliebel: oh, I feel special now :)</div>
+<div>chouser: good I'm glad! But... why?</div>
+<div>fliebel: Because I know something not everyone knows ;)</div>
+<div>chouser: ah, good!</div>
+<div>fliebel: Except that I'm not o sure yet what exactly you just said. Only that it's magic and fast. Two things I like especially.</div>
+<div><strong>chouser: Here are the basics: <a href="http://clojure.org/datatypes">http://clojure.org/datatypes</a></strong></div>
+<div>fliebel: I tried to read that this morning, but maybe with my new knowledge I can understand it.</div>
+<div><strong>ohpauleez: Joy of Clojure has an awesome section on proxy, reify, defprotocol, and defrecord. I reference it often to judge if I'm abusing something</strong></div>
+<div>chouser: thanks. didn't want to say it myself. :-)</div>
+<div><strong>ohpauleez: At the point you're at in Clojure (based on what I follow in here), you'd get a lot of mileage out of it.</strong></div>
+<div>ohpauleez: and the biggest problem I had in clojure was deciding, "when"</div>
+<div>fliebel: &ldquo;when&rdquo;?</div>
+<div>ohpauleez: Joy of Clojure it helped me a lot with that</div>
+<div><strong>ohpauleez: In Clojure, you have this whole array of functionality. Take concurrency</strong></div>
+<div><strong>we all have that little chart burned in our brains by now</strong></div>
+<div><strong>we know vars and atoms and agents</strong></div>
+<div><strong>but when should I be using promises over futures, or when am I abusing a future and should really be using an agent</strong></div>
+<div><strong>when should I use protocols and not some other small hack</strong></div>
+<div>fliebel: right&hellip; I have that problem a lot indeed</div>
+<div><strong>ohpauleez: Joy of Clojure is structured by answering when, and for me, that pulled it all together.</strong></div>
+<div>chouser: that's very encouraging, thanks.</div>
+<div>fliebel: wow, under 10 there is a whole set of "when to use &hellip; "</div>
+</blockquote>
+</div>

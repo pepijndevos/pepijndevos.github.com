@@ -1,0 +1,36 @@
+--- 
+layout: post
+title: How much Clojure do you know?
+published: true
+tags: 
+- clojure
+- quiz
+---
+<p><img src="/images/Clojurmon.jpg" alt="How much Clojure do you know?" /></p>
+<div class="CodeRay">
+  <div class="code"><pre>user=&gt; (count (ns-publics 'clojure.core))
+546</pre></div>
+</div>
+
+<p>That are a lot of functions. Unless you wrote half of them I wager you don&rsquo;t know them all. Don&rsquo;t worry, neither do I. But it doesn&rsquo;t hurt to learn some more. That is why I wrote a <a href="https://github.com/pepijndevos/clojure-quiz">Clojure quiz</a>.</p>
+<p>Simply do the standard stuff(make sure you have git and lein or cake)</p>
+<div class="CodeRay">
+  <div class="code"><pre>git clone git://github.com/pepijndevos/clojure-quiz.git
+cake deps
+cake repl
+(use 'clojure-quiz.core)</pre></div>
+</div>
+
+<p>Now you can play three types of quizzes.</p>
+<ul>
+<li>(doc-quiz) Find the correct doc string for the given function.</li>
+<li>(name-quiz-easy) Find the correct function for the given doc.</li>
+<li>(name-quiz) Same as above, but without multiple choice.</li>
+</ul>
+<p>(name-quiz) is by far the hardest, and I generally score around 70% while I can usually get 100% on the others.</p>
+<p>You can tweak the quiz by using binding to set the namespace to use and the number of options to give:</p>
+<div class="CodeRay">
+  <div class="code"><pre>(binding [target 'clojure.set number 5] (doc-quiz))</pre></div>
+</div>
+
+<p>Have fun!</p>

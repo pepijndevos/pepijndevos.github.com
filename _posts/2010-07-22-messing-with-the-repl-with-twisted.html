@@ -1,0 +1,19 @@
+--- 
+layout: post
+title: Messing with the REPL with Twisted
+published: true
+tags: 
+- python
+- repl
+- twisted
+---
+<p>I love to try out things on the REPL(read eval print loop) before I write scripts with them. The trouble with Twisted is that everything returns deferreds, and after your start the reactor, you can&rsquo;t do anything anymore.</p>
+
+<p>All this is solved by this one single command. It gives you a REPL <em>powered by</em> the Twisted event loop. To make things even better: It prints the value of a deferred once it is finished!</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>python <span class="argument">-m</span> twisted<span class="other">.</span>conch<span class="other">.</span>stdio</pre></div>
+</div>
+
+
+<p>Added hint: Put this in a file, do &ldquo;chmod +x&rdquo; on it and put it on your $PATH.</p>

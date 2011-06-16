@@ -1,0 +1,55 @@
+--- 
+layout: post
+title: How to install Python/web.py on a shared host
+published: true
+tags: 
+- cgibin
+- framework
+- html
+- php
+- python
+- webpy
+- webhosting
+- wordpress
+---
+In the past I have written a few Python web applications, but when I asked my host about Python, they told me they where specialized in PHP and nothing but PHP(that is why this site runs Wordpress).
+
+If your are lucky and have a very expensive dedicated server you can install whatever you want, but how about my poor projects? I'm not going to re-write them in PHP obviously.
+
+I figured that as long as you have a CGI bin, you can do whatever you want. I started writing a CGI script that would install Python and Web.py for me; <a href="http://pepijn.cqhosting.nl/cgi-bin/python/webpy.cgi/blog-reader">Check out the resulting web.py example.</a>
+
+This is the script that I came up with. It should be doable to customize this for Pylons, TurboGears, Django, or any other Python framework.
+
+You should at least fill in your own home directory twice, we're doing a Python installation inside you home directory.
+<div class="CodeRay">
+  <div class="code"><pre>#!/bin/sh
+
+echo &quot;Content-type: text/html
+
+&quot;;
+
+curl http://www.python.org/ftp/python/2.6.4/Python-2.6.4.tgz | tar -zx
+cd Python-2.6.4
+./configure --prefix=/your/home/directory #change this to your home
+make
+make install
+cd ..
+curl http://www.saddi.com/software/flup/dist/flup-1.0.2.tar.gz | tar -zx
+cd flup-1.0.2
+/your/home/directory/bin/python setup.py install
+cd ..
+curl http://webpy.org/static/web.py-0.33.tar.gz | tar -zx
+cp -r web.py-0.33/web .</pre></div>
+</div>
+
+Note that you should add .py as a CGI handler in your .htaccess file:
+<div class="CodeRay">
+  <div class="code"><pre>AddHandler cgi-script .py</pre></div>
+</div>
+
+Since our fresh Python installation is not on the PATH variable, you should include a shebang header in your scripts to point to the right path:
+<div class="CodeRay">
+  <div class="code"><pre>#!/your/home/directory/bin/python</pre></div>
+</div>
+
+<a href="http://pepijn.cqhosting.nl/cgi-bin/python/webpy.cgi/blog-reader">Again, check the result!</a>

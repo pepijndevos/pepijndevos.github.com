@@ -1,0 +1,66 @@
+--- 
+layout: post
+title: 8 ways to tell how many Xes are in a list
+published: true
+tags: []
+
+---
+<p>Inspired by a question on #clojure. There we go.</p>
+
+<p>mrBliss(1):</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>(count (filter #{1} '(1 2 4 5 1 5 2))) ; Use this</pre></div>
+</div>
+
+
+<p>Raynes:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>(count ((group-by identity [1 2 3 4 5 1 5 2]) 1))</pre></div>
+</div>
+
+
+<p>Me(1):</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>(get (frequencies [1 2 3 1 2 3]) 1) ; Or this</pre></div>
+</div>
+
+
+<p>Me(2):</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>(reduce #(if (= %2 1) (inc %1) %1) 0 [1 2 3 2 3 1])</pre></div>
+</div>
+
+
+<p>Me(3)</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>(count (nth (partition-by identity (sort [ 1 2 3 1 2 3])) 0))</pre></div>
+</div>
+
+
+<p>mrBliss(2):</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>(count (remove (complement #{1}) '(1 2 3 1 2 3))) ; But don't ever do this</pre></div>
+</div>
+
+
+<p>_ato(1):</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>((fn f [[x &amp; xs :as coll]] (cond (= coll '(1)) 1, (nil? xs) 0, :else (apply + (map #(f (take-nth 2 %)) [coll xs])))) [1 2 3 4 5 1 5 2])</pre></div>
+</div>
+
+
+<p>_ato(2):</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>(let [s (sort [1 2 3 4 5 1 5 2])] (- (.lastIndexOf s 1) (.indexOf s 1) -1))</pre></div>
+</div>
+
+
+<p>But at least Clojure has an awesome and helpful community!</p>

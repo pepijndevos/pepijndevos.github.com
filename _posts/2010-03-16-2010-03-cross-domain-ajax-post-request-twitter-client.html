@@ -1,0 +1,43 @@
+--- 
+layout: post
+title: Cross-domain AJAX POST request -- Twitter client
+published: true
+tags: 
+- ajax
+- clientside
+- iframe
+- javascript
+- jsonp
+- post
+- twitter
+---
+One of the top items on my web-project-wish-list is a client-side Twitter client written in JavaScript, without resorting to a proxy.
+<h3>The problem</h3>
+The technology needed to write web applications is named AJAX, but for security reasons, AJAX has one important limitation!
+
+You can <span style="text-decoration: underline;">not</span> make requests to another domain. Imagine what would happen if a malicious website would request your gmail inbox while you are logged in!
+<h3>Alternatives</h3>
+Because of this limitation, people started to look for other ways to make cross-domain request. Bring in <a href="http://en.wikipedia.org/wiki/JSON#JSONP">JSONP</a>!
+
+JSONP allows you to request data from another domain by inserting a script tag with a src attribute referring to the data location. This is used in the Twitter widget showed in my sidebar.
+
+JSONP has two limitations.
+<ol>
+	<li>You give the other domain scripting access to your site, opening a potential XSS vulnerability.</li>
+	<li>You can only make a GET request.</li>
+</ol>
+<h3>iframes</h3>
+Hidden iframes are another method to make asynchronous requests, but they to are limited to GET requests and are only accessible from the same domain.
+
+I have not yet found a solution for the access problem, but I <em>can</em> make POST requests.
+<h3>The solution</h3>
+<ol>
+	<li>Make an iframe and set its display property to hidden.</li>
+	<li>Load a page in the frame containing a form.</li>
+	<li>Add hidden inputs to the form.</li>
+	<li>Submit it!</li>
+</ol>
+Example:
+<a>Click here to send a tweet to Twitter about this post!</a>
+<iframe name="ajax" src="/projects/frame.html" style="display: none;"></iframe>
+The only remaining problem is that we can not access the return data, but as you can see, that is not needed in all cases.

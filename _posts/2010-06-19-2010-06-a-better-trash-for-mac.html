@@ -1,0 +1,57 @@
+--- 
+layout: post
+title: A better Trash for Mac
+published: true
+tags: []
+
+---
+Different at least...
+
+I bothers me that the Mac Trash leaves hidden .Trash folders everywhere, including external drives. I wrote a few AppleScripts to move all Trash in one place and delete files completely.
+
+If you only want to remove trash from external drives, <a href="http://pepijn.cqhosting.nl/2010/02/automatically-remove-trash-from-usb-sticks/">see my earlier post.</a>
+
+This approach is still far from ideal, but it's interesting and it might inspire someone to do a better job than I did.
+
+The idea is to move files to a sparse image and delete that image when you need to empty the Trash. You can do this with Disk Utility and a bit of AppleScript.
+<p style="text-align: center;"><img src="/images/media_httppepijncqhos_kCIgq.png" alt="A better Trash for Mac" /></p>
+<p style="text-align: left;"><a href="http://pepijn.cqhosting.nl/subpress/wp-content/uploads/2010/06/Screen-shot-2010-06-19-at-11.45.49-AM.png"></a>To create the image, open Disk Utility in /Applications/Utilities, click New Image and create a Sparse Image.</p>
+<img src="/images/media_httppepijncqhos_dbhjr.png" alt="A better Trash for Mac" />I think it is nice to make the image a Stationary Pad, so you get a new Trash can every day for easier selective deletion. To do this, select the image and press CMD+i and select Stationary Pad.
+
+Now all that remains are the AppleScripts. Save those as Application Bundles named Trash and Delete respectively.
+<div class="CodeRay">
+  <div class="code"><pre>property image : POSIX file &quot;/Users/pepijndevos/Trash/Trash.sparseimage&quot; -- edit this
+property mount : POSIX file &quot;/Volumes/Trash&quot; -- and this
+
+tell application &quot;Finder&quot;
+        if not (exists mount) then
+                open image
+                delay 5
+        end if
+        open mount
+end tell
+
+on open the_files
+        tell application &quot;Finder&quot;
+                if not (exists mount) then
+                        open image
+                        delay 5
+                end if
+                repeat with the_file in the_files
+                        do shell script &quot;mv -f &quot; &amp; quoted form of POSIX path of the_file &amp; &quot; &quot; &amp; quoted form of POSIX path of mount
+                end repeat
+        end tell
+end open</pre></div>
+</div>
+
+<div class="CodeRay">
+  <div class="code"><pre>on open the_files
+        repeat with the_file in the_files
+                do shell script &quot;rm -rf &quot; &amp; quoted form of POSIX path of the_file
+        end repeat
+end open</pre></div>
+</div>
+
+<img src="/images/media_httppepijncqhos_pyGDv.png" alt="A better Trash for Mac" />Now drag these to the Dock for easy access to the Trash and Delete functions. You can just drag files on them to trash or delete them.
+
+Another option of course is to have only the Delete script and a regular folder in your Dock, but that is not half as fun, is it?

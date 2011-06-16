@@ -1,0 +1,46 @@
+--- 
+layout: post
+title: "Wordpress.com Stats: Top Posts Widget"
+published: true
+tags: 
+- plugin
+- statistics
+- wordpress
+---
+<img src="/images/media_httppepijncqhos_tAbIy.jpg" alt="Wordpress.com Stats: Top Posts Widget" />This hack is so cool and so simple, I expect anyone to run up to me and yell that this has been done before. I created a 'Top Posts' sidebar widget based on the widget that comes with any <a href="http://wordpress.com">Worpdpress.com</a> blog.
+
+I know there are several widgets like this, but they all include their own statistics tracking. Mine is nothing more than an excerpt of the <em>Dashboard</em> widget that comes with the <a href="http://wordpress.org/extend/plugins/stats/">Wordpress.com Stats</a> plugin.
+
+For people not interested in technical details, <a href="http://downloads.wordpress.org/plugin/wordpresscom-stats-top-posts-sidebar-widget.zip">here is a plugin file</a>, that works as usual; Make sure you install the <a href="http://wordpress.org/extend/plugins/stats/">Wordpress.com Stats</a> plugin first!
+
+I said this hack was simple, here is way: The code is already there! I'm surprised Wordpress did not include the widget themselves. Lets have a look at stats.php:
+
+Line 925-926:
+<div class="CodeRay">
+  <div class="code"><pre>foreach ( $top_posts = stats_get_csv( 'postviews', &quot;days=$options[top]$csv_args[top]&quot; ) as $post )
+        $post_ids[] = $post['post_id'];</pre></div>
+</div>
+
+Line 942-949:
+<div class="CodeRay">
+  <div class="code"><pre>&lt;?php foreach ( $top_posts as $post ) : if ( !get_post( $post['post_id'] ) ) continue; ?&gt;
+&lt;p&gt;&lt;?php printf(
+        $printf,
+        '<a href="' . get_permalink( $post['post_id'] ) . '">' . get_the_title( $post['post_id'] ) . '</a>',
+//                        '<a href="' . $post['post_permalink'] . '">' . $post['post_title'] . '</a>',
+        number_format_i18n( $post['views'] )
+); ?&gt;&lt;/p&gt;
+&lt;?php endforeach; ?&gt;</pre></div>
+</div>
+
+My resulting guesswork looks like this:
+<div class="CodeRay">
+  <div class="code"><pre>&lt;h4&gt;Top posts&lt;/h4&gt;
+&lt;ul&gt;
+&lt;?php foreach($top_posts = stats_get_csv('postviews', &quot;days=7&quot;) as $post): if(!get_post($post['post_id'])) continue; ?&gt;
+        &lt;li&gt;<a href="&lt;?php echo $post['post_permalink']; ?&gt;"></a>&lt;/li&gt;
+&lt;?php endforeach; ?&gt;</pre></div>
+</div>
+
+<del>If anyone is interested, I can upload this to the Wordpress plugin repository.</del>
+<ins>Done: <a href="http://wordpress.org/extend/plugins/wordpresscom-stats-top-posts-sidebar-widget/">http://wordpress.org/extend/plugins/wordpresscom-stats-top-posts-sidebar-widget/</a><ins></ins></ins>

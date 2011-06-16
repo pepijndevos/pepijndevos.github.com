@@ -1,0 +1,26 @@
+--- 
+layout: post
+title: Automatically remove Trash from usb sticks
+published: true
+tags: 
+- applescript
+- filemanagement
+- macintosh
+- usbflashdrive
+---
+I think most Mac users have had this problem; You delete a bunch of files from your pen drive to make room for a large file, and it keeps complaining about lack of space.
+
+The problem is that when you remove files on Mac, they're just moved to a hidden folder named '.Trashes', so they are actually still there. A commonly suggested solution is to empty the Trash while the USB stick is plugged in, but this might be problematic in some cases where you want to keep your Trash, just in case...
+<p style="text-align: center;"><img src="/images/media_httppepijncqhos_alhHD.png" alt="Automatically remove Trash from usb sticks" /></p>
+My new solution is to set this little script as a folder action, it will remove the trash <strong>only</strong> from the USB stick as soon as you mount it(unmount proved problematic).
+<div class="CodeRay">
+  <div class="code"><pre>on adding folder items to this_folder after receiving these_items
+    do shell script &quot;rm -rf &quot; &amp; POSIX path of these_items &amp; &quot;.Trashes/&quot;
+end adding folder items to</pre></div>
+</div>
+
+Save this script to /Library/Scripts/Folder Action Scripts/ and now set it as the folder action for /Volumes.
+
+<img src="/images/media_httppepijncqhos_fmjan.png" alt="Automatically remove Trash from usb sticks" />
+
+You might need to show hidden files in Finder for /Volumes to be visible. To do this, follow <a href="http://lifehacker.com/188892/show-hidden-files-in-finder">this guide</a>.

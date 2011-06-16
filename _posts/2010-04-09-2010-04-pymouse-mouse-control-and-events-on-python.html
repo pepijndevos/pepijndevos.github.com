@@ -1,0 +1,21 @@
+--- 
+layout: post
+title: "PyMouse 1.0: Mouse control and events on Python"
+published: true
+tags: 
+- api
+- mouseevents
+- pymouse
+- python
+---
+Since the first release of <a href="http://github.com/pepijndevos/PyMouse">PyMouse</a> I received a lot of feature requests. A list of all requests ordered by quantity:
+<ol>
+	<li>Receive mouse events</li>
+	<li>Keyboard support</li>
+</ol>
+Digging around in platform specific APIs is not my favorite hobby, but when Aldo came to me with a <a href="http://github.com/krahser/PyMouse/blob/master/unix.py#L37">good start for the Unix code</a>, and copyrights send me <a href="http://gist.github.com/361212">some Windows code</a>, I could do nothing but finish my Mac code and adapt everything to a common API.
+
+I'm also very grateful for the help from mailing list members of PyObjC and Python Xlib. Without their help I'd probably have to reverse the current version number.
+
+Keyboard support is not yet there, and I do not currently have time to write it. But I wrote down everything I know about the APIs I worked with on the <a href="http://wiki.github.com/pepijndevos/PyMouse/">PyMouse wiki</a>, so it shouldn't be to hard to figure out for anyone willing to do it.
+<p style="text-align: center; font-size: 2em;"><a href="http://github.com/downloads/pepijndevos/PyMouse/PyMouse-1.0.tar.gz">Download PyMouse</a></p>

@@ -1,0 +1,33 @@
+--- 
+layout: post
+title: Shorten Wordpress urls in Adium
+published: true
+tags: 
+- adium
+- applescript
+- wordpress
+---
+I use <a href="http://adium.im/">Adium</a> as my Twitter client, it includes a nice url shortener supporting multiple services, so what is my problem?
+
+Nothing, I just had some fun making use of the <a href="http://en.blog.wordpress.com/2009/08/14/shorten/">wp.me</a> service. Every Wordpress blog contains a header containing the short url, so it was only 3 lines of Applescript and one line of Bash to get the short url of any wp blog and post it to Adium.
+
+If anyone with knowlegde of regex/grep comes around, he might get it to work with any shorturl/shortlink header.
+<p style="text-align: center;"><img src="/images/media_httppepijncqhos_HefDB.png" alt="Shorten Wordpress urls in Adium" /></p>
+<p style="text-align: center;"></p>
+The current line looks like this:
+<div class="CodeRay">
+  <div class="code"><pre>curl --head &lt;url&gt; -s | grep -o http://wp\.me/[a-zA-Z0-9\-]*</pre></div>
+</div>
+
+<strong>Update:</strong> sed seems to be able to do what I want.
+<div class="CodeRay">
+  <div class="code"><pre>curl --head http://pepijn.cqhosting.nl/ -s | \
+sed -n 's/Link: &lt;\(.*\)&gt;; rel=shortlink/\1/p'</pre></div>
+</div>
+
+Use:
+<div class="CodeRay">
+  <div class="code"><pre>%_shorten{&lt;url&gt;}</pre></div>
+</div>
+
+Download the script: <a href="http://pepijn.cqhosting.nl/subpress/wp-content/uploads/2010/02/shorten.AdiumScripts.zip">shorten.AdiumScripts</a>

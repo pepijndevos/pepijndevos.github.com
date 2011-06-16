@@ -1,0 +1,34 @@
+--- 
+layout: post
+title: Clojure Rock-Paper-Scissors using a Markov chain
+published: true
+tags: []
+
+---
+<p>A long time ago I saw a challenge on a Python forum about writing a Rock-Paper-Scissors bot that performs better than a random bot.</p>
+<div>
+<div>As strange as it might seem,&nbsp;Rock-Paper-Scissors is anything but random. As long as it's played by people, they'll always try to come up with a winning move. I've been told there are even championships with this game.</div>
+<img src="/images/4138951764_374df4af63.jpeg" alt="Clojure Rock-Paper-Scissors using a Markov chain" />
+<div>So while trying to improve my Clojure skills I came up with the idea of using a Markov chain to write a&nbsp;Rock-Paper-Scissors bot.</div>
+<p />
+<div>Markov chains - as I recently learnt - are a random process where every step is only based on the previous. I'm not a psychologist, but when I play&nbsp;Rock-Paper-Scissors, I usually go like "I just lost using paper, so lets try rock" or "I won using rock, lets do it again", so I think it suits the challenge.</div>
+<p />
+<div>I use this map to define the probability of certain actions:</div>
+<div>{:won {:same 1, :inferior 0, :superior 0}, :lost {:same 0, :inferior 1, :superior 0}, :draw {:same 0, :inferior 0, :superior 1}}</div>
+<p />
+<div>So with this example data, If I used rock, and won. I'll choose rock again, now I lose, so I choose the item inferior to rock: scissors. Draw, so I'll choose the item superior to scissors: rock.</div>
+</div>
+<p />
+<div>The roulette function takes a map like&nbsp;{:same 1, :inferior 2, :superior 4} and returns one of the keys with the probability of the value. Calling this 7 times should approximately return 4 times :superior, 2 times :inferior and :same only once.</div>
+<p />
+<div>The guess function uses the Markov map to predict my action, and take the item that wins from mine.</div>
+<p />
+<div>Then there is the check function, which just returns if I won or lost based on the 2 items, and the relation fn which does the same for determining which of the 2 items is better.</div>
+<p />
+<div>Then there is the play function which focuses on getting your input, comparing results, and updating the Markov data to represent your actual actions.</div>
+<p />
+<div>You should update the map with the map that is printed at the end of the game, to improve the learning process of my bot. If you collect a lot of data, it could be interesting to send it in, so I can improve my bot to have a proper data set to start with.</div>
+<p />
+<div>Have fun!</div>
+<p />
+<div><script src="https://gist.github.com/564552.js"></script></div>

@@ -1,0 +1,104 @@
+--- 
+layout: post
+title: Clojure versus Python
+published: true
+tags: 
+- clojure
+- minecraft
+- python
+---
+<p>or</p>
+
+<h2>Mian versus <em>Clo</em>mian</h2>
+
+<p>or</p>
+
+<h2>How Clojure sat in a corner converting and boxing while Python did the work</h2>
+
+<p>or</p>
+
+<h2>A plot about Minecraft(pun intended)</h2>
+
+<p><em>Update:</em> The Clojure version is now a lot faster. Thanks to the people of the <a href="http://groups.google.com/group/clojure/browse_thread/thread/3c759739c265d14d/073475ace2810b94">Clojure mailing list</a>. I also uploaded <a href="http://dl.dropbox.com/u/10094764/World2.zip">the map I used</a> if you want to compare the results.</p>
+
+<p>Okay, back to business. During the writing of the <a href="http://pepijndevos.nl/where-to-dig-in-minecraft">original Python hack</a> I had to do a few tricks I thought would be easy to do in Clojure. So I started to wonder how the Clojure code would look and how fast it&rsquo;d be.</p>
+
+<p><img src="http://posterous.com/getfile/files.posterous.com/temp-2010-11-04/dbcDxIueyxJgdpwGtxCnegzcJjBdhewoIFsquoJIDawAogrxzamyCFBqfAom/Screen_shot_2010-11-04_at_2.52.10_PM.png?content_part=JJqJnHHHqDvqAlIwHouH" alt="plot" /></p>
+
+<p>My original hack was kind of slow, but it&rsquo;s <a href="https://github.com/l0b0/mian">greatly improved</a> and now renders a whole map in under 10 seconds.</p>
+
+<ul>
+<li>4s for reading all files</li>
+<li>3s for calculating the graph</li>
+<li>8s total</li>
+</ul>
+
+
+<p>The code to read all the files:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>paths = glob(join(world_dir, <span class="s"><span class="dl">'</span><span class="k">*/*/*.dat</span><span class="dl">'</span></span>))
+
+raw_blocks = <span class="s"><span class="dl">'</span><span class="dl">'</span></span>
+<span class="kw">for</span> path <span class="kw">in</span> paths:
+    nbtfile = NBTFile(path, <span class="s"><span class="dl">'</span><span class="k">rb</span><span class="dl">'</span></span>)
+
+    raw_blocks += nbtfile[<span class="s"><span class="dl">'</span><span class="k">Level</span><span class="dl">'</span></span>][<span class="s"><span class="dl">'</span><span class="k">Blocks</span><span class="dl">'</span></span>].value</pre></div>
+</div>
+
+
+<p>The code to calculate the graph:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>layers = [raw_blocks[i::128] for i in xrange(127)]
+
+counts = [[] for i in xrange(len(bt_hexes))]
+for bt_index in range(len(bt_hexes)):
+    bt_hex = bt_hexes[bt_index]
+    for layer in layers:
+        counts[bt_index].append(layer.count(bt_hex))</pre></div>
+</div>
+
+
+<p>Nice eh? Now the <a href="https://github.com/pepijndevos/Clomian/">Clojure version</a>. Clojure doesn&rsquo;t have a nice blob module, so I&rsquo;ll spare you the code that gives me the data. Sufficient to say is that it also runs in about 4 seconds.</p>
+
+<p>My initial version for the calculating was short and sweet and looked like this:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="of">(</span><span class="r">defn</span> freqs <span class="of">[</span>blocks<span class="of">]</span>
+  <span class="of">(</span><span class="r">-&gt;&gt;</span> blocks
+    <span class="of">(</span><span class="r">partition</span> <span class="i">128</span><span class="of">)</span>
+    <span class="of">(</span><span class="r">apply</span> <span class="r">map</span> <span class="r">vector</span><span class="of">)</span>
+    <span class="of">(</span><span class="r">pmap</span> frequencies<span class="of">)</span><span class="of">)</span><span class="of">)</span></pre></div>
+</div>
+
+
+<p>Now, this is twice as fast as what I currently have, but it has a problem. While Python operates on bytes the whole time, these lines of Clojure operate on a sequence of objects. These objects are just a tad bigger than the bytes in a string, so keeping 99844096 of those in memory is impossible.</p>
+
+<p>So, either I had to find a way to make Clojure throw away all the objects it had already processed, or I had to make it use a more compact storage for them. I tried both, and ended up with a function to <a href="https://github.com/pepijndevos/Clomian/blob/master/src/clomian.clj#L101">concatenate Java arrays</a>, but working with them is a real pain, so I made my function use them wrapped in Clojure goodness and made sure the Java GC threw them out as soon as I was done.</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="of">(</span><span class="r">defn</span> freqs <span class="of">[</span>blocks<span class="of">]</span>
+  <span class="of">(</span><span class="r">-&gt;&gt;</span> blocks
+    <span class="of">(</span><span class="r">partition</span> <span class="i">128</span><span class="of">)</span>
+    <span class="of">(</span><span class="r">reduce</span> <span class="of">(</span><span class="r">fn</span> <span class="of">[</span>counts col<span class="of">]</span>
+              <span class="of">(</span><span class="r">doall</span> <span class="of">(</span><span class="r">map</span> <span class="of">#(</span><span class="r">assoc!</span> %1 %2 <span class="of">(</span><span class="r">inc</span> <span class="of">(</span><span class="r">get</span> %1 %2 <span class="i">0</span><span class="of">)</span><span class="of">)</span><span class="of">)</span> counts col<span class="of">)</span><span class="of">)</span><span class="of">)</span>
+            <span class="of">(</span><span class="r">repeatedly</span> <span class="i">128</span> <span class="of">#(</span><span class="r">transient</span> <span class="of">{</span><span class="of">}</span><span class="of">)</span><span class="of">)</span><span class="of">)</span>
+       <span class="of">(</span><span class="r">map</span> <span class="r">persistent!</span><span class="of">)</span><span class="of">)</span><span class="of">)</span></pre></div>
+</div>
+
+
+<p>This is not threaded like to previous example, but it works. Everything I tried to make it use all my cores either started to eat more and more memory, or was slower then the single-treaded one. Most of them where both.</p>
+
+<p>So, how fast is it?</p>
+
+<ul>
+<li>5s file reading</li>
+<li>Over a minute of processing</li>
+<li>Over a minute + 5s total</li>
+</ul>
+
+
+<p>Wait, what? Python did this in 3 seconds, right? Yea&hellip; So even if I had used the faster function and had 10GB of RAM it&rsquo;d be 10 times slower.</p>
+
+<p>Why? I don&rsquo;t know. All I can come up with is that that Python just acts on a string, while Clojure does boxing and converting 99844096 times. If you happen to know what&rsquo;s wrong, or how to make it faster, be sure to tell me!</p>

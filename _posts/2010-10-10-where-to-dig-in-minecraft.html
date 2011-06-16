@@ -1,0 +1,25 @@
+--- 
+layout: post
+title: Where to dig in Minecraft
+published: true
+tags: 
+- gnuplot
+- minecraft
+- python
+---
+<p>I have been playing&nbsp;<a href="http://minecraft.net/">Minecraft</a>&nbsp;a lot lately, and I was wondering where to dig for certain minerals. I knew Redstone was only found in lower layers of the level, but I knew nothing concrete.</p>
+<p />
+<div>I pulled together&nbsp;<a href="http://gnuplot-py.sourceforge.net/">Gnuplot</a>&nbsp;and a&nbsp;<a href="http://github.com/twoolie/NBT">Python lib</a>&nbsp;for reading&nbsp;<a href="http://www.minecraft.net/docs/NBT.txt">NBT</a>&nbsp;files and analyzed a level. Here is the result, the code and some notes.</div>
+<p />
+<div><img src="/images/minecraft.png" alt="Where to dig in Minecraft" /></div>
+<p />
+<div>I suspect the sea level is around 60, because of the clay there. <strong>Coals is rare and Iron </strong><em><strong>very</strong></em><strong> rare above sea level.</strong></div>
+<p />
+<div>Both Diamond and Redstone stop at 20, while gold can be found a little higher. There is no noticeable decline in Coal and Iron near the bottom, <strong>so best is to dig below level 20</strong>.</div>
+<div><img src="/images/danger.png" alt="Where to dig in Minecraft" />As can be seen above, there is a lot of Lava, Water and Obsidian around and below level 10, <strong>so stay above level 10 for safe mining.</strong></div>
+<p />
+<div>The code:</div>
+<p />
+<div><script src="https://gist.github.com/619493.js"></script></div>
+<p />
+<div>I regret doing this thing in Python. My coding style is strongly influenced by Clojure, and I had to do a number of hacks that would be trivial to do in Clojure. I might do a comparison in a future post if I ever do a Clojure version.</div>

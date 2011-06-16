@@ -1,0 +1,8 @@
+--- 
+layout: post
+title: "JS server benchmark: Node.js & Rhino; Part 2"
+published: true
+tags: []
+
+---
+After having tested the pure&nbsp;<a href="http://pepijndevos.nl/js-server-benchmark-nodejs-rhino">JS speed of Node and Rhino</a>&nbsp;in my previous post, I wanted to see some actual numbers for serving stuff.<p /><div>Long story short, I grabbed the "Hello world!" examples from both&nbsp;<a href="http://nodejs.org/">Node.js</a>&nbsp;and&nbsp;<a href="http://github.com/thatcher/rhino-for-webapps/blob/master/scripts/helloworld/hello.js">Rhino running on Jetty</a>&nbsp;and ran 'ab' on them.</div><p /><div>I was not able to do high-concurrency tests on my Mac, because Jetty gave up around 100, and Node somewhere around 200. I think I'm having&nbsp;<a href="http://stackoverflow.com/questions/1216267/ab-program-freezes-after-l">the issue described here</a>.</div><p /><div>So here is the graph. I don't have much experience with benchmarking, but again, it is obvious that Node.js is in fact quite a lot faster than the Rhino/Jetty combo.<br /><p /><div><img src="/images/out.png" alt="JS server benchmark: Node.js & Rhino; Part 2" /><br /></div></div>

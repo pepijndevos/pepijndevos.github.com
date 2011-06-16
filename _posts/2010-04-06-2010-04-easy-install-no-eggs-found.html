@@ -1,0 +1,15 @@
+--- 
+layout: post
+title: "easy_install: no eggs found"
+published: true
+tags: 
+- easy_install
+- noeggsfound
+- python
+- setuptools
+---
+I blogged about this before, but I was bitten by the same issue again! When you run an old version of setuptools and easy_install, you might get an error concerning eggs not being found.
+
+If you're having the same problem, the solution is simple:
+
+  <pre>easy_install -U setuptools</pre>

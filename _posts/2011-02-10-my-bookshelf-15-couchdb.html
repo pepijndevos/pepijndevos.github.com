@@ -1,0 +1,39 @@
+--- 
+layout: post
+title: "My bookshelf 1/5: CouchDB"
+published: true
+tags: 
+- book
+- bookshelf
+- couchdb
+- review
+---
+<p>I recently ordered four programming books from Amazon, and one from Manning. I'm planning to share some comments, insights, thoughts and something akin to a review, as I 'resurface' on the web in between my reading spurts.</p>
+<div>
+<div style=""><img src="/images/unknown.png" alt="My bookshelf 1/5: CouchDB" /></div>
+<div>I started with&nbsp;<a href="http://guide.couchdb.org/">CouchDB: A definitive Guide</a>, because I expected it to be the least mind-taxing of the five, and because I am considering CouchDB for two projects of mine.</div>
+<p />
+<div>The book contains a lot of good information, but is also very messy in places. It is baginer-paced, but omits a lot of details.</div>
+<p />
+<div>I found the first chapters, the chapter about CouchApp and the appendices to be the most informative.</div>
+<p />
+<div>The first chapters take you on a high-level tour of CouchDB, with a great deal of fine information.&nbsp;I was pleasantly reminded of the nature of MVCC and B-trees.</div>
+<p />
+<div>Multi Version Concurrency Control means there is absolutely no locking involved, so reads are really fast. Even more so, because views are generated on writing.</div>
+<p />
+<div>Because both databases and views are stored as B-trees, a surprising number of actions are completed in logarithmic time. Surprising ones include updating a (re)reduced view, and taking a range from a large number of items.</div>
+<p />
+<div>Another thing to remember is that everything is sorted by keys, and that keys can be complex types, such as lists.</div>
+<p />
+<div>After about half of the book, I started to skip sections, and I completely skipped the chapters about scaling, which seem nearly inappropriate for a beginner-level book.</div>
+<p />
+<div>One chapter I did read thoroughly is the chapter about CouchApp. CouchApp makes it really easy to maintain and deploy complex web applications that run <em>sans&nbsp;lingua</em>(I made that up; it means "nothing but CouchDB").</div>
+<p />
+<div>That chapter was really helpful, but comes with a flip-side. The information about CouchApp on the web is&nbsp;<a href="http://couchapp.org/page/what-is-couchapp">really sparse</a>:</div>
+<div>
+<blockquote class="posterous_short_quote">This blog post is in response to a lot of well-deserved confusion in the community around CouchApps.</blockquote>
+</div>
+<div>The appendices mainly go into detail about things like installation and the details about the use of B-trees.</div>
+</div>
+<p />
+<div>So, that's it for now. I'd call this book a "good mess". Keep an eye on this blog or my Twitter feed for the next books, and my first CouchDB apps.</div>

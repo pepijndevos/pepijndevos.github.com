@@ -1,0 +1,41 @@
+--- 
+layout: post
+title: Wordpress MU in Resin with Quercus
+published: true
+tags: 
+- java
+- php
+- quercus
+- resin
+- wordpress30
+- wpmu
+---
+While researching Quercus today, I ran into some trouble running the new integrated Multi Site feature of Wordpress 3.0(previously a separate project known as Wordpress MU or WPMU for short) on Resin.
+
+Quercus is a PHP implementation written in Java that runs on any Java Servlet Container, including but not limited to Jetty, Tomcat or Resin. I took Resin for it was the easiest to setup and includes Quercus.
+
+Normally one would just use Apache and mod_php, but I also want to run Jython and Clojure projects, so I'm looking for a solution to combine these.
+
+Wordpress MU allows me to run multiple blogs on a single installation(as seen on <a href="http://wordpress.com">wordpress.com</a>), which I want to use for hosting websites for my clients.
+
+The problem with WPMU is that to map the different urls to one installation, some tricky mod_rewrite code is required for Apache, but since I'm using Resin here, I'll have to find another solution.
+
+There is <a href="http://wiki.caucho.com/Quercus:_Wordpress_Mu">a post on the Quercus wiki</a> describing the process of setting up a Multi Site Wordpress installation, but this is for an old version of WPMU(before the merge) and an old version of Resin.
+
+After a good few hours of trying, I got it working with the latest version of Wordpress 3.0, Quercus 4.0.3 and Resin 4.0.7.
+Just follow the wiki, except for a few points:
+<ul>
+	<li>Download at least Wordpress 3.0, which is <a href="http://wordpress.org/development/2010/05/wordpress-3-0-beta-2/">currently in beta</a>
+</li>
+	<li>Enable the network feature <a href="http://wptheming.com/2010/03/wordpress-3-0-enable-network/">like this</a>
+</li>
+	<li>Use this xml file instead:</li>
+</ul>
+<script src="http://gist.github.com/410110.js?file=resin-web.xml"></script>
+Note that I did not use the pro version, skipped the DNS stuff by using directory instead of subdomains in WP, I also skipped the chown stuff by removing this block from resin.xml:
+<div class="CodeRay">
+  <div class="code"><pre>&lt;resin:if test=&quot;${resin.userName == 'root'}&quot;&gt;
+        &lt;user-name&gt;pepijndevos&lt;/user-name&gt;
+        &lt;group-name&gt;staff&lt;/group-name&gt;
+      &lt;/resin:if&gt;</pre></div>
+</div>

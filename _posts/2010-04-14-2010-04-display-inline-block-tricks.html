@@ -1,0 +1,26 @@
+--- 
+layout: post
+title: "display: inline-block; tricks"
+published: true
+tags: 
+- css
+- horizontalmenu
+- inlineblock
+- verticalalign
+---
+In most cases where you want to have a set of items on one row, you use floats to make things work. The truth is, floats are not meant to do this and they create all sorts of strange behavior, even in good browsers if you don't know what you're doing.
+
+<a href="http://blog.mozilla.com/webdev/2009/02/20/cross-browser-inline-block/">This article tells an interesting story on how you could use inline-block in all major browsers.</a>
+
+I want to add a few tricks to the mix I learned in the past few years.
+
+Use case 1: You want a horizontal menu with more items than fit on the screen, but with a flexible width. Floats are not up to the job; They would just wrap to the next line instead of creating a scrollbar.
+
+Use case 2: You want to center something vertically. You could use a mix of position and margin statements to achieve this, but not if you don't know the width and height of the object.
+
+<strong>Since the elements are in the text flow now, we can apply text-specific CSS!</strong>
+
+The first example is achieved by setting whitespace: no-wrap; and overflow: auto; which makes all the items stay on one line and create a scroll bar.
+
+The second example is achieved by adding &amp;zwnj; before the item to make it behave like a real line of text, that has vertical-align: middle; applied to it.
+<p style="text-align: center; font-size: 2em;"><a href="http://pepijn.cqhosting.nl/projects/inline-block/">Examples</a></p>

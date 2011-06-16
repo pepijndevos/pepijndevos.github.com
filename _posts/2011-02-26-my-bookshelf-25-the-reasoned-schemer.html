@@ -1,0 +1,34 @@
+--- 
+layout: post
+title: "My bookshelf 2/5: The Reasoned Schemer"
+published: true
+tags: 
+- bookshelf
+- clojure
+- logos
+- minikanren
+---
+<p>This is the second part of&nbsp;<a href="http://pepijndevos.nl/tag/bookshelf">my bookshelf</a>, a series of posts about a couple of books I'm reading.</p>
+<div>Unlike the CouchDB book, The Reasoned Schemer(TRS henceforth) is a book that you don't simply read on the couch, but actually study. This is why it took weeks rather than days to come to this point, where I understand how to use(but not implement) miniKanren.</div>
+<p />
+<div>The book has a gradient on the cover, which gives it the impression of a technical book(it's from MIT press), but it actually contains drawings and the typesetting is brilliant(it is written with some sort of LaTeX I believe).&nbsp;It is also very suitable for vegetarians, since it uses vegetarian food rather than foo/bar/baz.</div>
+<div><img src="/images/9780262562140-f30.jpeg" alt="My bookshelf 2/5: The Reasoned Schemer" /></div>
+<div>The book is written in questions and answers, both in separate columns. You could overlay the answers, and try them yourself first.</div>
+<p />
+<div>TRS describes miniKanren, a logic programming language. It is the bare essence of Prolog and Kanren, written in a few hundred lines of Scheme.</div>
+<p />
+<div>I used&nbsp;<a href="https://github.com/swannodette/logos">Logos</a>, an implementation in Clojure by David Nolen, to follow the examples in the book. This worked out very well, but there are a couple of minor differences.</div>
+<div>
+<ul class="MailOutline">
+<li>fresh is called exist in Logos.</li>
+<li>Logos uses vectors for binding variables.</li>
+<li>Everything is interleaving, so there are no cond-i and all-i.</li>
+<li>Clojure does hot have pairs, and only proper conses are allowed, it uses lcons instead.</li>
+<li>Clojure has first and rest, so car-o and cdr-o are called after their clojure.core counterparts.</li>
+</ul>
+</div>
+<div>Later in the book, an arithmetic system is implemented in miniKanren. I attempted to&nbsp;<a href="https://github.com/pepijndevos/logos/blob/master/src/logos/number.clj">port it to Logos</a>, though it is not complete and bug free yet.</div>
+<p />
+<div>I do not yet fully understand the last few chapters of the book, one of which describes unification. The last chapter is unique in the book in that it does not use the question-answer style, but rather explains the inner workings of miniKanren in tightly packed chunks of information.</div>
+<p />
+<div>I really enjoyed the book, and I hope to find some good uses for my newly acquired powers.</div>

@@ -1,0 +1,115 @@
+--- 
+layout: post
+title: "JS server benchmark: Node.js & Rhino"
+published: true
+tags: 
+- benchmark
+- javascript
+- nodejs
+- rhino
+---
+<h3>Background</h3>
+
+<p>I&rsquo;m playing with the idea of writing a little web framework in JavaScript using jQuery on both the server and the browser. To run jQuery on the server, you need &mdash; except for JavaScript &mdash; some magic, such as <a href="http://github.com/thatcher/env-js">env.js</a> and <a href="http://github.com/tmpvar/jsdom">jsdom</a>.</p>
+
+<p>Env.js is a complete browser environment that allows you to run almost all <em>browser</em> JS code(like jQuery) on Rhino, a JavaScript engine written in Java. It is very complete, but tied to Rhino.</p>
+
+<p>Jsdom is a younger project implementing only the DOM in CommonJS, though it is written for Node.js, an event-based network server based en Googles V8 JavaScript engine.</p>
+
+<p>While I know some Java, and env.js does all I need, I got the impression that Node.js offers more in terms of speed and is more suitable for a web framework.</p>
+
+<p>Since jsdom does not do AJAX and events, I&rsquo;m facing the choice between using Rhino, or porting env.js to Node. I started to investigate the possibilities, and here is what I found.</p>
+
+<ul>
+<li>V8 <em>is</em> fast</li>
+<li>env.js has only <a href="http://github.com/thatcher/env-js/tree/master/src/platform/rhino/">±100 lines of Rhino specific code</a>.</li>
+</ul>
+
+
+<h3>Running the benchmark</h3>
+
+<p>Searching for benchmarks comparing server side JavaScript, I found none. I did find the <a href="http://v8.googlecode.com/svn/data/benchmarks/v5/run.html">JS benchmark Google uses to test V8</a>, which might of course be skewed towards V8. I tried them anyway.</p>
+
+<h4>Node.js</h4>
+
+<p>Installing Node was a breeze, but getting the V8 benchmark to run on a V8 based framework was not so easy.</p>
+
+<p>For some unknown reason the V8 benchmark uses load() to load everything together, while Node uses require(), with a slightly different meaning, which made simply substituting them impossible.</p>
+
+<p>Stride on <a href="irc://irc.freenode.net?join=#node.js">#node.js</a> came up with the solution, consisting of concatenating the files together with some shell magic:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>cat base<span class="other">.</span>js crypto<span class="other">.</span>js deltablue<span class="other">.</span>js earley<span class="argument">-boyer</span><span class="other">.</span>js raytrace<span class="other">.</span>js regexp<span class="other">.</span>js richards<span class="other">.</span>js splay<span class="other">.</span>js run<span class="other">.</span>js &gt; v8bench<span class="other">.</span>js</pre></div>
+</div>
+
+
+<p>Note that the order of the files was important, otherwise a simple &ldquo;cat *.js&rdquo; would have sufficed.</p>
+
+<p>Now all that remained was commenting out the original imports and defining a print function:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>print = require(<span class="s"><span class="dl">'</span><span class="k">sys</span><span class="dl">'</span></span>).log</pre></div>
+</div>
+
+
+<p>Now this is the result:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="other">$</span> node v8bench<span class="other">.</span>js
+<span class="number">19</span> Aug <span class="number">16</span><span class="other">:</span><span class="number">13</span><span class="other">:</span><span class="number">25</span> <span class="other">-</span> Crypto<span class="other">:</span> <span class="number">2434</span>
+<span class="number">19</span> Aug <span class="number">16</span><span class="other">:</span><span class="number">13</span><span class="other">:</span><span class="number">26</span> <span class="other">-</span> DeltaBlue<span class="other">:</span> <span class="number">3150</span>
+<span class="number">19</span> Aug <span class="number">16</span><span class="other">:</span><span class="number">13</span><span class="other">:</span><span class="number">28</span> <span class="other">-</span> EarleyBoyer<span class="other">:</span> <span class="number">12752</span>
+<span class="number">19</span> Aug <span class="number">16</span><span class="other">:</span><span class="number">13</span><span class="other">:</span><span class="number">29</span> <span class="other">-</span> RayTrace<span class="other">:</span> <span class="number">6230</span>
+<span class="number">19</span> Aug <span class="number">16</span><span class="other">:</span><span class="number">13</span><span class="other">:</span><span class="number">30</span> <span class="other">-</span> RegExp<span class="other">:</span> <span class="number">2287</span>
+<span class="number">19</span> Aug <span class="number">16</span><span class="other">:</span><span class="number">13</span><span class="other">:</span><span class="number">31</span> <span class="other">-</span> Richards<span class="other">:</span> <span class="number">1547</span>
+<span class="number">19</span> Aug <span class="number">16</span><span class="other">:</span><span class="number">13</span><span class="other">:</span><span class="number">33</span> <span class="other">-</span> Splay<span class="other">:</span> <span class="number">8879</span>
+<span class="number">19</span> Aug <span class="number">16</span><span class="other">:</span><span class="number">13</span><span class="other">:</span><span class="number">33</span> <span class="other">-</span> <span class="other">-</span><span class="other">-</span><span class="other">-</span><span class="other">-</span>
+<span class="number">19</span> Aug <span class="number">16</span><span class="other">:</span><span class="number">13</span><span class="other">:</span><span class="number">33</span> <span class="other">-</span> Score <span class="other">(</span>version <span class="number">5</span><span class="other">)</span><span class="other">:</span> <span class="number">4090</span></pre></div>
+</div>
+
+
+<p>Note the last number(average score) and the length of the command(2 parts).</p>
+
+<h4>Rhino</h4>
+
+<p>Installing Rhino was equally easy(just &ldquo;port install rhino nodejs&rdquo;)</p>
+
+<p>Then the trouble started&hellip; First I had to figure out how to run Rhino, because it doesn&rsquo;t come with its own command, like Node does. Turns out it&rsquo;s &ldquo;java -jar /path/to/js.jar&rdquo;</p>
+
+<p>After that, I ran &lsquo;run.js&rsquo; from the v8 benchmark, and it just worked! <strong>Without</strong> modification! &hellip; Until it gave java.lang.OutOfMemoryError. Some Googling reveals that unless you have a memory leak in your app, you can increase the memory limit, which I did.</p>
+
+<p>Here are the results for Rhino:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="other">$</span> java <span class="argument">-Xmx265m</span> <span class="argument">-jar</span> js<span class="other">.</span>jar run<span class="other">.</span>js
+Richards<span class="other">:</span> <span class="number">20</span><span class="other">.</span><span class="number">4</span>
+DeltaBlue<span class="other">:</span> <span class="number">138</span>
+Crypto<span class="other">:</span> <span class="number">120</span>
+RayTrace<span class="other">:</span> <span class="number">253</span>
+EarleyBoyer<span class="other">:</span> <span class="number">248</span>
+RegExp<span class="other">:</span> <span class="number">59</span><span class="other">.</span><span class="number">1</span>
+Splay<span class="other">:</span> <span class="number">279</span>
+<span class="other">-</span><span class="other">-</span><span class="other">-</span><span class="other">-</span>
+Score <span class="other">(</span>version <span class="number">5</span><span class="other">)</span><span class="other">:</span> <span class="number">120</span></pre></div>
+</div>
+
+
+<p>Again note the score and the length of the command(5 parts). The -Xmx265m is for raising the memory limit.</p>
+
+<h3>My verdict</h3>
+
+<p>Sure, Node&rsquo;s score is about 34 times the score of Rhino, but I talked to the author of <a href="http://www.claypooljs.com/">Claypool</a>, and he used Rhino for several production sites, without performance problems. <a href="http://xkcd.com/670/">It&rsquo;s a measurement without a scale</a>, so I can&rsquo;t judge if it will matter to me.</p>
+
+<p>With the speed sorted out, there is just the general style and comfort of both systems. Node.js is a very young C++ project, while Rhino has been around since the Netscape ages and is written in Java.</p>
+
+<p>While I&rsquo;m attracted to the speed and freshness of Node, I know more Java than I know C++, and there are tons of Java libs available to Rhino. And then there is env.js, which needs to be ported to Node, if I decide to use that.</p>
+
+<p>Besides the porting and library issue, there is also hosting. Because Node is so new, you&rsquo;d have to rent your own VPS, while Rhino can run in any Java servlet container, and even Google App Engine with the help of <a href="http://github.com/thatcher/rhino-for-webapps">Rhino-for-webapps</a></p>
+
+<p>So, my verdict? <strong>Undecided</strong>: As always, it depends on what you want, and I&rsquo;m not yet sure what I want.</p>
+
+<p><strong>[update]</strong></p>
+
+<p>FireFox gets only 394 in the same test, so Rhino is probably not <em>that</em> bad.</p>
+
+<p>I would be very grateful if anyone could give me some information on the CommonJS load/require and print problem or ways to speed up Rhino.</p>

@@ -1,0 +1,50 @@
+--- 
+layout: post
+title: Delicious bookmarks in Safari
+published: true
+tags: 
+- applescript
+- bookmark
+- delicious
+- python
+- safari
+---
+I recently started using <a href="http://delicious.com/pepijndevos">Delicious</a>, and while they have a nice Firefox plugin and a bunch of bookmarklets, there is no easy way to get Delicious bookmarks into the Safari bookmarks bar.
+
+To get this done I wrote an Applescript with a little piece of Python to get Delicious bookmarks right in Safari. Here is how it looks:
+
+<img src="/images/media_httppepijncqhos_uHCgF.png" alt="Delicious bookmarks in Safari" />
+Here is how to do it:
+<ol>
+	<li>Get the 2 scripts below and save them to a suitable location. You might want to place it in ~/Library/Scripts/Applications/Safari</li>
+	<li>Edit the Applescript with the location of the Python script and the URL of your Delicious feed.</li>
+	<li>Run the Applescript.</li>
+	<li>Drag the resulting bookmarks folder or its content anywhere you want.</li>
+</ol>
+This will work for any RSS and maybe even Atom feed, you could even bookmark the feed of your Twitter account, for... *hum* easy access to individual tweets.
+
+This is the Python code:
+<div class="CodeRay">
+  <div class="code"><pre>import feedparser
+print &quot;&lt;dl&gt;&quot;
+for e in feedparser.parse( &quot;http://feeds.delicious.com/v2/rss/pepijndevos&quot; ).entries:
+    print '&lt;dt&gt;&lt;a href=&quot;%s&quot;&gt;%s&lt;/dt&gt;' % (e.link, e.title.encode('ascii','ignore'))
+print &quot;&lt;/dl&gt;&quot;</pre></div>
+</div>
+
+Don't ask me why, but Safari needs broken html to import. Maybe because it is meant to import IE bookmarks? Anyway, this is the Applescript, the real thing:
+<div class="CodeRay">
+  <div class="code"><pre>do shell script &quot;python ~/bin/feed2html.py &gt; ~/Documents/delicious.html&quot;
+tell application &quot;Safari&quot;
+        activate
+        tell application &quot;System Events&quot;
+                tell application process &quot;Safari&quot;
+                        click menu item &quot;Import Bookmarks…&quot; of menu &quot;File&quot; of menu bar item &quot;File&quot; of menu bar 1
+                        keystroke &quot;g&quot; using {shift down, command down}
+                        keystroke &quot;~/Documents/delicious.html&quot;
+                        keystroke return
+                        keystroke return
+                end tell
+        end tell
+end tell</pre></div>
+</div>

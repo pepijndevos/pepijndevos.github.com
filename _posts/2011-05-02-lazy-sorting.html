@@ -1,0 +1,13 @@
+--- 
+layout: post
+title: Lazy sorting
+published: true
+tags: []
+
+---
+<p>I was inspired by&nbsp;<a href="http://boss-level.com/?p=92">Edmund's post</a>&nbsp;to try some other lazy sorts. These are far from competitive to Java's&nbsp;<a href="http://en.wikipedia.org/wiki/Timsort">timsort</a>, but they are an interesting concept.</p>
+<p>It is not possible to make timsort lazy because it uses insertion sort which does not work that way.</p>
+<blockquote class="posterous_medium_quote">Insertion sort is very similar to&nbsp;selection sort. As in selection sort, after&nbsp;k&nbsp;passes through the array, the first&nbsp;k&nbsp;elements are in sorted order. For selection sort these are the&nbsp;k&nbsp;smallest elements, while in insertion sort they are whatever the first&nbsp;k&nbsp;elements&nbsp;were in the unsorted array.</blockquote>
+<p>A chunked lazy timsort might be attempted though.&nbsp;Another option might be to use selection sort instead, or use another compounded sort like&nbsp;<a href="http://en.wikipedia.org/wiki/Intro_sort">introsort</a>.</p>
+<p><em>Update: I added an insertion sort and a chunked lazy timsort, without all the frills that make it actually run fast.</em></p>
+<p><script src="https://gist.github.com/951553.js"></script></p>

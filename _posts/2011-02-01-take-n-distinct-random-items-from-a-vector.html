@@ -1,0 +1,77 @@
+--- 
+layout: post
+title: Take n distinct random items from a vector
+published: true
+tags: 
+- clojure
+---
+<p>Another IRC hacking session.</p>
+
+<p><img src="http://a.yfrog.com/img831/9729/10745599.png" alt="plot" /></p>
+
+<p><img src="http://a.yfrog.com/img819/1616/42647628.png" alt="plot" /></p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="of">(</span><span class="r">ns</span> <span class="r">test</span>
+  <span class="of">(</span><span class="sy">:use</span> <span class="of">(</span>incanter core charts<span class="of">)</span><span class="of">)</span><span class="of">)</span>
+
+<span class="c">; naive, O(n+m)</span>
+<span class="of">(</span><span class="r">defn</span> take-rand1 <span class="of">[</span>n coll<span class="of">]</span> <span class="of">(</span><span class="r">take</span> n <span class="of">(</span>shuffle coll<span class="of">)</span><span class="of">)</span><span class="of">)</span>
+
+<span class="c">; lazy, O(n!@#$%m^&amp;)</span>
+<span class="of">(</span><span class="r">defn</span> take-rand2 <span class="of">[</span>n coll<span class="of">]</span>
+  <span class="of">(</span><span class="r">take</span> n <span class="of">(</span><span class="r">distinct</span> <span class="of">(</span><span class="r">repeatedly</span> <span class="of">#(</span>rand-nth coll<span class="of">)</span><span class="of">)</span><span class="of">)</span><span class="of">)</span><span class="of">)</span>
+
+<span class="c">; reduce, reorder, subvec, O(m)</span>
+<span class="of">(</span><span class="r">defn</span> take-rand3 <span class="of">[</span>nr coll<span class="of">]</span>
+  <span class="of">(</span><span class="r">let</span> <span class="of">[</span>len <span class="of">(</span><span class="r">count</span> coll<span class="of">)</span>
+        <span class="c">; why doesn't rand-int take a start?</span>
+        <span class="r">rand-int</span> <span class="of">(</span><span class="r">fn</span> <span class="of">[</span>lo hi<span class="of">]</span> <span class="of">(</span><span class="r">+</span> lo <span class="of">(</span><span class="r">rand-int</span> <span class="of">(</span><span class="r">-</span> hi lo<span class="of">)</span><span class="of">)</span><span class="of">)</span><span class="of">)</span><span class="of">]</span>
+    <span class="of">(</span><span class="r">subvec</span> <span class="of">(</span><span class="r">-&gt;&gt;</span> <span class="of">(</span><span class="r">range</span> nr<span class="of">)</span>
+                 <span class="of">(</span><span class="r">reduce</span> <span class="of">#(</span><span class="r">conj</span> %1 <span class="of">[</span>%2 <span class="of">(</span><span class="r">rand-int</span> %2 len<span class="of">)</span><span class="of">]</span><span class="of">)</span> <span class="of">[</span><span class="of">]</span><span class="of">)</span>
+                 <span class="of">(</span><span class="r">reduce</span>
+                   <span class="of">(</span><span class="r">fn</span> swap <span class="of">[</span>a <span class="of">[</span>i b<span class="of">]</span><span class="of">]</span>
+                      <span class="of">(</span><span class="r">assoc</span> a b <span class="of">(</span><span class="r">get</span> a i<span class="of">)</span> i <span class="of">(</span><span class="r">get</span> a b<span class="of">)</span><span class="of">)</span><span class="of">)</span>
+                   coll<span class="of">)</span><span class="of">)</span>
+            <span class="i">0</span> nr<span class="of">)</span><span class="of">)</span><span class="of">)</span>
+
+<span class="c">; amalloy, O(m)</span>
+<span class="of">(</span><span class="r">defn</span> take-rand4 <span class="of">[</span><span class="r">num</span> coll<span class="of">]</span>
+  <span class="of">(</span><span class="r">first</span>
+   <span class="of">(</span><span class="r">nth</span>
+    <span class="of">(</span><span class="r">iterate</span> <span class="of">(</span><span class="r">fn</span> <span class="of">[</span><span class="of">[</span>ret candidates<span class="of">]</span><span class="of">]</span>
+               <span class="of">(</span><span class="r">let</span> <span class="of">[</span>idx <span class="of">(</span><span class="r">rand-int</span> <span class="of">(</span><span class="r">count</span> candidates<span class="of">)</span><span class="of">)</span><span class="of">]</span>
+                 <span class="of">[</span><span class="of">(</span><span class="r">conj</span> ret <span class="of">(</span>candidates idx<span class="of">)</span><span class="of">)</span>
+                  <span class="of">(</span><span class="r">subvec</span> <span class="of">(</span><span class="r">assoc</span> candidates idx <span class="of">(</span>candidates <span class="i">0</span><span class="of">)</span><span class="of">)</span>
+                          <span class="i">1</span><span class="of">)</span><span class="of">]</span><span class="of">)</span><span class="of">)</span>
+             <span class="of">[</span><span class="of">[</span><span class="of">]</span>
+              coll<span class="of">]</span><span class="of">)</span>
+    <span class="r">num</span><span class="of">)</span><span class="of">)</span><span class="of">)</span>
+
+<span class="of">(</span><span class="r">defn</span> t <span class="of">[</span>f<span class="of">]</span>
+  <span class="of">(</span><span class="r">let</span> <span class="of">[</span>start <span class="of">(</span><span class="r">.</span> System <span class="of">(</span>nanoTime<span class="of">)</span><span class="of">)</span><span class="of">]</span>
+    <span class="of">(</span>f<span class="of">)</span>
+     <span class="of">(</span><span class="r">-</span> <span class="of">(</span><span class="r">.</span> System <span class="of">(</span>nanoTime<span class="of">)</span><span class="of">)</span> start<span class="of">)</span><span class="of">)</span><span class="of">)</span>
+
+<span class="of">(</span><span class="r">defn</span> plot-len <span class="of">[</span>f n<span class="of">]</span>
+  <span class="of">(</span><span class="r">let</span> <span class="of">[</span>coll <span class="of">(</span><span class="r">vec</span> <span class="of">(</span><span class="r">range</span> n<span class="of">)</span><span class="of">)</span><span class="of">]</span>
+    <span class="of">(</span>t <span class="of">#(</span><span class="r">doall</span> <span class="of">(</span>f <span class="i">1000</span> coll<span class="of">)</span><span class="of">)</span><span class="of">)</span><span class="of">)</span><span class="of">)</span>
+
+<span class="of">(</span><span class="r">defn</span> plot-take <span class="of">[</span>f n<span class="of">]</span>
+  <span class="of">(</span><span class="r">let</span> <span class="of">[</span>coll <span class="of">(</span><span class="r">vec</span> <span class="of">(</span><span class="r">range</span> <span class="i">100000</span><span class="of">)</span><span class="of">)</span><span class="of">]</span>
+    <span class="of">(</span>t <span class="of">#(</span><span class="r">doall</span> <span class="of">(</span>f n coll<span class="of">)</span><span class="of">)</span><span class="of">)</span><span class="of">)</span><span class="of">)</span>
+
+<span class="of">(</span><span class="r">def</span> x <span class="of">(</span><span class="r">range</span> <span class="i">1000</span> <span class="i">100000</span> <span class="i">1000</span><span class="of">)</span><span class="of">)</span>
+
+<span class="of">(</span><span class="r">-&gt;</span> <span class="of">(</span>scatter-plot x <span class="of">(</span><span class="r">map</span> <span class="of">(</span><span class="r">partial</span> plot-len  take-rand1<span class="of">)</span> x<span class="of">)</span> <span class="sy">:series-label</span> <span class="s"><span class="dl">&quot;</span><span class="k">shuffle</span><span class="dl">&quot;</span></span> <span class="sy">:legend</span> true<span class="of">)</span>
+    <span class="of">(</span>add-points   x <span class="of">(</span><span class="r">map</span> <span class="of">(</span><span class="r">partial</span> plot-len  take-rand2<span class="of">)</span> x<span class="of">)</span> <span class="sy">:series-label</span> <span class="s"><span class="dl">&quot;</span><span class="k">filtered</span><span class="dl">&quot;</span></span><span class="of">)</span>
+    <span class="of">(</span>add-points   x <span class="of">(</span><span class="r">map</span> <span class="of">(</span><span class="r">partial</span> plot-len  take-rand3<span class="of">)</span> x<span class="of">)</span> <span class="sy">:series-label</span> <span class="s"><span class="dl">&quot;</span><span class="k">reduce</span><span class="dl">&quot;</span></span><span class="of">)</span>
+    <span class="of">(</span>add-points   x <span class="of">(</span><span class="r">map</span> <span class="of">(</span><span class="r">partial</span> plot-len  take-rand4<span class="of">)</span> x<span class="of">)</span> <span class="sy">:series-label</span> <span class="s"><span class="dl">&quot;</span><span class="k">iterate</span><span class="dl">&quot;</span></span><span class="of">)</span>
+    <span class="of">(</span>save <span class="s"><span class="dl">&quot;</span><span class="k">len.png</span><span class="dl">&quot;</span></span><span class="of">)</span><span class="of">)</span> <span class="c">; http://yfrog.com/5r80779474p</span>
+
+<span class="of">(</span><span class="r">-&gt;</span> <span class="of">(</span>scatter-plot x <span class="of">(</span><span class="r">map</span> <span class="of">(</span><span class="r">partial</span> plot-take take-rand1<span class="of">)</span> x<span class="of">)</span> <span class="sy">:series-label</span> <span class="s"><span class="dl">&quot;</span><span class="k">shuffle</span><span class="dl">&quot;</span></span> <span class="sy">:legend</span> true<span class="of">)</span>
+    <span class="of">(</span>add-points   x <span class="of">(</span><span class="r">map</span> <span class="of">(</span><span class="r">partial</span> plot-take take-rand2<span class="of">)</span> x<span class="of">)</span> <span class="sy">:series-label</span> <span class="s"><span class="dl">&quot;</span><span class="k">filtered</span><span class="dl">&quot;</span></span><span class="of">)</span>
+    <span class="of">(</span>add-points   x <span class="of">(</span><span class="r">map</span> <span class="of">(</span><span class="r">partial</span> plot-take take-rand3<span class="of">)</span> x<span class="of">)</span> <span class="sy">:series-label</span> <span class="s"><span class="dl">&quot;</span><span class="k">reduce</span><span class="dl">&quot;</span></span><span class="of">)</span>
+    <span class="of">(</span>add-points   x <span class="of">(</span><span class="r">map</span> <span class="of">(</span><span class="r">partial</span> plot-take take-rand4<span class="of">)</span> x<span class="of">)</span> <span class="sy">:series-label</span> <span class="s"><span class="dl">&quot;</span><span class="k">iterate</span><span class="dl">&quot;</span></span><span class="of">)</span>
+    <span class="of">(</span>save <span class="s"><span class="dl">&quot;</span><span class="k">take.png</span><span class="dl">&quot;</span></span><span class="of">)</span><span class="of">)</span> <span class="c">; http://yfrog.com/mr42647628p</span></pre></div>
+</div>

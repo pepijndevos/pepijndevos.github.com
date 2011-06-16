@@ -1,0 +1,36 @@
+--- 
+layout: post
+title: Search Google in running browser
+published: true
+tags: 
+- automator
+- macosx
+- python
+- webbrowser
+---
+<p>After reading <a href="http://hints.macworld.com/article.php?story=20100527194703792">this hint</a>, I wanted to get it working with my <a href="http://pepijndevos.nl/2010/05/open-external-links-in-running-browser">previous script</a> to open links in the currently running browser.</p>
+
+<p>I did not use OnMyCommand, but instead just made an Automator service. Here is how:</p>
+
+<ul>
+<li>Open Automator and create a service</li>
+<li>Set the type to text</li>
+<li>Add the &lsquo;Run shell script&rsquo; action</li>
+<li>Set the shell to Python and the input to &lsquo;as arguments&rsquo;</li>
+<li>Paste the script below</li>
+</ul>
+
+
+<p>The script(this text serves only to satisfy Posterous&rsquo;s parsing engine, which is seriously pissing me off):</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="kw">import</span> <span class="ic">sys</span>
+<span class="kw">import</span> <span class="ic">urllib</span>
+<span class="kw">import</span> <span class="ic">webbrowser</span>
+webbrowser.open(<span class="s"><span class="dl">&quot;</span><span class="k">http://www.google.nl/search?q=</span><span class="dl">&quot;</span></span> + urllib.quote(sys.argv[<span class="i">1</span>]))</pre></div>
+</div>
+
+
+<p><img src="http://posterous.com/getfile/files.posterous.com/pepijndevos/jTXpVTtPGIuguNUYiAvbIYzpjmlFmBCbQNQNijhDaExIuIYRqv4gxEFZ1eYc/Screen_shot_2010-08-23_at_5.59.png.thumb100.jpg?content_part=YKnwiM1pvjrw39Qv040e" alt="Automator" /></p>
+
+<p>You need to have my previous script installed to do the actual opening of the url. With some more trickery, it is even possible to add this service as a keyboard shortcut. I suggest you Google around a bit, and comment if you find something revolutionary.</p>

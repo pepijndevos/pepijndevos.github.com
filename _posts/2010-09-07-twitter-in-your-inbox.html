@@ -1,0 +1,12 @@
+--- 
+layout: post
+title: Twitter in your inbox
+published: true
+tags: 
+- email
+- proxy
+- python
+- twisted
+- twitter
+---
+I have been working on this for quite a while, with initial plans to make it a service. But I have changed plans, and am releasing it to the world.<p /><div>What have I been working on, you ask? Not that I like sliced bread, but it's at least as good as that: It solves some problems while it introduces some others. It's a proxy between Twitter and your email client that sits on your computer or a server translating mail-language(POP, SMTP) to Twtter-language(REST API).</div><p /><div>This way you can read your tweets in your mail client, store them in folders, search though them, and do all the other stuff mail clients are good at. It even allows you to reply and forward(retweet in Twitter lingo) tweets.</div><p /><div>Here is how to get it. You go to my GitHub repo, which lives at the link below, and pull/download the code.</div><p /><div><a href="http://github.com/pepijndevos/Twemail">http://github.com/pepijndevos/Twemail</a></div><p /><div>The next step is to get the dependencies, which include Twisted, OAuth2 and Twitter-Text-Python. You might try to use setup.py for that, but I'm not sure it works.</div><p /><div>Now you simply run "twistd -ny twemail.tac" in the Twemail directory. If everything went well you'll see some messages rolling by about starting services.</div><p /><div>Now all that remains is to configure your mail client with the following information"</div><p /><div><ul class="MailOutline"><li>email: <a href="mailto:username@twitter.com">username@twitter.com</a></li><li>password: your Twitter password</li><li>POP server: localhost on port 1100</li><li>SMTP server: localhost on port 2500</li></ul><p /></div><div>Here is how it works.</div><p /><div><ul class="MailOutline"><li>You can send messages by mailing <a href="mailto:post@twitter.com">post@twitter.com</a></li><li>Replying is done by hitting reply and replacing the subject line.</li><li>Retweets are done by forwarding to the sender of the tweet</li></ul><p /></div><div>In the future I also want to handle attachments and IMAP, but this is currently not included.</div>

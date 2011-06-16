@@ -1,0 +1,13 @@
+--- 
+layout: post
+title: Cooperative concurrency in Clojure
+published: true
+tags: 
+- clojure
+- concurrency
+---
+<p>Today I had an interesting discussion about cheap preemptive threads in Clojure. Someone claimed Haskell can easily start 10.000 threads without getting slow, while Clojure - and native threads in general - do get slow after a couple of thousands.</p>
+<p>After a discussion about Agents and thread pools, I proposed cooperative concurrency as a cheap solution. Cooperative concurrency isn't exactly preemptive, but it works. This is a for-fun implementation of trampoline using a hidden gem in Clojure called PersistentQueue.</p>
+<p>Like trampoline, recursive functions return another function, which get called in a loop. Unlike trampoline, mine takes a seq of functions, puts them into a queue and executes the frontmost function, putting the result on the back of the queue.</p>
+<p>Below is an example of the classic <a href="http://jakemccrary.com/blog/2010/12/06/trampolining-through-mutual-recursion.html">mutual recursive odd and even functions</a> running in parallel, or alternating actually. Like pcalls, but on a single thread.</p>
+<div><script src="https://gist.github.com/766670.js"></script></div>

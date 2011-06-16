@@ -1,0 +1,49 @@
+--- 
+layout: post
+title: The Perfect Server
+published: true
+tags: 
+- clojure
+- fastcgi
+- php
+- python
+- ring
+- server
+---
+<p>I want a server that...</p>
+<ul>
+<li>Is fast.</li>
+<li>Easy to setup and maintain.</li>
+<li>Fixable(at runtime, which every dynamic language promotes itself with)</li>
+<li>Serves everything I throw at it      
+<ul>
+<li>PHP</li>
+<li>Python</li>
+<li>Clojure</li>
+</ul>
+</li>
+</ul>
+<p>Serving everything poses a bit of a problem here.</p>
+<p><img src="/images/hosting-venn.png" alt="The Perfect Server" /></p>
+<h2>Tomcat proxy'd behind Apache</h2>
+<p>This is by far the most common setup I believe. But now I have two servers to configure, run and maintain!</p>
+<h2>Java implementations of everything</h2>
+<p>I believe both Quercus and Jython run all major frameworks in their languages, and run at reasonable speeds. I still fear it'll be a constant fight for the alternative route though. Consider porting all of the mod_rewrite rules Wordpress uses to servlet rules. Eew!</p>
+<h2>Standard implementations under JFastCGI</h2>
+<p>Close, but much of the same problems as the previous one. Native Python and PHP libs are a big win though.</p>
+<blockquote class="posterous_short_quote">"Wouldn't it be dreamy if there was a server that would be a breeze to setup, that runs all languages I use, but without the limitations involved with running PHP and Python in a servlet"</blockquote>
+<p>- Dreamy girl from Head First books.</p>
+<p>mod_ring would be dreamy for one, running Clojure's HTTP API under Apache. But after a quick trip to Google and mod_wsgi, I gave up this idea. Doesn't exist; to complicated to write.</p>
+<p>Ring is a nice idea though. I wonder if I can wrap JFastCGI in a nice Ring sauce.</p>
+<h2>Yes we can!</h2>
+<p>Another trip to Google and SourceForge reveals that&nbsp;FastCGIHandler takes adapters for the Servlet and Portlet API. So it would suffice to write an adapter for Ring, and I would be able to use Django and Wordpress in a nice Moustache wrapper.</p>
+<p><a href="https://github.com/pepijndevos/fastcgi-ring">https://github.com/pepijndevos/fastcgi-ring</a></p>
+<p>So, dit I meet my original goals?</p>
+<ul>
+<li>Is fast - Somewhat, see below.</li>
+<li>Easy to setup and maintain - yes, it's all Clojure and Leiningen/Cake.</li>
+<li>Fixable - yes, nREPL might come in handy here.</li>
+<li>Serves everything I throw at it - yes sir!</li>
+</ul>
+<p>I ran a basic `ab -n 1000 -c 50` on both Apache and Aleph running fastcgi-ring, with an identical installation of Wordpress. Both utilize 100% of my CPU, where Apache spawns tens of workers, and php-cgi a predefined set of 4 workers. Apache is a bit faster, with the gap increasing when I just test "hello world". I did not test the speed of other combinations like Tomcat+JFastCGI or Lighttpd.</p>
+<p><script src="https://gist.github.com/736457.js"></script></p>

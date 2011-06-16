@@ -1,0 +1,23 @@
+--- 
+layout: post
+title: Twisted SMTP server with authentication
+published: true
+tags: 
+- authentication
+- esmtp
+- python
+- smtp
+- twisted
+---
+<p>This is the next post about Twisted, this time about Twisted.mail. After my Twisted project is done I'm going to contribute all my findings in some examples, docstrings and maybe even a howto. This post mainly serves as my notebook for things to remember about SMTP in Twisted.</p>
+<div>This is a twistd app taken from the Twisted examples section, and modified to support authentication. Below you'll find all my notes.</div>
+<div><script src="https://gist.github.com/484904.js"></script></div>
+<div>
+<ul class="MailOutline">
+<li>If you want anything beyond a toy, you'll need to use ESMTP instead of SMTP</li>
+<li>You need to have a portal with a realm and a checker set up to use the AUTH command</li>
+<li>challengers are what provide the protocol for logging in, note that they are located in twisted.imap4</li>
+<li>A portal takes one checker instance per authentication method, so you can have one for handling strange tokens, and one for regular username/password authentication, but not two for the same type.</li>
+<li>Take a look at the source for InMemoryUsernamePasswordDatabaseDontUse, it is really simple to write your own checker.</li>
+</ul>
+</div>

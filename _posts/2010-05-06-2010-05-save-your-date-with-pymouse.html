@@ -1,0 +1,29 @@
+--- 
+layout: post
+title: Save your date with PyMouse
+published: true
+tags: 
+- pymouse
+- python
+- xkcd
+---
+<img src="/images/media_httpimgsxkcdcom_dIads.png" alt="Save your date with PyMouse" />
+
+With PyMouse this would never have happened. Don't risk your date, get PyMouse right now at its <a href="http://github.com/pepijndevos/PyMouse">GitHub page</a>!
+
+All that it takes to wiggle your pointer with PyMouse is this:
+<div class="CodeRay">
+  <div class="code"><pre>from pymouse import PyMouse
+from time import sleep
+from random import randint
+
+m = PyMouse()
+w, h = m.screen_size()
+while True:
+    try:
+        m.move(randint(0, w), randint(0, h))
+        sleep(20)
+    except KeyboardInterrupt:
+        print &quot;Goodby!&quot;
+        break</pre></div>
+</div>

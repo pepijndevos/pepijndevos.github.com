@@ -1,0 +1,25 @@
+--- 
+layout: post
+title: Clojure static site generator
+published: true
+tags: 
+- clojure
+- markdown
+- staticsitegenerator
+---
+Ever wondered why systems like Wordpress <em>generate</em> the whole page every time a visitor comes around? I did, and I'm not the only one. There are numerous static site generators and caching plugins around, and this is one of the former.
+
+First I wanted to write a static site generator in Python, but there is already one. I started to learn Clojure, and met defn on the Clojure IRC channel, who also wanted to write a Clojure static site generator.
+
+We started coding, and that is how Utterson came to life. I must admit though that I haven't heard very much of defn since the start of the project.
+
+Utterson works by threading Markdown files through Clojure template files to generate static HTML files. Other files(images, etc.) are copied as-is.
+<div class="CodeRay">
+  <div class="code"><pre>java -jar utterson.jar src dest</pre></div>
+</div>
+
+The project is currently in a state in which it works, but it would make for an awkward blog, since there are still some base features missing.
+
+<a href="http://github.com/pepijndevos/utterson">http://github.com/pepijndevos/utterson</a>
+
+For now this blog is going to be using Wordpress, until I finish the generator and find solutions to problems like comments.

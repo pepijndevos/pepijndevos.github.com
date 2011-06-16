@@ -1,0 +1,32 @@
+--- 
+layout: post
+title: A new seque
+published: true
+tags: 
+- clojure
+- seque
+---
+<p>I have used&nbsp;<a href="http://clojure.github.com/clojure/clojure.core-api.html#clojure.core/seque">clojure.core/seque</a>&nbsp;quite a bit lately, and I love it.</p>
+<blockquote>
+<div>Creates a queued seq on another (presumably lazy) seq s. The queued</div>
+<div>
+<div>seq will produce a concrete seq in the background, and can get up to</div>
+<div>n items ahead of the consumer. n-or-q can be an integer n buffer</div>
+<div>size, or an instance of java.util.concurrent BlockingQueue. Note</div>
+<div>that reading from a seque can block if the reader gets ahead of the</div>
+<div>producer.</div>
+</div>
+</blockquote>
+<div>
+<div>First I used it in&nbsp;<a href="https://github.com/pepijndevos/Begame">Begame</a>&nbsp;for decoupling the frame computation from the rendering. But for most games, this needs to work without the frames getting ahead of rendering.</div>
+<p />
+<div>This morning I wanted to make a lazy&nbsp;<a href="http://sortvis.org/algorithms/heapsort.html">heapsort</a>&nbsp;in one line, rather than with&nbsp;<a href="http://pepijndevos.nl/sorting-obsession">my own heap implementation</a>.</div>
+<p />
+<div>That is when problems started to occur. While seque optionally takes a&nbsp;<a href="http://download.oracle.com/javase/6/docs/api/java/util/concurrent/BlockingQueue.html">BlockingQueue</a>&nbsp;as argument, it is not made to support exotic queues like&nbsp;<a href="http://download.oracle.com/javase/6/docs/api/java/util/concurrent/SynchronousQueue.html">SynchronousQueue</a>(for Begame) and&nbsp;<a href="http://download.oracle.com/javase/6/docs/api/java/util/concurrent/PriorityBlockingQueue.html">PriorityBlockingQueue</a>(for heapsort), which do a bit more than just threading items through a queue.</div>
+<p />
+<div>Long story short, I submitted a&nbsp;<a href="http://dev.clojure.org/jira/browse/CLJ-776">bug report</a>&nbsp;and wrote something that works for me.</div>
+<p />
+<div><em>Update: I'm not even sure It's possible anymore to write seque so that it works in all cases.</em></div>
+<p />
+<div><script src="https://gist.github.com/934781.js"></script></div>
+</div>

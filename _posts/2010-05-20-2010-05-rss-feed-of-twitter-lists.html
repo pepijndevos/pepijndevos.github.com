@@ -1,0 +1,33 @@
+--- 
+layout: post
+title: RSS feed of Twitter lists
+published: true
+tags: 
+- atom
+- lists
+- rss
+- twitter
+- yahoopipes
+---
+You want them? Me to! Here is how. The old-fashioned way:
+<ol>
+	<li>Create a Yahoo! ID</li>
+	<li>Do some <a href="http://pipes.yahoo.com/pipes/pipe.info?_id=fb60de5ff93e81319e3c5fa207b9b276">Yahoo! Pipe magic</a>
+</li>
+	<li>Get the RSS feed</li>
+</ol>
+But this is sub-ideal. Pipes have a huge url, a delay to long for practical use with Twitter, and are unreliable at times.
+
+I searched the API for a solution but found none. The only official format for lists is <a href="http://dev.twitter.com/doc/get/:user/lists/:id/statuses#supported-formats">XML and JSON</a>.
+
+Just by trying anyway, I and <a href="https://twitter.com/jaap3">Jaap</a> found out that lists do not have an RSS feed, but they do have an Atom feed(which is sort of RSS on steroids)! This can be used in most cases where an RSS feed is required.
+
+The new way:
+<ol>
+	<li>Copy the url of a list, for example
+<span><a href="http://twitter.com/erwinelling/eightmedia">http://twitter.com/erwinelling/eightmedia</a></span>
+</li>
+	<li>Modify the url to look like this
+<span style="color: #999999;">http://</span>api.<span style="color: #999999;">twitter.com/</span>1/<span style="color: #999999;">erwinelling/</span>lists/<span style="color: #999999;">eightmedia</span>/statuses.atom</li>
+</ol>
+Have fun! One word of warning though, because this feed is undocumented, it might change or disappear at any time.

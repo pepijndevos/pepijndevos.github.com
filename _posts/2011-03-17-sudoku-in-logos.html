@@ -1,0 +1,35 @@
+--- 
+layout: post
+title: Sudoku in Logos
+published: true
+tags: 
+- clojure
+- logos
+- prolog
+- sudoku
+---
+<p>Upon reading the Prolog chapter in Seven Languages in Seven Weeks, I wanted to attempt the Sudoku example in Logos.</p>
+
+<p>I quickly found out that Logos had quite a few less helpers than Prolog. In Prolog, you just say fd_all_different on all the rows and columns, not so in Logos. Then I read fd_all_different is implemented as ≢'ing all elements. But then again, Logos does not yet support negation.</p>
+
+<p>So rather than saying &ldquo;a number can not be on the same row twice&rdquo; I had to say &ldquo;this row must contain all numbers from 1 to 9 once&rdquo;. This is done in permutation-o.</p>
+
+<p><script src="https://gist.github.com/874119.js"></script></p>
+
+<p>The beauty of Logos and logic programming in general is that it allows you to tell the computer the data and the rules, instead of telling it what to do. You&rsquo;d imagine this to be shorter as well. Furthermore, miniKanren is quite efficient, and Logos equally so.</p>
+
+<p>So, how does this code compare to a regular Clojure version? To tell you the truth, not good. The plain Clojure version is both shorter and faster. By how much?</p>
+
+<p><script src="https://gist.github.com/871708.js"></script></p>
+
+<p>The Clojure code is just a tad shorter, but not significantly so. With pattern matching and negation in place(more on that later), I think the difference becomes negligible.</p>
+
+<p>In speed, however, the difference is huge. The Clojure version can solve a Sudoku in a matter of seconds, I had to leave the Logos version running overnight. Truth be told, for smaller fields or very, very easy boards, Logos can do it in half a second as well. This is why most examples implement <a href="http://boss-level.com/?p=66">mini-sudoku</a>.</p>
+
+<p>There is light at the end of the tunnel though! A recent update to Logos adds pattern matching, which allows for a more Prolog-ish way to express relations.</p>
+
+<p><script src="https://gist.github.com/874156.js"></script></p>
+
+<p>Negation is also planned, which would make it a lot faster to express the relation the numbers in a Sudoku row have.</p>
+
+<p>Last but not least, cond-a and cond-u will return, allowing me to cut away useless branches. Cond-a quits after the first match, rather than searching for alternate solutions.</p>

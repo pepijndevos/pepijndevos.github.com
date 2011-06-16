@@ -1,0 +1,24 @@
+--- 
+layout: post
+title: Updating to Wordpress 3.0
+published: true
+tags: 
+- comments
+- twentyten
+- upgrade
+- wordpress30
+---
+I'm trying to upgrade this blog to WordPress 3.0. While I skipped 2.9.2 because it was only a minor fix, this time there are some cool new features, which I'm not going to tell about, use Google!
+
+This theme used the default comment template in WordPress 2.9, but unfortunately this has been removed or broken. To fix this, I had to use the comments.php from the new and shiny twentyten theme.
+
+I copied their comments.php over to my theme, but unfortunately this only made matter worse. It uses a few functions defined in functions.php.
+
+Rather than trying to copy those specific functions over to my functions.php, I just included theirs:
+<div class="CodeRay">
+  <div class="code"><pre>include(TEMPLATEPATH . &quot;/../twentyten/functions.php&quot;);</pre></div>
+</div>
+
+Can you think of a more ugly solution? I'll fix it later. There might be more bugs to be discovered.
+
+<strong><span style="text-decoration: underline;">Do you see anything out-of-order on this blog? Please leave a comment.</span></strong>

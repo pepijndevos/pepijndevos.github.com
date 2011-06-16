@@ -1,0 +1,17 @@
+--- 
+layout: post
+title: Control the mouse with a joystick
+published: true
+tags: 
+- joystick
+- mouse
+- pygame
+- pymouse
+---
+When I made PyMouse I did so because I had the idea to make an <a href="http://metapep.wordpress.com/2009/07/11/ipod-touch-wifi-mouse-with-python-web-app/">iPhone mouse</a>. Today I had another crazy idea for moving the mouse: <strong>with a joystick!</strong>
+
+It turns out it's quite easy to use the joystick via <a href="http://www.pygame.org/">PyGame</a>, so that is what I did this evening.
+
+I plugged in the joystick from my brother, copied some <a href="http://theironlion.net/archive/making-hid-devices-easier-using-pygame-joysticks/">PyGame example</a>, imported my own <a href="http://github.com/pepijndevos/PyMouse">PyMouse</a> module and here is the result. You might need to tweak it a little to make it work with your joystick or game controller.
+
+<script src="http://gist.github.com/363906.js?file=joystick.py"></script>

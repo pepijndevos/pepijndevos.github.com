@@ -1,0 +1,63 @@
+--- 
+layout: post
+title: Good looking X11 apps on Mac
+published: true
+tags: 
+- gtk
+- mac
+- macports
+- pidgin
+- x11
+---
+A while back I discovered that <a href="http://www.pidgin.im/">Pidgin</a> is now available for Mac. The problem is that it is still a GTK app.
+
+For Mac users that means it runs in X11. It has always bothered me that all X11 applications you run on Mac look so extremely ugly.
+
+When I used <a href="http://www.ubuntu.com/">Ubuntu</a> a few years back I discovered <a href="http://sourceforge.net/projects/mac4lin/">mac4lin</a>, a funny project that intends to make a Mac theme for Gnome.
+
+Ironically, since Gnome is based on GTK you can run mac4lin on the system it intends to emulate, which would give your GTK apps a nice Mac look. Let's see how...
+
+For this example I'm also going to install Pidgin, to show you how it looks.
+
+First, however we need to get a bunch of software. You need to have <a href="http://www.macports.org/">MacPorts</a> installed for this to work.
+<ol>
+	<li>First we need to get GTK without X11. You can leave of the variants if the build fails to get the X11 version.
+<div class="CodeRay">
+  <div class="code"><pre>sudo port install gtk2 +quartz +no_x11</pre></div>
+</div>
+
+</li>
+	<li>Now we can get Pidgin, or any other GTK2 app.
+<div class="CodeRay">
+  <div class="code"><pre>sudo port install pidgin +quartz +no_x11</pre></div>
+</div>
+
+</li>
+	<li>To be able to easily switch theme later we also need this little app.
+<div class="CodeRay">
+  <div class="code"><pre>sudo port install gtk2-chtheme</pre></div>
+</div>
+
+</li>
+	<li>Now download and extract the latest version of mac4lin from <a href="http://sourceforge.net/projects/mac4lin/">their website</a>.</li>
+	<li>Extract Mac4Lin_GTK_Aqua_v1.0.tar.gz in the GTK folder to /opt/local/share/themes/ (You'll need to authenticate)</li>
+	<li>Run /opt/local/bin/gtk2-chtheme, select the newly installed theme.</li>
+	<li>Click the font button and set it to Lucida Grande at 10pt, done!</li>
+	<li>Run /opt/local/bin/pidgin to see the effect.</li>
+</ol>
+Before:
+
+<img src="/images/media_httppepijncqhos_ttpFx.png" alt="Good looking X11 apps on Mac" />
+
+After:
+
+<img src="/images/media_httppepijncqhos_xcxaE.png" alt="Good looking X11 apps on Mac" />
+
+<strong>Keyboard shortcuts:</strong> You might also want to use <a href="http://www.macosxhints.com/article.php?story=20070206110939423">this hint</a> to enable the CMD key for keyboard shortcuts.
+
+<strong>Sound:</strong> By default Pidgin uses you 'system beep' to notify you, solution:
+<div class="CodeRay">
+  <div class="code"><pre>sudo port install qtplay</pre></div>
+</div>
+
+<img src="/images/media_httppepijncqhos_HhxmB.png" alt="Good looking X11 apps on Mac" />

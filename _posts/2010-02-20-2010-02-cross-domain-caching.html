@@ -1,0 +1,22 @@
+--- 
+layout: post
+title: "Cross-domain caching "
+published: true
+tags: 
+- cache
+- hypertexttransferprotocol
+- listofhttpheaders
+---
+Looking at the <a href="http://en.wikipedia.org/wiki/List_of_HTTP_headers">list of HTTP headers at Wikipedia</a>, you'll notice a few headers like If-Modified-Since, that serve to send content over only if it has changed since the last request.
+
+While working with JavaScrip frameworks like <a href="http://jquery.com/" class="zem_slink" title="JQuery" rel="homepage">jQuery</a>, the thought occurred to me, that maybe half of all the websites I open are using the exact same JS framework, isn't that a waste of bandwidth?
+
+The best real-life solution would be to get your JS from Google, so you at least share a cached version with others that do the same: <a href="http://code.google.com/apis/ajaxlibs/">http://code.google.com/apis/ajaxlibs/</a>
+
+My imaginary solution however, would allow the same file, served from different hosts to be cached only once.
+
+Look again at the list of headers... We're looking for something to identify files as equal... What about Content-MD5? It exists, right there! But as far as I can tell it's used for content-verification only.
+
+So I want to propose a new HTTP header: If-MD5-Differs
+
+What do you think about it? Cool? Useless? Security issues?

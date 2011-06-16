@@ -1,0 +1,62 @@
+--- 
+layout: post
+title: On the proccess of writing a game engine in Clojure
+published: true
+tags: 
+- begame
+- clojure
+- game
+---
+<p>Or at least a set of engine-framework-commons-utils.</p>
+<p>There have been a few games and simulations in Clojure before, a few notable ones:&nbsp;</p>
+<p>The grandmother of all Clojure games is probably&nbsp;<a href="http://groups.google.com/group/clj-la/browse_thread/thread/1ea791516715487e">ants.clj</a>&nbsp;by Rich himself, mostly a demonstration of concurrency in Clojure.</p>
+<p><a href="http://mikera.net/ironclad/">Ironclad</a>&nbsp;is a game that deserves to be noted for its completeness; It's more than just an example.</p>
+<p>And finally, this&nbsp;<a href="http://briancarper.net/blog/520/making-an-rpg-in-clojure-part-one-of-many">unnamed</a>(and likely unfinished as well) RPG, not so much for the game as for the blog post that describes the process of writing it.</p>
+<p>Just like Brian, I went through the process of agents and OpenGL, but let us begin with the begin.</p>
+<h2>Design 0: I want to make a game.</h2>
+<p>It's as simple as that. A nice and simple 2D game in Clojure. I started googling for game engines in Java and Clojure. The only ones I found that I liked and that did not look like they came from a past century where&nbsp;<a href="http://slick.cokeandcode.com/">Slick</a>&nbsp;and&nbsp;<a href="http://www.interactivepulp.com/pulpcore/">PulpCore</a>.</p>
+<p>Problem is, I did not even manage to compile Slick, and PulpCore is for applets only. Besides, they both use very OOP models that I suppose would feel awkward in Clojure.</p>
+<p>So after reading a few opinions about Swing vs OpenGL, I decided to write my own game in Clojure based on Swing.</p>
+<h2>Design 1: Agents, agents, agents...</h2>
+<p>My initial design philosophy was very simple. It should be</p>
+<ul>
+<li>multithreaded</li>
+<li>functional</li>
+<li>easy</li>
+</ul>
+<p>So I set up an agent with a vector, made a Swing frame and overwrote its paintComponent to draw the objects in the vector to the frame.</p>
+<p>Then I added a watcher to the agent to mark all changed objects dirty on the Swing frame, so they would be redrawn.</p>
+<h2>Design 1.1: Changed?</h2>
+<p>Okay, which object changed? Hard to tell. I turned the vector into a map, a set, and a map again, so that I could use clojure.set/difference to tell what happened.</p>
+<h2>Design 1.2: I can walk through walls!</h2>
+<p>Wait, we need collision detection. Simple, right?</p>
+<p>Doing this the naive way would mean a quadratical increase in comparisons.&nbsp;I was well on my way implementing a quad tree when it hit me: For any non-huge number of objects, it's not worth the trouble.</p>
+<p>I changed whatever I had at that moment into a sorted variant, so that I only had to check objects that where at least close in one dimension.</p>
+<h2>Design 1.999: This is getting out of hand!</h2>
+<p>At this moment I had changed every single line of code around 3 times. I had atoms, refs and agents, containing vectors, sets, maps, calling multimethods and protocols, I was knee-deep in thread pools and transactions when I remembered my second 2 goals.</p>
+<p>This beautiful, concurrent, asynchronous design that I had was just not functional and easy at all. It had mutable state and transactions everywhere.</p>
+<h2>Design 2: I'm back in the loop.</h2>
+<p>After a few more sidetracks, I switched to active rendering and reduced my game loop to something like this pseudo-code.</p>
+<p><script src="https://gist.github.com/912344.js"></script></p>
+<h2>Design 2.1: Reality.</h2>
+<p>After all this theorizing and experimenting, I finally got my stuff stable enough to actually write a little game; pong.</p>
+<p>Let me say this about it: Few lines of the original pong game and my engine where left unchanged, but they where more subtle changes than before.</p>
+<p>Next, I wrote a simple platform game. Again, changes where made.</p>
+<h2>Current design: Are we there yet?</h2>
+<p>I feel like what I have now is nearly ready to share with the world. I do believe that an event, or&nbsp;<a href="http://prog21.dadgum.com/23.html">message processing</a>&nbsp;based system could work, but what I have now does so too.</p>
+<p>Begame currently provides:</p>
+<ul>
+<li>A game loop</li>
+<li>Time based animation</li>
+<li>Collision detection</li>
+<li>All the Swing stuff you don't care about</li>
+<li>Protocols      
+<ul>
+<li>actor; objects that do stuff</li>
+<li>visible; objects that draw themselves</li>
+<li>solid; objects involved in collision detection</li>
+</ul>
+</li>
+</ul>
+<h2>Get it.</h2>
+<p>See the&nbsp;<a href="https://github.com/pepijndevos/Begame/tree/master/src/examples">examples</a>, and check out the&nbsp;<a href="https://github.com/pepijndevos/Begame/">source</a>&nbsp;from Github.</p>
