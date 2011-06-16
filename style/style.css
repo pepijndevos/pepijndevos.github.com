@@ -67,7 +67,7 @@ header span {
 }
 
 a {
-	color: #225;
+	color: #227;
 	text-decoration: none;
 }
 
@@ -113,6 +113,11 @@ del {
 
 ins {
 	color: green;
+}
+
+li p {
+    margin: 0;
+    padding: 0;
 }
 
 .meta {
