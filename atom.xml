@@ -1,0 +1,28 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+	<title>{{ site.title }}</title>
+	<subtitle>{{ site.tagline }}</subtitle>
+	<link href="http://pepijndevos.nl/atom.xml" rel="self"/>
+	<link href="http://pepijndevos.nl/"/>
+	<updated>{{ site.time | date_to_xmlschema }}</updated>
+	<id>pepijndevos.nl</id>
+	<author>
+		<name>Pepijn de Vos</name>
+		<email>pepijndevos+atom@gmail.com</email>
+	</author>
+
+	{% for post in site.posts %}
+	<entry>
+		<title>{{ post.title }}</title>
+		<link href="http://pepijndevos.nl{{ post.url }}"/>
+		<updated>{{ post.date | date_to_xmlschema }}</updated>
+		<id>tag:pepijndevos.nl{{ post.id }}</id>
+		<content type="html">{{ post.content | xml_escape }}</content>
+	</entry>
+	{% endfor %}
+	 
+</feed>

@@ -1,9 +1,20 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Pepijn de Vos</title>
-	</head>
-	<body>
-		Just a test
-	</body>
-</html>
+---
+layout: default
+title: Wishful Coding
+---
+
+{% include pagination.html %}
+
+{% for post in paginator.posts %}
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+<div class="content">
+	{{ post.content }}
+</div>
+<div class="meta">
+	<span class="date">{{ post.date | date_to_long_string }}</span>
+	<span class="tags">Filed under {{ post.categories | array_to_sentence_string }}.</span>
+</div>
+{% endfor %}
+
+{% include pagination.html %}
+
