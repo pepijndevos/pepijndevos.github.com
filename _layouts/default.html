@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ page.title }} - {{ site.title }}</title>
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<link rel="stylesheet" type="text/css" href="/style/style.css" />
+		<link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Latest posts" />
+
+		<script type="text/javascript" src="/js/magic.js"></script>
+		<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-17444705-2']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1><a href="/">{{ site.title }}</a></h1>
+			<span>{{ site.tagline }}</span>
+		</header>
+
+		{{ content }}
+		
+		<aside>
+			<img src="/style/chain.jpg" id="chain" alt="Click to scroll" />
+			<h4><a href="/about.html">About</a></h4>
+			<h4><a href="http://twitter.com/share">Share</a></h4>
+			{% if site.related_posts %}
+			<h4>Remotely related posts</h4>
+			<ul>
+				{% for post in site.related_posts limit:3 %}
+				<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+			<h4>Follow me on</h4>
+			<ul>
+				<li><a href="http://twitter.com/pepijndevos">Twitter</a></li>
+				<li><a href="http://www.facebook.com/pepijndevos">Facebook</a></li>
+				<li><a href="http://github.com/pepijndevos">Github</a></li>
+				<li><a href="/atom.xml">Atom</a></li>
+			</ul>
+		</aside>		
+		<footer>&copy; 2010 Pepijn de Vos</footer>
+		<canvas id="wheel" width="200" height="800"><img src="/style/wheel_part.gif" /></canvas>
+	</body>
+</html>

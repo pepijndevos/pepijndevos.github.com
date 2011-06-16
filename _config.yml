@@ -2,7 +2,7 @@ pygments: true
 safe: true
 auto: true
 server: true
-paginate: 5
+paginate: 3
 
 title: Wishful Coding
 tagline: Didn't you ever wish your computer understood you?

@@ -3,17 +3,17 @@ layout: default
 title: Wishful Coding
 ---
 
-{% include pagination.html %}
-
 {% for post in paginator.posts %}
-<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-<div class="content">
+<article>
+	<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+	<section>
 	{{ post.content }}
-</div>
-<div class="meta">
-	<span class="date">{{ post.date | date_to_long_string }}</span>
-	<span class="tags">Filed under {{ post.categories | array_to_sentence_string }}.</span>
-</div>
+	</section>
+	<div class="meta">
+		<div>Published on <time>{{ post.date | date_to_long_string }}</time></div>
+		<div>Filed under {{ post.categories | array_to_sentence_string }}</div>
+	</div>
+</article>
 {% endfor %}
 
 {% include pagination.html %}
