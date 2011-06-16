@@ -4,5 +4,7 @@ auto: true
 server: true
 paginate: 3
 
+permalink: /:year/:month/:day/:title.html
+
 title: Wishful Coding
 tagline: Didn't you ever wish your computer understood you?
