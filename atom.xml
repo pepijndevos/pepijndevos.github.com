@@ -22,6 +22,9 @@ layout: nil
 		<updated>{{ post.date | date_to_xmlschema }}</updated>
 		<id>tag:pepijndevos.nl,2011:{{ post.id }}</id>
 		<content type="html">{{ post.content | xml_escape }}</content>
+		{% for cat in post.categories %}
+		<category term="{{ cat }}" />
+		{% endfor %}
 	</entry>
 	{% endfor %}
 	 
