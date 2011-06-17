@@ -15,8 +15,8 @@ function search(data) {
 		var a = document.createElement('a');
 		var text = document.createTextNode(data[idx]['title']);
 		a.href = data[idx]['link'];
-		li.appendChild(a);
 		a.appendChild(text);
+		li.appendChild(a);
 		results.appendChild(li);
 
 	}
