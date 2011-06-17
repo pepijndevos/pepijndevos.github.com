@@ -9,7 +9,7 @@ layout: nil
 	<link href="http://pepijndevos.nl/atom.xml" rel="self"/>
 	<link href="http://pepijndevos.nl/"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
-	<id>pepijndevos.nl</id>
+	<id>http://pepijndevos.nl/</id>
 	<author>
 		<name>Pepijn de Vos</name>
 		<email>pepijndevos+atom@gmail.com</email>
@@ -20,7 +20,7 @@ layout: nil
 		<title>{{ post.title }}</title>
 		<link href="http://pepijndevos.nl{{ post.url }}"/>
 		<updated>{{ post.date | date_to_xmlschema }}</updated>
-		<id>tag:pepijndevos.nl{{ post.id }}</id>
+		<id>tag:pepijndevos.nl,2011:{{ post.id }}</id>
 		<content type="html">{{ post.content | xml_escape }}</content>
 	</entry>
 	{% endfor %}
