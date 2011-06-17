@@ -1,13 +1,5 @@
 ---
 layout: default
 ---
-<article>
-	<h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
-	<section>
-	{{ content }}
-	</section>
-	<div class="meta">
-		<div>Published on <time>{{ page.date | date_to_long_string }}</time></div>
-		<div>Filed under {{ page.categories | array_to_sentence_string }}</div>
-	</div>
-</article>
+{% assign post = page %}
+{% include entry.html %}

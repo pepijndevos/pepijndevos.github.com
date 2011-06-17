@@ -1,0 +1,15 @@
+<article class="hentry">
+	<h2 class="entry-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+	<section class="entry-content">
+	{{ content }}
+	</section>
+	<div class="meta">
+		<div class="author vcard"><span class="fn">Pepijn de Vos</span></div>
+		<div><time class="updated" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_long_string }}</time></div>
+		<div class="tags">
+			{% for cat in post.categories %}
+			<a href="/tags.html#{{ cat }}" rel="tag">{{ cat }}</a>
+			{% endfor %}
+		</div>
+	</div>
+</article>
