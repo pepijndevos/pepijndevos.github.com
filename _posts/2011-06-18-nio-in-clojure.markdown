@@ -12,7 +12,9 @@ There you have the code, not as a gist this time. The code actually [lives in a 
 
 [1]: https://github.com/pepijndevos/pepijndevos.github.com/blob/master/_includes/code/nio.clj
 
-If you have anything interesting to say about this code, NIO, webservers or Clojure, I'd love to hear from you.
+This code was modeled after [this Java code][2]. If you have anything interesting to say about this code, NIO, webservers or Clojure, I'd love to hear from you.
+
+[2]: http://www.javaworld.com/javaworld/jw-04-2003/jw-0411-select.html
 
 {% highlight clojure %}
 {% include code/nio.clj %}
