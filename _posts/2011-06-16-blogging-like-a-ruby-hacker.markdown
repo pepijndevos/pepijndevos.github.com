@@ -2,9 +2,9 @@
 layout: post
 title: Blogging like a Ruby Hacker
 categories:
-- Ruby
-- Blogging
-- Jekyll
+- ruby
+- blogging
+- jekyll
 ---
 
 Kind of a weird thing to say for someone who does not program Ruby, don't you think?
