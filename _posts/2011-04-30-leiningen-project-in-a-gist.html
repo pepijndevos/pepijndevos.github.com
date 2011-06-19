@@ -12,5 +12,7 @@ categories:
 <p>Those great folks at Github added git access to Gists a while back, and it turns out you can make Leiningen run in a flat structure with a few extra lines of project.clj.</p>
 <p>This allows you to make cute mini projects with git access that can be installed and published and are embeddable and sharable.</p>
 <p>Here is the project.clj from my pattern matcher, I also&nbsp;<a href="http://clojars.org/seqex">pushed the jar to clojars</a>.</p>
-<p><script src="https://gist.github.com/946857.js?file=project.clj"></script></p>
+{% highlight clojure %}
+{% include code/946857/project.clj %}
+{% endhighlight %}
 <p>First we tell Leiningen that our :source-path is the root dir. The other 2 lines are a bit of a hack to make sure only seqex.clj gets into the jar, Otherwise you'll get conflicts and broken jars.</p>
