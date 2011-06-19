@@ -48,6 +48,6 @@ categories:
 </ul>
 <p>I ran a basic `ab -n 1000 -c 50` on both Apache and Aleph running fastcgi-ring, with an identical installation of Wordpress. Both utilize 100% of my CPU, where Apache spawns tens of workers, and php-cgi a predefined set of 4 workers. Apache is a bit faster, with the gap increasing when I just test "hello world". I did not test the speed of other combinations like Tomcat+JFastCGI or Lighttpd.</p>
 <p>
-{% highlight python %}
+<pre>
 {% include code/736457/gistfile1.txt %}
-{% endhighlight %}</p>
+</pre></p>
