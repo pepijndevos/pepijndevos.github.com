@@ -12,7 +12,10 @@ categories:
 ---
 <p>This is the next post about Twisted, this time about Twisted.mail. After my Twisted project is done I'm going to contribute all my findings in some examples, docstrings and maybe even a howto. This post mainly serves as my notebook for things to remember about SMTP in Twisted.</p>
 <div>This is a twistd app taken from the Twisted examples section, and modified to support authentication. Below you'll find all my notes.</div>
-<div><script src="https://gist.github.com/484904.js"></script></div>
+<div>
+{% highlight clojure %}
+{% include code/484904/esmtpserver.py %}
+{% endhighlight %}</div>
 <div>
 <ul class="MailOutline">
 <li>If you want anything beyond a toy, you'll need to use ESMTP instead of SMTP</li>

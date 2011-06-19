@@ -1,0 +1,9 @@
+key = "your key"
+secret = "your secret"
+
+try
+    request = sign(twitter.com/verify_credentials, key, secret)
+    request.post()
+except 401
+    key = "BigFish key"
+    secret = "BigFish secret"

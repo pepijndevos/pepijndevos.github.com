@@ -6,4 +6,10 @@ published: true
 categories: []
 
 ---
-Remember last time when&nbsp;<a href="http://pepijndevos.nl/twsited-smtp-server-with-authentication">I showed you the Twisted SMTP server</a>? This time it's a POP3 server. I think it is more common to write SMTP servers as a part of a project(to send notifications and stuff), but I needed a POP3 server, so I think there might be others who need a POP3 server as well.<p /><div>The process is rather similar to SMTP, only you need to implement the&nbsp;<a href="http://twistedmatrix.com/documents/current/api/twisted.mail.pop3.IMailbox.html">IMailbox interface</a>. This is usually done with some sort of file or db based solution, but I used a simple list in this case. You might want to have a look at the&nbsp;<a href="http://docs.python.org/library/mailbox.html">mailbox</a>&nbsp;module for a serious implementation.</div><p /><div>Below you'll find a bare bones POP3 server, which can be run with `twistd -ny pop3.tac` and below that a sample telnet session, by running `telnet localhost 1230` in another terminal.</div><p /><div><script src="https://gist.github.com/534207.js"></script></div>
+Remember last time when&nbsp;<a href="http://pepijndevos.nl/twsited-smtp-server-with-authentication">I showed you the Twisted SMTP server</a>? This time it's a POP3 server. I think it is more common to write SMTP servers as a part of a project(to send notifications and stuff), but I needed a POP3 server, so I think there might be others who need a POP3 server as well.<p /><div>The process is rather similar to SMTP, only you need to implement the&nbsp;<a href="http://twistedmatrix.com/documents/current/api/twisted.mail.pop3.IMailbox.html">IMailbox interface</a>. This is usually done with some sort of file or db based solution, but I used a simple list in this case. You might want to have a look at the&nbsp;<a href="http://docs.python.org/library/mailbox.html">mailbox</a>&nbsp;module for a serious implementation.</div><p /><div>Below you'll find a bare bones POP3 server, which can be run with `twistd -ny pop3.tac` and below that a sample telnet session, by running `telnet localhost 1230` in another terminal.</div><p /><div>
+{% highlight clojure %}
+{% include code/534207/gistfile1.txt %}
+{% endhighlight %}
+{% highlight clojure %}
+{% include code/534207/pop3.py %}
+{% endhighlight %}</div>

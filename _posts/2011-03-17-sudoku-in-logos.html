@@ -15,13 +15,19 @@ categories:
 
 <p>So rather than saying &ldquo;a number can not be on the same row twice&rdquo; I had to say &ldquo;this row must contain all numbers from 1 to 9 once&rdquo;. This is done in permutation-o.</p>
 
-<p><script src="https://gist.github.com/874119.js"></script></p>
+<p>
+{% highlight clojure %}
+{% include code/874119/sudoku.clj %}
+{% endhighlight %}</p>
 
 <p>The beauty of Logos and logic programming in general is that it allows you to tell the computer the data and the rules, instead of telling it what to do. You&rsquo;d imagine this to be shorter as well. Furthermore, miniKanren is quite efficient, and Logos equally so.</p>
 
 <p>So, how does this code compare to a regular Clojure version? To tell you the truth, not good. The plain Clojure version is both shorter and faster. By how much?</p>
 
-<p><script src="https://gist.github.com/871708.js"></script></p>
+<p>
+{% highlight clojure %}
+{% include code/871708/sudoku.clj %}
+{% endhighlight %}</p>
 
 <p>The Clojure code is just a tad shorter, but not significantly so. With pattern matching and negation in place(more on that later), I think the difference becomes negligible.</p>
 
@@ -29,7 +35,10 @@ categories:
 
 <p>There is light at the end of the tunnel though! A recent update to Logos adds pattern matching, which allows for a more Prolog-ish way to express relations.</p>
 
-<p><script src="https://gist.github.com/874156.js"></script></p>
+<p>
+{% highlight clojure %}
+{% include code/874156/appendo.clj %}
+{% endhighlight %}</p>
 
 <p>Negation is also planned, which would make it a lot faster to express the relation the numbers in a Sudoku row have.</p>
 

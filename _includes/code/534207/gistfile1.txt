@@ -1,0 +1,22 @@
+Connected to localhost.
+Escape character is '^]'.
++OK <20100818095058.3878.894125537.0@pepijn-de-voss-imac.local>
+user guest
++OK USER accepted, send PASS
+pass password
++OK Authentication succeeded
+stat
++OK 20 1020
+retr 1
++OK 51
+From: me
+To: you
+Subject: A test mail
+
+Hello world!
+.
+retr 40
+-ERR Bad message number argument
+quit
++OK 
+Connection closed by foreign host.

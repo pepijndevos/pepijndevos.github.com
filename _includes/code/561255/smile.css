@@ -1,0 +1,9 @@
+a:active:after {
+	display: inline-block;
+	margin-left: 5px;
+	font-weight: bold;
+	content: ":)";
+	-webkit-transform: rotate(90deg); 
+	-moz-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+}

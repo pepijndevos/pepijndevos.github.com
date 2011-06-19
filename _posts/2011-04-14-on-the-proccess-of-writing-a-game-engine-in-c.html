@@ -38,7 +38,10 @@ categories:
 <p>This beautiful, concurrent, asynchronous design that I had was just not functional and easy at all. It had mutable state and transactions everywhere.</p>
 <h2>Design 2: I'm back in the loop.</h2>
 <p>After a few more sidetracks, I switched to active rendering and reduced my game loop to something like this pseudo-code.</p>
-<p><script src="https://gist.github.com/912344.js"></script></p>
+<p>
+{% highlight clojure %}
+{% include code/912344/game.clj %}
+{% endhighlight %}</p>
 <h2>Design 2.1: Reality.</h2>
 <p>After all this theorizing and experimenting, I finally got my stuff stable enough to actually write a little game; pong.</p>
 <p>Let me say this about it: Few lines of the original pong game and my engine where left unchanged, but they where more subtle changes than before.</p>

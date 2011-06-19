@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<web-app xmlns="http://caucho.com/ns/resin" xmlns:resin="urn:java:com.caucho.resin">
+	<resin:Forward regexp="^/index\.php$" target="/"/>
+	<resin:Dispatch regexp="^">
+		<resin:IfFileExists/>
+	</resin:Dispatch>
+	<resin:Redirect regexp="^(/[_0-9a-zA-Z-]+/)?wp-admin$" target="$1wp-admin/"/>
+	<resin:Forward regexp="^(/[_0-9a-zA-Z-]+/)?files/(.+)" target="/wp-includes/ms-files.php?file=$2"/>
+	<resin:Forward regexp="^(/[_0-9a-zA-Z-]+/)?(wp-(content|admin|includes).*)" target="/$2"/>
+	<resin:Forward regexp="^(/[_0-9a-zA-Z-]+/)?(.*\.php)$" target="/$2"/>
+	<resin:Forward regexp="/.*" target="/index.php"/>
+</web-app>

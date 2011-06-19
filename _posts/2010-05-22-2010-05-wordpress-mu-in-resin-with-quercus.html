@@ -32,7 +32,10 @@ Just follow the wiki, except for a few points:
 </li>
 	<li>Use this xml file instead:</li>
 </ul>
-<script src="http://gist.github.com/410110.js?file=resin-web.xml"></script>
+
+{% highlight clojure %}
+{% include code/410110/resin-web.xml %}
+{% endhighlight %}
 Note that I did not use the pro version, skipped the DNS stuff by using directory instead of subdomains in WP, I also skipped the chown stuff by removing this block from resin.xml:
 <div class="CodeRay">
   <div class="code"><pre>&lt;resin:if test=&quot;${resin.userName == 'root'}&quot;&gt;

@@ -1,0 +1,8 @@
+user=> (time (dorun (heapsort (shuffle (range 1e5)))))
+"Elapsed time: 3148.041 msecs"
+nil
+user=> (time (dorun (int-sort (shuffle (range 1e5)))))
+"Elapsed time: 477.781 msecs"
+nil
+user=> (time (dorun (sort (shuffle (range 1e5)))))
+"Elapsed time: 105.354 msecs"

@@ -8,4 +8,10 @@ categories:
 - twisted
 - twistedcred
 ---
-<p>This is a snippet of a credential checker I wrote to authenticate a user <br />first via my DB, and if that fails via Twitter. It helped me to speed up <br />login, after the initial Twitter access tokens are stored. <p /> In theory, this snippet could be used to authenticate against any number <br />of checkers, providing different interfaces. Only if all of them fail, <br />it returns an error. <p /> <script src="https://gist.github.com/503261.js"></script></p>
+<p>This is a snippet of a credential checker I wrote to authenticate a user <br />first via my DB, and if that fails via Twitter. It helped me to speed up <br />login, after the initial Twitter access tokens are stored. <p /> In theory, this snippet could be used to authenticate against any number <br />of checkers, providing different interfaces. Only if all of them fail, <br />it returns an error. <p /> 
+{% highlight clojure %}
+{% include code/503261/cascadingchecker.py %}
+{% endhighlight %}
+{% highlight clojure %}
+{% include code/503261/test_checker.py %}
+{% endhighlight %}</p>

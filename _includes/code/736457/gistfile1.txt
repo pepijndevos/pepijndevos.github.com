@@ -1,0 +1,111 @@
+$ ab -n 1000 -c 50 http://localhost:3000/index.php
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        aleph
+Server Hostname:        localhost
+Server Port:            3000
+
+Document Path:          /index.php
+Document Length:        8353 bytes
+
+Concurrency Level:      50
+Time taken for tests:   119.077 seconds
+Complete requests:      1000
+Failed requests:        0
+Write errors:           0
+Total transferred:      8558000 bytes
+HTML transferred:       8353000 bytes
+Requests per second:    8.40 [#/sec] (mean)
+Time per request:       5953.868 [ms] (mean)
+Time per request:       119.077 [ms] (mean, across all concurrent requests)
+Transfer rate:          70.18 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.3      0       5
+Processing:   337 5809 2453.4   5782   12297
+Waiting:      336 5808 2453.4   5782   12296
+Total:        338 5809 2453.3   5782   12297
+
+Percentage of the requests served within a certain time (ms)
+  50%   5782
+  66%   6832
+  75%   7467
+  80%   7899
+  90%   9152
+  95%  10033
+  98%  10848
+  99%  11370
+ 100%  12297 (longest request)
+
+$ ab -n 1000 -c 50 http://localhost/~pepijndevos/wp/
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        Apache/2.2.15
+Server Hostname:        localhost
+Server Port:            80
+
+Document Path:          /~pepijndevos/wp/
+Document Length:        8353 bytes
+
+Concurrency Level:      50
+Time taken for tests:   99.862 seconds
+Complete requests:      1000
+Failed requests:        0
+Write errors:           0
+Total transferred:      8626000 bytes
+HTML transferred:       8353000 bytes
+Requests per second:    10.01 [#/sec] (mean)
+Time per request:       4993.091 [ms] (mean)
+Time per request:       99.862 [ms] (mean, across all concurrent requests)
+Transfer rate:          84.35 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.8      0      10
+Processing:   880 4971 1019.3   4896    9849
+Waiting:      865 4953 1019.1   4881    9833
+Total:        884 4972 1019.2   4897    9849
+
+Percentage of the requests served within a certain time (ms)
+  50%   4897
+  66%   5053
+  75%   5144
+  80%   5212
+  90%   5657
+  95%   6543
+  98%   8279
+  99%   8864
+ 100%   9849 (longest request)
