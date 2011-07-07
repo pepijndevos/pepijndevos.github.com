@@ -60,8 +60,10 @@ This is of course not as good-looking as the macro, but the `swap!` case works f
 
 Now, this is a very long and opinionated post for me already, so I'm going to stop here. I highly recommend that you watch the 2 video's I linked to.
 
-I had in mind to take you through another example of using protocols and function composition to simplify and avoid macros, but I'll just give you [the code as a homework assignment][3].
+I had in mind to take you through another example of using protocols and function composition to simplify and avoid macros, but I'll just give you [the code][3] and [this][4] and [that][5] as a homeowrk assignment.
 
 [1]: http://blip.tv/clojure/christophe-grand-not-dsl-macros-4540700
 [2]: http://blip.tv/clojure/stuart-halloway-simplicity-ain-t-easy-4842694
 [3]: http://dev.clojure.org/jira/secure/attachment/10246/0001-rel-defrel-extend-rel.patch
+[4]: http://pragprog.com/magazines/2011-07/growing-a-dsl-with-clojure
+[5]: /clojure-micro-pattern-matcher/index.html
