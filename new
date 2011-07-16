@@ -27,4 +27,4 @@ new_post_file.puts new_post
 new_post_file.close
 
 puts "created => #{filepath}"
-`open -t #{filepath}`
+#`open -t #{filepath}`
