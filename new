@@ -26,5 +26,5 @@ new_post_file = File.open(filepath, 'w')
 new_post_file.puts new_post
 new_post_file.close
 
-puts "created => #{filepath}"
+puts filepath
 #`open -t #{filepath}`
