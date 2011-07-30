@@ -32,8 +32,8 @@ So what about CouchDB? Can we have easy fire-and-forget updates there as well? Y
 Sadly, the Clojure view server included with [Clutch][8] does not yet include support for document update handlers, but this can be easily remedied!
 
 [1]: http://smoothspan.wordpress.com/2011/07/22/nosql-is-a-premature-optimization/
-[2]: cap
-[3]: web scale
+[2]: http://en.wikipedia.org/wiki/CAP_theorem
+[3]: http://www.xtranormal.com/watch/6995033/mongo-db-is-web-scale
 [4]: http://en.wikipedia.org/wiki/Multiversion_concurrency_control
 [5]: http://clojure.org/atoms
 [6]: http://wiki.apache.org/couchdb/Document_Update_Handlers
