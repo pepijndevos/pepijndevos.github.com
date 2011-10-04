@@ -14,7 +14,7 @@ TARGET_DIR = "_posts"
 # Get the title which was passed as an argument
 title = ARGV.join(' ')
 # Get the filename
-filename = "#{ Time.now.strftime('%Y-%m-%d') }-#{ARGV.join('-').downcase()}.markdown" 
+filename = "#{ Time.now.strftime('%Y-%m-%d') }-#{ARGV.join('-').gsub(/\W/, '').downcase()}.markdown" 
 filepath = File.join(TARGET_DIR, filename)
 
 # Create a copy of the template with the title replaced
