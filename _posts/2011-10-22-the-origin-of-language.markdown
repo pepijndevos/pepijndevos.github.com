@@ -16,7 +16,7 @@ Dutch is very close to German, but it was and is influenced by the 'world langua
 
 ![Map of French and Roman empire][2]
 
-If you look at a Dutch dictionary today, you can divide the words in 3 categories, Words that are a lot like German, Archaic and chic words from France and modern words from English.
+If you look at a Dutch dictionary today, you can divide most words in 3 categories, Words that are a lot like German, Archaic and chic words from France and modern words from English.
 
 Dutch is a lot like Common Lisp or Scala[^3]. If we'd make a cheesy map of Europe with languages and paradigms overlaid, you'd see that natural languages are complected and *very* multi-paradigm.
 
