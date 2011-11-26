@@ -41,15 +41,12 @@ pygame.init()
 j = pygame.joystick.Joystick(0) # first joystick
 j.init()
 print 'Initialized Joystick : %s' % j.get_name()
-state = [0, 0]
 try:
     while True:
         pygame.event.pump()
         sleep(0.1)
         
         # get_axis returns a value between -1 and 1
-        # fumble a bit here to reverse axis
-        move(j.get_axis(axis['y']), j.get_axis(axis['x']))
         move(j.get_axis(axis['y']), j.get_axis(axis['x']))
         pincer(j.get_button(0))
         
