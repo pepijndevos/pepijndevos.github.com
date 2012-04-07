@@ -1,0 +1,49 @@
+---
+layout: post
+title: Cyber 310
+categories:
+- roboticarm
+- python
+- pygame
+- pyparallel
+---
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/mZr161tNlqI" frameborder="0" allowfullscreen="allowfullscreen"> </iframe>
+
+We got 2 robotic arms from a school lab that did them away. After we got them, they had been accumulating dust for ages in our shed, with one failed attempt at making them work in between.
+
+This was my second attempt. As you can imagine, there aren't nearly as many people writing about robotic arms as there are writing about Clojure or Node.js, so documentation is sparse.
+
+The most useful (English!) resource I found was [this collection][1], which has original manual pages he got from a museum(!). I contacted him for a couple more pages, which where very helpful.
+
+I can only say it was very hard to find out how easy it was to control this arm.
+
+Basically, you have one pin for every motor, and 2 control pins. To send a command you just set the motor pins, and then turn the corresponding toggle pin on and off.
+
+To reverse motor 2:
+
+    01000000
+    01000001
+    01000000
+
+To turn motor 3 one step:
+
+    00100000
+    00100010
+    00100000
+
+Once I figured that out, I probably spent most of my time installing stuff on Windows, then installing Ubuntu and installing there.
+
+To make PyParallel work, I had to `rmmod lp` and to run as root.
+
+The code, might you have a dusty Cyber 310 in your shed:
+
+{% highlight python %}
+{% include code/cyber.py %}
+{% endhighlight %}
+
+{% highlight python %}
+{% include code/control.py %}
+{% endhighlight %}
+
+[1]: http://www.anf.nildram.co.uk/beebcontrol/arms/cyber/documents.html
