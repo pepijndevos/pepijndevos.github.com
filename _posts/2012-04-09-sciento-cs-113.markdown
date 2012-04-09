@@ -1,0 +1,46 @@
+---
+layout: post
+title: Sciento CS-113
+categories:
+- roboticarm
+- python
+- pygame
+- pyparallel
+---
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/2R5WW9qNwEg" frameborder="0" allowfullscreen="allowfullscreen"> </iframe>
+
+After my success with the Cyber arm, I had to try my luck at the Sciento one.
+
+This time I was out of luck with Dutch or English documentation, but my brother found a [Spanish PDF, from which I was able to get the needed information using Google Translate.][1]
+
+Unlike the Cyber, the Sciento is controlled by sending actual ASCII commands, rather than stepping the motors directly.
+
+It is a lot smarter than the other arm, as it can remember its position. A list of commands:
+
+* "Z" Sets the reference point
+* "N" Go to the reference position
+* "C"/"O" Close/open the claw
+* "M100,0,-250,0,0,0" Move the motors for the specified steps.
+* "H7" Save the current position in the specified register(1-100)
+* "P5,500,200,-5,0,0,0" Save the specified position in the specified register(first number, 1-100)
+* "G1" Move to the location in the specified register
+* "S5" Set the motor speed(1-5)
+* "D1" Wait for x seconds. Useless?
+* "L1" Check the limits of the motors. Recommended for testing, off by default.
+
+Note that numbers are represented as ASCII text and that commands are upper-case. All commands are terminated by a carriage return.
+
+A downside to this arm is that in comparison to the one-byte commands for the Cyber, it takes ages to send an ASCII command across, making this arm unsuitable for smooth control with a gamepad.
+
+I programmed a coarse and ugly controller, with buttons for storing positions and moving to them. In the video I'm just stepping through the motions I stored earlier.
+
+The controller is a real mess, based on the Cyber code, and not very interesting.
+
+The code for the arm itself is nice though. Note the use of the actual strobe line, as opposed to the strobe bit in the Cyber code.
+
+{% highlight python %}
+{% include code/sciento.py %}
+{% endhighlight %}
+
+[1]: http://translate.google.com/translate?sl=auto&tl=en&js=n&prev=_t&hl=en&ie=UTF-8&layout=2&eotf=1&u=http%3A%2F%2Frobotica.udl.cat%2Fbrazo_robot%2Flabview%2Frobotcs113.pdf&act=url
