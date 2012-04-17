@@ -1,0 +1,34 @@
+---
+layout: post
+title: Crazy Seq
+categories:
+- clojure
+---
+
+crazy-seq, the solution to all your head-holding induced memory problems.
+
+{% highlight clojure %}
+(defn crazy-seq [head f]
+  (reify
+    clojure.lang.ISeq
+    (first [_] head)
+    (more [_] (crazy-seq (f head) f))
+    (next [this] (rest this))
+    (seq [this] this)
+    (equiv [_ _] false)))
+
+(def s (crazy-seq 0 inc)) ; hold head
+(dorun (take 100000000 s)) ; low fat
+(nth s 10) ; recomputes
+;=> 10
+{% endhighlight %}
+
+A normal lazy seq is made up of a car and a function that returns the cdr, which is then cached.
+
+This means that if you store the first item and walk to the millionth, it will keep all these million items in memory.
+
+What crazy-seq does, is that it simply does not cache the value. So you can walk to the millionth item, and it will only store the first and the current, the others are GC'd.
+
+This means that walking twice will cost more CPU cycles, and it means that you get in trouble if the fn is not side-effect free.
+
+Have fun.
