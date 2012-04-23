@@ -14,9 +14,7 @@ I [wrote a G-code interpreter][1] for my machine, after I found out LinuxCNC doe
 
 I went down [this list][2], but most of them where hard to install or impossible to configure. In 2D I had some luck with the Inkscape plugin, but I was lost for 3D.
 
-With the mill in a working state, and nothing to mill, I decided to push forward with PyCAM.
-
-I skipped PyCAM previously, because of its [dependencies][3], which weren't all available in Homebrew.
+With the mill in a working state, and nothing to mill, I decided to push forward with PyCAM. I skipped PyCAM previously, because of its [dependencies][3], which weren't all available in Homebrew.
 
 Some experimentation revealed a few important things:
 
@@ -45,6 +43,8 @@ Now you should be able to just run `./pycam` to see the GUI pop up. However, I u
     pypy pycam --start-server-only --server-auth-key=fietspomp --number-of-processes=4
 
     python pycam --enable-server --remote-server=localhost --server-auth-key=fietspomp --number-of-processes=0
+
+I'll blog about the mill itself later. This morning I tried to mill a small sample project, but the mill is very inaccurate and jammed after a few layers.
 
 [1]: https://github.com/pepijndevos/Home-made-CNC
 [2]: http://replicat.org/generators
