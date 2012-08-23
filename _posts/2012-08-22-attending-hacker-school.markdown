@@ -7,7 +7,7 @@ categories:
 
 As a male without $6000 in savings.
 
-Hacker School is awesome, so if you enjoy coding, you should [apply][1], but what really prompted me to write this post is that someone on Reddit or HN or some such thought giving grants only to woman is unfair to men who need it.
+Hacker School is awesome, so if you enjoy coding, you should [apply][1], but what really prompted me to write this post is that someone on Reddit or HN said giving grants only to woman is unfair to men who need it.
 
 While I do think it'd be good to have more gender balance in programming, giving grants based on need only to woman seemed unfair to me too. After three months of Hacker School, there are 2 things that altered my opinion on the matter.
 
