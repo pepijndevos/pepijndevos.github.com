@@ -22,7 +22,7 @@ Dutch is a lot like Common Lisp or Scala[^3]. If we'd make a cheesy map of Europ
 
 Programming languages are much more designed, and mostly unambiguous, like Esperanto or Lojban. Computers don't like ambiguity. Some languages, like Scheme, are still designed for growth though.
 
-<embed id="VideoPlayback" src="http://video.google.com/googleplayer.swf?docid=-8860158196198824415&hl=en&fs=true" style="width:400px;height:326px" allowFullScreen="true" allowScriptAccess="always" type="application/x-shockwave-flash"> </embed>
+<embed id="VideoPlayback" src="http://video.google.com/googleplayer.swf?docid=-8860158196198824415&amp;hl=en&amp;fs=true" style="width:400px;height:326px" allowFullScreen="true" allowScriptAccess="always" type="application/x-shockwave-flash"> </embed>
 
 Near the end Guy Steele argues that programming languages need to be more like natural ones, and the other way around.
 
