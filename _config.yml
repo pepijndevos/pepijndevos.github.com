@@ -1,12 +1,10 @@
 pygments: true
-safe: true
 auto: true
 server: true
 paginate: 3
 lsi: true
 
 permalink: /:year/:month/:day/:title.html
-
 title: Wishful Coding
 tagline: Didn't you ever wish your computer understood you?
 url: http://pepijndevos.nl
