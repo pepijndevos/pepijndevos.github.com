@@ -75,7 +75,7 @@ a.strong {
 	font-weight: bold;
 }
 
-img {
+article img {
 	border: none;
 	max-width: 500px;
 }
@@ -89,6 +89,10 @@ aside li {
 	top: 0;
 	left: 0;
 	z-index: -1;
+}
+
+#wheel-img {
+	margin-left: -600px;
 }
 
 .alignleft {

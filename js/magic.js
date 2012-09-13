@@ -34,12 +34,9 @@ function run() {
 	}
 
 	canvas = document.getElementById("wheel").getContext("2d");
-	image  = new Image();
-	image.src = "/style/wheel.gif";
-	image.onload = function() {
-		canvas.translate(-200, 400);
-		setInterval("canvas.rotate(0.005); canvas.drawImage(image, -400, -400);", 100);
-	}
+	image = document.getElementById("wheel-img");
+	canvas.translate(-200, 400);
+	setInterval("canvas.rotate(0.005); canvas.drawImage(image, -400, -400);", 100);
 
 	document.getElementById("search").onsubmit = function(form) {
 		var url = this.action + '?';
