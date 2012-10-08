@@ -57,6 +57,8 @@ If you are on Mac, you can run `telnetd` with `sudo launchctl load -w /System/Li
 
 You might want to `export PS1=">"` to save some precious screen space.
 
+You should also `export TERM=ansi` if you experience any formatting problems. The VT320 implementation is a bit buggy.
+
 ![kindleterm screenshot](/images/screen_shot-40716.gif)
 
 [0]: http://projectdp.wordpress.com/2012/09/24/pi-k3w-kindle-3-display-for-raspberry-pi/
