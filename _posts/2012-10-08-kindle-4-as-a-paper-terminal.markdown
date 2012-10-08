@@ -18,7 +18,7 @@ I used the universal method, which involves downloading `data.tar.gz`, entering 
 
 The jailbreak only installs a developer key, that allows you to install software. The piece of software we need is usbnetwork, which allows you to SSH over USB.
 
-[Download usbnetowrk from here][2] and follow the instructions.
+[Download usbnetwork from here][2] and follow the instructions.
 
 Before you enable usbnetwork by renaming the `auto` file, go into `/usbnet/etc/config` and set `USE_VOLUMD="true"`
 
