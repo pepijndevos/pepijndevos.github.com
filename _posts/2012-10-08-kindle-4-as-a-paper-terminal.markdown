@@ -28,15 +28,15 @@ You should now be able to `ssh root@192.168.2.2`. Linux users should run `sudo i
 
 The terminal emulator used in the Kindleberry hack does not work on the Kindle 4. It expects a keyboard, I've been told.
 
-However, someone else wrote a Java kindlet terminal emulator called KindleTERM that seems to run on Kindle 4.
+However, vdp wrote a Java kindlet terminal emulator called KindleTERM that seems to run on Kindle 4.
 
 KindleTERM was writen 2 years ago, and while it pretty much worked out of the box, it did not make an SSH connection to my PC.
 
 I finally got something working using the remote keyboard feature, sshing to localhost and using `dbclient` to ssh into my Mac and start a `tmux` session.
 
-Someone else made a new version that just telnets to localhost, but he removed the remote keyboard. That's useless.
+Hawhill made a new version that just telnets to localhost, but he removed the remote keyboard. That's useless.
 
-Then someone else came around and added back the remote keyboard. Yay!
+Then hippy dave came around and added back the remote keyboard. Yay!
 
 Then I came around and added a config file to specify which host/port/username/password/command to use.
 
