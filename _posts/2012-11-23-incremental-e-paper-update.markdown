@@ -42,4 +42,4 @@ Now, you need to look at [the datasheet](/images/Winstar_E-Paper_Application_Not
 
 Note that for white-on-black the added/deleted bits are the other way around, but the unchanged segments aren't.
 
-Finally, for every section for the waveform I take the corresponding array out of my changes, send it, and wait for a bit.
+Finally, for every section of the waveform I take the corresponding array out of my changes, send it, and wait for a bit.
