@@ -17,7 +17,7 @@ My version has more and nicer looking(IMO) characters, uses black text on white 
 What remains to be done is implementing temperature awareness. The colder the display, the longer it takes to update. The Atmega chip has a sensor built in.
 
 [Original library](http://bildr.org/2011/06/epaper-arduino/)  
-[My updates](https://gist.github.com/4058239)  
+[My updates](https://github.com/pepijndevos/arduino-epaper)  
 
 Thanks to the people at [Hack42](https://hack42.nl/) for helping me out with my bootloader and understanding the E-paper datasheet.
 
