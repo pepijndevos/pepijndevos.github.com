@@ -8,7 +8,7 @@
 # Author:Khaja Minhajuddin (http://minhajuddin.com)
 
 # Some constants
-TEMPLATE = "template.markdown"
+TEMPLATE = "_template.markdown"
 TARGET_DIR = "_posts"
 
 # Get the title which was passed as an argument
