@@ -22,6 +22,7 @@ While vmfest comes with some prepared images, I found that my laptop would not r
         iface eth1 inet dhcp
 
 * Update and upgrade all packages.
+* Install the [guest additions](http://www.virtualbox.org/manual/ch04.html)
 * On some Debian based distros, [remove persistent-net.rules](http://www.ducea.com/2008/09/01/remove-debian-udev-persistent-net-rules/).
 
 This should give you a working machine, but we're not done yet. You still need to make the hard disk [multi-attachable](http://www.virtualbox.org/manual/ch05.html#hdimagewrites).
