@@ -55,4 +55,4 @@ However, Hubot also support passive DCC. In this case Hubot opens a port and you
 
 ### Conclusion
 
-You should try the [demo server](irc://irc.teamrelaychat.nl:6697) and [read more](http://teamrelaychat.nl/).
+You should try the [demo server](irc://irc.teamrelaychat.nl:6697)(with SSL) and [read more](http://teamrelaychat.nl/).
