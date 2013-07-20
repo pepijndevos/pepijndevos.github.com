@@ -29,4 +29,4 @@ Now you should be able to just run
 
     lein pallet up --service vbox --roles dev
 
-Of course you can also just [let me run it for you](http://teamrelaychat.nl).
+Of course you can also just [let me deploy it for you](http://teamrelaychat.nl) or hire me to deploy other things.
