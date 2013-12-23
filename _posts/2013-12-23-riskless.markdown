@@ -4,6 +4,9 @@ title: Riskless
 categories:
 - boardgame
 ---
+
+![xkcd puzzle](http://imgs.xkcd.com/comics/puzzle.png)
+
 Deterministic Risk using Stratego battle mechanics.
 
 I wanted to play a game of Risk with my brother, but he complained that Risk involves too much luck. Sometimes a single unit would successfully defend against a large army.
