@@ -1,0 +1,72 @@
+---
+layout: post
+title: Riskless
+categories:
+- boardgame
+---
+Deterministic Risk using Stratego battle mechanics.
+
+I wanted to play a game of Risk with my brother, but he complained that Risk involves too much luck. Sometimes a single unit would successfully defend against a large army.
+
+I came up with the idea of using Stratego pieces, and after some testing, this are the rules we came up with.
+
+### Start of the game
+
+The flag is not used.
+Only missions about conquering continents are used.
+
+1. Hand out mission cards. 
+1. Divide all territory cards.
+1. Each player places all desired units on their territories.
+
+We tried several value systems, but they where much to tedious to be fun. Place as many units as you want.
+
+I found it works well to hold back the spy, a few bombs and some miners. These can then be placed to stop strong units or find mines.
+
+### A turn
+
+A turn follows the normal Risk order. Place units according to controlled continents, attack or place  `floor(territories / 3)` units, make up to 7 moves, and possibly take a territory card.
+
+#### Attacking
+
+Attacking happens by picking a unit of one of your countries with 2 or more units on it, and a unit in a neighbouring hostile country. The unit with the lowest rank is removed from the game.
+
+If the country is taken, any number of units may be moved to it.
+
+In case of equal ranks the defendant wins.
+
+We tried some other rules, but found that most would make the game very slow(move one unit), the marshal too powerful(allow empty territory), or bombs to overpowered(defendant picks unit).
+
+#### Placing units
+
+This works the same as in Risk, but units cost their rank to place. This makes it cheap to scout and expensive to revive the marshal.
+
+For this purpose the bomb has a rank of 5 and the scout and spy switch costs, making the common scout cheaper than the special spy.
+
+### Game end
+
+The game ends when a player has completed his mission.
+
+Remember to remove missions that don’t make sense with 2 players.
+
+### Ranks (costs)
+
+- 10 Marshal
+- 9 General
+- 8 Colonel
+- 7 Major
+- 6 Captain
+- 5 Lieutenant
+- 4 Sergeant
+- 3 Miner
+- 2(1) Scout
+- 1(2) Spy
+- ∞(5) Bomb
+
+### Randomness
+
+Yes, the game is not 100% deterministic, depending how you look at it.
+
+This randomness is in the dealing of the mission and territory cards and the fact that you can’t see the opponents units. You can theorise though.
+
+However, given a starting position, it would be possible for 2 computer players to always arrive at the same end-game.
