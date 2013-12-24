@@ -5,7 +5,7 @@ categories:
 - boardgame
 ---
 
-![xkcd puzzle](http://imgs.xkcd.com/comics/puzzle.png)
+![playing Riskless](/images/PICT0502.jpg)
 
 Deterministic Risk using Stratego battle mechanics.
 
