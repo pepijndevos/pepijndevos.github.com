@@ -55,10 +55,11 @@ Thus, pipelining commands in parallel to multiple Redis servers is a matter of n
 A very simple [benchmark](https://github.com/pepijndevos/pypredis/blob/master/test.py) shows that indeed Pypredis is a lot faster on a few big and slow commands, but the extra overhead makes it slower for many small and fast commands.
 
     pypredis ping
-    14.333119
+    1.083333
     redis-py ping
-    2.870218
+    0.933333
     pypredis sunion
-    2.414604
+    0.42
     redis-py sunion
-    36.052236
+    11.736665
+

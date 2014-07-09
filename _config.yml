@@ -1,4 +1,5 @@
 pygments: true
+markdown: kramdown
 paginate: 3
 markdown: kramdown
 
