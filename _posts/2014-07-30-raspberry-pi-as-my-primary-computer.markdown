@@ -68,7 +68,9 @@ Elinks also has tabs. I created a little alias to launch google results from the
     c close tab
     > next tab
     < previous tab
+    g go to url
+    G edit url
 
-Weechat is mostly controlled by IRC commands I useh anyway such as `/join` and `/quit`. To switch buffers you press `alt+0-9`. It really helps to install the `buffers.pl` script so you can see a numbered list of them.
+Weechat is mostly controlled by IRC commands I used anyway such as `/join` and `/quit`. To switch buffers you press `alt+0-9`. It really helps to install the `buffers.pl` script so you can see a numbered list of them.
 
 If you `startx` use, `ctrl+alt+F1-F7` to change TTY.
