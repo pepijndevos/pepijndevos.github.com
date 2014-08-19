@@ -140,7 +140,7 @@ It did not transmit.
 
 I studied the receiver for a while, and noticed that every motor was surrounded by a cluster of 6 transistors.
 I had a hunch that those transformed two binary signals from the chip to a bidirectional current.
-Some googling revealed that they're are probably [Tilden H-bridges](http://library.solarbotics.net/circuits/driver_tilden.html).
+Some googling revealed that they are probably [Tilden H-bridges](http://library.solarbotics.net/circuits/driver_tilden.html).
 
 I located the 2 wires from every motor that led to the chip, and fed them 3V from 2 of the 6 batteries.
 This started the motor!
