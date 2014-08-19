@@ -1,6 +1,6 @@
 pygments: true
-markdown: kramdown
 paginate: 3
+markdown: kramdown
 
 permalink: "/:year/:month/:day/:title.html"
 

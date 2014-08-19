@@ -1,0 +1,70 @@
+==================================================================
+https://keybase.io/pepijndevos
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://pepijndevos.nl
+  * I am pepijndevos (https://keybase.io/pepijndevos) on keybase.
+  * I have a public key with fingerprint 3B65 F224 6FBE DE18 FCE8  2311 4636 9C5D E962 3F94
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "3b65f2246fbede18fce8231146369c5de9623f94",
+            "host": "keybase.io",
+            "key_id": "46369c5de9623f94",
+            "uid": "d48a4dba60388d2769531684b5872200",
+            "username": "pepijndevos"
+        },
+        "service": {
+            "hostname": "pepijndevos.nl",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1407786098,
+    "expire_in": 157680000,
+    "prev": "5c7661ee89f6296f1c8bdf2ddf0d898b48dd6d9ff3014cc58e181edc7aa9a2a7",
+    "seqno": 5,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG/MacGPG2 v2.0.20 (Darwin)
+Comment: GPGTools - https://gpgtools.org
+
+owGbwMvMwMXoZjYn9mWS/RTG0we+JzEEv5SprFZKyk+pVLKqVspOBVNpmXnpqUUF
+RZl5JUpWSsZJZqZpRkYmZmlJqSmphhZpyakWRsaGhiZmxmaWyaYpqZZmRsZpliZK
+OkoZ+cUgHUBjkhKLU/Uy84FiQE58ZgpQFIv6UrBEiolFoklKUqKZgbGFRYqRuZml
+qbGhmYVJkqmFuZGRgQFIYXFqUV5ibipQdUFqQWZWXkpqWX6xUq2OElCiLDM5FeRs
+kO2YivTycoAGFBTll+Qn5+cA5TJKSgqsQFpLKgtAastTk+KhpsQnZealAD0P1FCW
+WlScmZ+nZGUIVJlckgky1tDEwNzcwszA0kJHKbWiILMoNT4TpMLU3MzCAAhA1qSW
+AY00TTY3MzNMTbWwTDMzsjRLM0y2SEpJM0pJSTNIsbC0SDKxSEkxS7FMSzM2MDRJ
+Tja1AAarYWpKsnliomWiUaK5EshfhXn5SlamQGcmpgONLM5Mz0ssKS1KVarl6mSS
+YWFg5GJgY2UCxR8DF6cALFYfywswNL/7GRe8rLI/4VHjJcb3l6T9VgWXr5/ckXdM
+ofLyJ5ObzX8+6J9OunHQQfdOYuKRbXk/ur6J5z1ccJTLr3+Tfat+3YUlUTyPWhRm
+3hU6nKNtunpvmbfJqbpXSxSOdO85Y7PuDvPxu7nlPY+M//rGZtzlufN6hv73qTXs
+++v6u/76SH4KqNO1eThpDr9oaJbSOv6qKZoHn6s7yhgd+WXFoFXgGLzJ1S1PV//0
+xj97zL9l2t+La55yb8Pqm9pt1qlhN1VZzk8M+hpYeTbbxPHAlvJKjjtlD26vZp9h
+fpElT+TE3cK0FvPL8Zf+JpSLS+44JMzmeCk6vZPnU+alNzPaBZqNufN1DlzXW2Ib
+/33nQ8dfy5om3o1/d2/9pd1moZzHr3ckuv3cebwgmWVCge6NZwYxwcbXYnuKdl7h
+LeztWH01SmjNySvH+B2vNpyfIKLe0ty88LjclKeBFct/zM1V+zNf/Vb12mNZc7aU
+68w/EPxa8O+Dleq5czf2vFl7eHV/Z8+pyL4opk/yZp9TGGXCTG7aZNseSjxXUJD3
+cN36YPU+syu3bsY8P/ZyUduqCHW7IHXO1b4Z51prHoaVOWZu+pn06WsTY6Js01V5
+9+RDk1d0MS3cu/H1mtcKB9d8EpGZlHHYO9bBiDfse6S+1bl3y5PnyXn13Ba97cu3
+WcN43nrDykfvz6/2DxSfO2di6KEQw3dBVWsc9Bf3NsX8AwA=
+=ilpE
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/pepijndevos
+
+==================================================================
