@@ -115,7 +115,7 @@ We took it apart completely, yielding a PCB, some LEDs, some motors and a batter
 We just cut out pieces of plastic from the tank to keep the gearbox around the motors intact.
 We then attached cardboard wheels where the broken tracks had been, and glued everything to a piece of wood.
 
-The end result of the day was that we could tape the wires of the motors to some batteries and have it drive around.
+The end result of the day was that we could tape the wires of the motors to some batteries and have it [drive around](https://www.youtube.com/watch?v=IZ2run5p9JU).
 If it will ever turn into a real robot depends if we can get tin, wires and transistors to hook it up to the Raspi.
 
 Stores are not so great here when it comes to technology, electronics, organic food, or other things that are not food, clothing and souvenirs.
