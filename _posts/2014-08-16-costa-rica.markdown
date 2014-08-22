@@ -195,7 +195,7 @@ The pedals where not working correctly.
 I printed Gymnopedie 1, which I practiced for a bit.
 
 Afterwards worked on the new room until I started to lose focus and make mistakes.
-I'm really perfectionistic, but the wood is not first class, neither are the tools.
+I'm really perfectionist, but the wood is not first class, neither are the tools.
 So it's really hard to make everything fit exactly.
 
 After lunch I made another trip to the village.
@@ -215,6 +215,10 @@ The internet does not work. Neither wired or wireless.
 I'm not sure if it's a hardware or software problem.
 I tried installing various Linux distributions in various ways,
 but the G3 is so old and PPC so little used that it's hard to find anything.
+
+It was already dark, but not dinnertime yet.
+I played some more piano and did a moon mission in KSP.
+For dinner we had soup with popcorn.
 
 ### Future
 
