@@ -102,7 +102,7 @@ There where some construction workers in the beginning, but due to financial rea
 I asked if it was hard to get a building permit, but it turns out you don't need one.
 That explains the random chaos of building in the towns I guess.
 
-Later, I saw one of the kids with a broken RC tank modeled after the tank in Halo.
+Later, I saw Gudari with a broken RC tank modeled after the tank in Halo.
 I asked what he was doing. Nothing much, it was probably left by people living here before.
 (The hostel was their house and the house was rented out before)
 I offered to take it apart and try to fix it or use the parts for something else.
@@ -156,6 +156,65 @@ It went completely out of control.
 Tomorrow we will look at using PWM to control the speed.
 I'll also try to set up the Raspi with a WiFi dongle so we can command it remotely.
 
+### Day 5
+
+I tried really hard not to finish the robot before Gudari came back from school,
+but I did repair the wheel and set up WiFi on the Raspi.
+
+I spent the rest of the morning not doing ver much,
+helping with the new room upstairs,
+and checking out the suroundings.
+
+When Gudari came back, we tried the PWM and creted some programs.
+Then we decided to make a bumper out of some paper and tinfoil.
+So now the robot can [drive around](https://www.youtube.com/watch?v=pERpIgb1OWc) and back away from obstacles.
+
+Finally, I hacked together a Flask app to act as a remote control using a smartphone.
+
+In the evening I practiced some Spanish.
+
+### Day 6
+
+This morning Tarsicio told me I should take some more free time, I'm working too much.
+Problem is that I havn't really figured out what to do with my time.
+I also like working here.
+
+After brekfast I went to the nature reserve close by.
+It had really big trees, birds and butterflies.
+I also saw a squirl and some dog-sized animals that ran away before I could really see them.
+
+After lunch I went to a waterfall and sat on a rock thinking and looking around.
+I returned home when it started to rain.
+
+In the evening I played a game with Julia.
+
+### Day 7
+
+In the morning I fixed the piano.
+The pedals where not working correctly.
+I printed Gymnopedie 1, which I practiced for a bit.
+
+Afterwards worked on the new room until I started to lose focus and make mistakes.
+I'm really perfectionistic, but the wood is not first class, neither are the tools.
+So it's really hard to make everything fit exactly.
+
+After lunch I made another trip to the village.
+I'm getting better at cycling in the mountains,
+but I was still exhausted when I got back.
+Without toothpaste.
+
+Tarsicio previously told me he had an old Mac he wanted to fix.
+It's an iMac G3, to which he forgot the password.
+I booted it in single user mode and added a new user.
+Then I looked for the pictures he said where on it, but did not find anything.
+
+When I clicked "About this Mac", I realized that this machine is slower than a Raspberry Pi.
+A 600Mhz G3 processor and 320MB RAM.
+
+The internet does not work. Neither wired or wireless.
+I'm not sure if it's a hardware or software problem.
+I tried installing various Linux distributions in various ways,
+but the G3 is so old and PPC so little used that it's hard to find anything.
 
 ### Future
 
