@@ -220,6 +220,36 @@ It was already dark, but not dinnertime yet.
 I played some more piano and did a moon mission in KSP.
 For dinner we had soup with popcorn.
 
+### Day 8
+
+Today was the birthday of Gudari, so I decided to make a cake.
+I cycled to the supermarket to buy stuff.
+
+The cream didn't really work because it wasn't cold.
+So I spent a bunch of time playing piano and KSP while I put the cream in the refridgerator.
+
+After the cake was done I went to the Bat Jungle, run by a Flemish guy.
+He spent a bunch of time busting myths about bats, and raising awareness about their importance to the ecosystem.
+
+Basically they are closer related to primates than birds or mice. They are intelligent and social.
+Half of them eat insects, the other half eat fruit.
+A few kinds live from blood, but... not from humans and they don't carry diseases.
+
+In Costa Rica there are more bats than birds, but you don't see them during daytime.
+They are super important for polination of many tropical fruits.
+But they are endangered by deforestation and green energy(!).
+
+I was surprised to learn that if you disturb a bat during daytime or winter(hibernation), it basically dies.
+As soon as it starts to fly it uses so much energy it needs to eat insects constantly.
+But without its usual prey, it just starves.
+
+Then he fed them, and we could see them fly around and eat fruit.
+He showed the different kinds.
+There where hummingbats that could hover like a hummingbird.
+
+Afterwards I cycled to town to buy a chicken for dinner.
+Some of Gudari's friends came over, we ate cake and played Minecraft.
+
 ### Future
 
 To be continued...
