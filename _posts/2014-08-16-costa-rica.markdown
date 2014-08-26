@@ -250,6 +250,62 @@ There where hummingbats that could hover like a hummingbird.
 Afterwards I cycled to town to buy a chicken for dinner.
 Some of Gudari's friends came over, we ate cake and played Minecraft.
 
+### Day 9
+
+We went to the farmers market, and I bought ingerdients for some Dutch food.
+Then we went walking to another place to get wholegrain flower.
+They where friends of Tarsicio, so he talked for a long time.
+I picked up the 25Kg bag and walked home.
+
+There I played some Minecraft with Hudari and one of his friends.
+
+I had heard from an American family that they had seen monkeys at the Cloudforest Reserve.
+I decided to go there by bike, but it was 3Km uphill.
+
+By the time I got there I was so exhausted I didn't feel like paying $20 to walk 2 hours.
+It also looked like a storm was comming.
+So I visited the hummingbird garden and returned home.
+
+Hummingbirds are pretty cool.
+
+### Day 10
+
+Today breakfast cosisted of a cross between chessnut an pumpkin.
+I tried a few, and then baked an egg.
+
+What I wanted to do today: Walk in the nature for hours.
+What I did: Nothing much, my feet hurt.
+
+I wrote an ad for selling the house.
+They plan to live in the first floor of the hostel,
+and the build a new sandbag house, as I understand it.
+
+Some friends of Tarsicio came over to watch The Mill and the Cross.
+A movie about Pieter Bruegel while he observes daily life and describes and paints it.
+
+I messed with the Wii to make it play a copied DVD,
+it did not work, so we watched on a laptop.
+
+For diner, I baked pancakes with cheese.
+How weird, pancakes for dinner, and with cheese?
+For the first time in history I baked more than needed. 
+
+### Day 11
+
+Bread!!!
+Or at least wheat-flower-based things.
+
+I gave my feet another day to recover, so not much action.
+
+We put the [ad for the house](http://www.encuentra24.com/costa-rica-en/real-estate-for-sale-houses-homes/casa-alquimia/4003692) online.
+There where some new guests in the hostel from Germany. I talked with them a bit.
+Then I distracted the kids from making homework for a while.
+
+In the evening the guests talked Spanish with Tarsicio for a long time.
+I barely understood a quarter of it, but still learned some things about this place Tarsicio never bothered telling in English.
+This really shows the power of speaking someones native language.
+I should really learn more Spanish.
+
 ### Future
 
 To be continued...
