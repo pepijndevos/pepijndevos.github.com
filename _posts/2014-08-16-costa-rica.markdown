@@ -306,6 +306,105 @@ I barely understood a quarter of it, but still learned some things about this pl
 This really shows the power of speaking someones native language.
 I should really learn more Spanish.
 
+### Day 12
+
+I did not see my laptop for a few days, as you'll see. So some details are mising from my memory.
+
+I decided to visit the Pacific Ocean for a few days, so I spent most of the day booking a hostel, planning, and packing stuff.
+
+All the things on AirBnB where kind of expensive, but I decided that for 2 days I shouldn't worry too much.
+So I ended up booking a room in this Jungle Villa which is exactly what the name implies.
+
+I borrowed a backpack from Tarsicio so I could leave most of my stuff here.
+I only took some clothes, my phone, and my wallet. No laptop.
+
+### Day 13
+
+This was a scary day and I did not enjoy it at all.
+
+The bus left 6 in the morning, so I got up at 4.
+The hostel guests where also going in the same direction, so we traveled together for a while.
+
+They don't exactly publish bus schedules here,
+but I was told there would probably be a bus in Puntarenas to Manuel Antonio.
+I was so nervous I had to pee all the time.
+
+In the bus I met another couple traveling to Manuel Antonio.
+We chilled for a bit at the beach in Puntarenas, and then they where getting some lunch.
+I said "I'm staying here, I hope I don't miss the bus".
+
+When it was time to go, I saw the German couple, but not the Americans.
+I went looking for them, but did not see them.
+I hardly made it in time myself, the bus was already in motion when I jumped on.
+I'm glad they drive with the doors wide open over here.
+
+The bus stoped in Quepos, where I took a taxi to the hostel.
+The location of the hostel is best decribed by its GPS coordinates,
+so the driver didn't have an easy job finding it.
+
+When I got there I found no one speaks English there, so asking for directions was tough.
+Aparrently the place also doesn't have a phone, other than that of the Dutch owner.
+I was the only guest, and stayed in this huge room, next to a huge swiming pool.
+I used neither very much,
+
+I decided to go to the beach in the afternoon.
+I asked for directioins, and they pointed me to the bus.
+I had no idea where to get off or how to find my way back to the hostel.
+
+I spent a bunch of time messing around in the ocean and sitting on the beach.
+It was clouded, but still 30 degrees.
+The water was really warm and there where really strong waves.
+
+When I started to look for an ATM and the bus stop back to the hostel,
+I met 2 German girls, they gave me some directions, we talked for a bit,
+and then we took the bus together.
+
+When my stop came, they asked if we could meet tomorrow, while the bus driver was yelling at me in Spanish.
+This was too much for my poor nerves, so I said something useless and got off the bus.
+
+### Day 14
+
+Having figured out the hostel, bus, food, and money, I was much more relaxed.
+
+In the morning I went to the nature reserve.
+The most animals I saw where in fact of the same species as myself,
+usually trailing a guide with a telescope on his/her shoulder.
+
+When I got off the main road it became more quiet.
+I saw a Sloth, a deer, lizards, two kinds of monkeys, butterflies, crabs, and more.
+
+I walked all the way to the farest beach in the park, which was practiclly empty.
+It was in a small bay, so the waves where much lower.
+I put on some sunscreen for the first time in years and spent a few hours there.
+
+Afterwards I drank from a fresh coconut and did nothing for a bit.
+I'm spending so much money here, so I had to go back to Quepos to get some cash.
+I also bought some lunch there.
+
+Back at the beach I rented a surfing board.
+First I learned how to avoid drowning and getting hurt.
+Then I learned how to catch a wave and fall.
+Next I learned how to stand up and fall.
+
+Two hours later, cut, bruised, exhausted, I managed to actually get up and surf for a few seconds!
+
+At the end of the day, dark clouds started to appear.
+When I got back to the hotel, it started pouring.
+For dinner I dashed to the nearest place, and ate a pizza.
+
+### Day 15
+
+I got up early for the bus back to Puntarenas.
+I arrived at the bus station in time for a non-existant 8:30 bus,
+so I had to wait a long time for the 9:30 bus.
+
+I was hoping to take an earlier bus to feel more relaxed about the connection in Puntarenas.
+There is only one bus to Monteverde per day, or so I was told.
+
+That was one boring and uneventful day.
+After hours and hours of sitting in a bus,
+I arrived, played Monopoly, ate diner, watched a movie, slept.
+
 ### Future
 
 To be continued...
