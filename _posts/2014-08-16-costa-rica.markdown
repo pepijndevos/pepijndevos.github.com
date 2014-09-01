@@ -434,7 +434,7 @@ While he doesn't really understand the flow and structure of the games yet,
 we where able to chnge the size, speed and some other parameters.
 We made snake starts slow and then get gradually faster.
 
-When I got tired of looking at this flickering, low resolution CRT screen, I continued building the room upstairs.
+When I got tired of looking at this flickering low resolution CRT screen, I continued building the room upstairs.
 
 In the evening I was showing the wooden mouse I made to Tarsicio,
 and he said it would e fairly easy to make one out of one piece of solid wood.
