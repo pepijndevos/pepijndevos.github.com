@@ -432,7 +432,7 @@ Then we messed around getting WiFi to work, connecting a DVD player, playing Pyt
 We found that not all of them worked correctly, or the way we liked them, so we started hacking.
 While he doesn't really understand the flow and structure of the games yet,
 we where able to chnge the size, speed and some other parameters.
-We made snake starts slow and then get gradually faster.
+We made snake start slow and then get gradually faster.
 
 When I got tired of looking at this flickering low resolution CRT screen, I continued building the room upstairs.
 
