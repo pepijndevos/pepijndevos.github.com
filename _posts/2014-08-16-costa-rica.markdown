@@ -405,6 +405,41 @@ That was one boring and uneventful day.
 After hours and hours of sitting in a bus,
 I arrived, played Monopoly, ate diner, watched a movie, slept.
 
+### Day 16
+
+I feel like I'm missing a couple of days. I should have used dates instead of sequential numbers.
+
+While I was away, the internet had stoped working all the time.
+There is a modem in the hostel, then a wifi router, and then a repeater in the house.
+All the steps from the ISP to the repeater fail all the time.
+
+I did a bunch of research, and found that WPA2-AES is known to work.
+So I set up DD-WRT as a repeater bridge using that.
+It still failed all the time and DHCP did not work.
+
+After a long time I found out my host had loaded a buggy version of DD-WRT on the router,
+which was known to randomly disconnect and break DHCP forwarding.
+After flashing a newer firmware everything started working.
+
+### Day 17
+
+Gudari asked me if we could attach the Raspi to the TV.
+I told him we need a RCA cable, which we could not find.
+We did find some other useless converter cables which we soldered together.
+
+Then we messed around getting WiFi to work, connecting a DVD player, playing Python games.
+
+We found that not all of them worked correctly, or the way we liked them, so we started hacking.
+While he doesn't really understand the flow and structure of the games yet,
+we where able to chnge the size, speed and some other parameters.
+We made snake starts slow and then get gradually faster.
+
+When I got tired of looking at this flickering, low resolution CRT screen, I continued building the room upstairs.
+
+In the evening I was showing the wooden mouse I made to Tarsicio,
+and he said it would e fairly easy to make one out of one piece of solid wood.
+So if we we can find enough people that would want to buy one, we will be making a few.
+
 ### Future
 
 To be continued...
