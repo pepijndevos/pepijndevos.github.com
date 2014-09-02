@@ -161,11 +161,11 @@ I'll also try to set up the Raspi with a WiFi dongle so we can command it remote
 I tried really hard not to finish the robot before Gudari came back from school,
 but I did repair the wheel and set up WiFi on the Raspi.
 
-I spent the rest of the morning not doing ver much,
+I spent the rest of the morning not doing very much,
 helping with the new room upstairs,
-and checking out the suroundings.
+and checking out the surroundings.
 
-When Gudari came back, we tried the PWM and creted some programs.
+When Gudari came back, we tried the PWM and created some programs.
 Then we decided to make a bumper out of some paper and tinfoil.
 So now the robot can [drive around](https://www.youtube.com/watch?v=pERpIgb1OWc) and back away from obstacles.
 
@@ -176,10 +176,10 @@ In the evening I practiced some Spanish.
 ### Day 6
 
 This morning Tarsicio told me I should take some more free time, I'm working too much.
-Problem is that I havn't really figured out what to do with my time.
+Problem is that I haven't really figured out what to do with my time.
 I also like working here.
 
-After brekfast I went to the nature reserve close by.
+After breakfast I went to the nature reserve close by.
 It had really big trees, birds and butterflies.
 I also saw a squirl and some dog-sized animals that ran away before I could really see them.
 
@@ -226,7 +226,7 @@ Today was the birthday of Gudari, so I decided to make a cake.
 I cycled to the supermarket to buy stuff.
 
 The cream didn't really work because it wasn't cold.
-So I spent a bunch of time playing piano and KSP while I put the cream in the refridgerator.
+So I spent a bunch of time playing piano and KSP while I put the cream in the refrigerator.
 
 After the cake was done I went to the Bat Jungle, run by a Flemish guy.
 He spent a bunch of time busting myths about bats, and raising awareness about their importance to the ecosystem.
@@ -236,7 +236,7 @@ Half of them eat insects, the other half eat fruit.
 A few kinds live from blood, but... not from humans and they don't carry diseases.
 
 In Costa Rica there are more bats than birds, but you don't see them during daytime.
-They are super important for polination of many tropical fruits.
+They are super important for pollination of many tropical fruits.
 But they are endangered by deforestation and green energy(!).
 
 I was surprised to learn that if you disturb a bat during daytime or winter(hibernation), it basically dies.
@@ -252,7 +252,7 @@ Some of Gudari's friends came over, we ate cake and played Minecraft.
 
 ### Day 9
 
-We went to the farmers market, and I bought ingerdients for some Dutch food.
+We went to the farmers market, and I bought ingredients for some Dutch food.
 Then we went walking to another place to get wholegrain flower.
 They where friends of Tarsicio, so he talked for a long time.
 I picked up the 25Kg bag and walked home.
@@ -263,14 +263,14 @@ I had heard from an American family that they had seen monkeys at the Cloudfores
 I decided to go there by bike, but it was 3Km uphill.
 
 By the time I got there I was so exhausted I didn't feel like paying $20 to walk 2 hours.
-It also looked like a storm was comming.
+It also looked like a storm was coming.
 So I visited the hummingbird garden and returned home.
 
 Hummingbirds are pretty cool.
 
 ### Day 10
 
-Today breakfast cosisted of a cross between chessnut an pumpkin.
+Today breakfast consisted of a cross between chestnut an pumpkin.
 I tried a few, and then baked an egg.
 
 What I wanted to do today: Walk in the nature for hours.
@@ -308,7 +308,7 @@ I should really learn more Spanish.
 
 ### Day 12
 
-I did not see my laptop for a few days, as you'll see. So some details are mising from my memory.
+I did not see my laptop for a few days, as you'll see. So some details are missing from my memory.
 
 I decided to visit the Pacific Ocean for a few days, so I spent most of the day booking a hostel, planning, and packing stuff.
 
@@ -338,17 +338,17 @@ I went looking for them, but did not see them.
 I hardly made it in time myself, the bus was already in motion when I jumped on.
 I'm glad they drive with the doors wide open over here.
 
-The bus stoped in Quepos, where I took a taxi to the hostel.
-The location of the hostel is best decribed by its GPS coordinates,
+The bus stopped in Quepos, where I took a taxi to the hostel.
+The location of the hostel is best described by its GPS coordinates,
 so the driver didn't have an easy job finding it.
 
 When I got there I found no one speaks English there, so asking for directions was tough.
-Aparrently the place also doesn't have a phone, other than that of the Dutch owner.
-I was the only guest, and stayed in this huge room, next to a huge swiming pool.
+Apparently the place also doesn't have a phone, other than that of the Dutch owner.
+I was the only guest, and stayed in this huge room, next to a huge swimming pool.
 I used neither very much,
 
 I decided to go to the beach in the afternoon.
-I asked for directioins, and they pointed me to the bus.
+I asked for directions, and they pointed me to the bus.
 I had no idea where to get off or how to find my way back to the hostel.
 
 I spent a bunch of time messing around in the ocean and sitting on the beach.
@@ -373,7 +373,7 @@ usually trailing a guide with a telescope on his/her shoulder.
 When I got off the main road it became more quiet.
 I saw a Sloth, a deer, lizards, two kinds of monkeys, butterflies, crabs, and more.
 
-I walked all the way to the farest beach in the park, which was practiclly empty.
+I walked all the way to the farthest beach in the park, which was practically empty.
 It was in a small bay, so the waves where much lower.
 I put on some sunscreen for the first time in years and spent a few hours there.
 
@@ -395,7 +395,7 @@ For dinner I dashed to the nearest place, and ate a pizza.
 ### Day 15
 
 I got up early for the bus back to Puntarenas.
-I arrived at the bus station in time for a non-existant 8:30 bus,
+I arrived at the bus station in time for a non-existent 8:30 bus,
 so I had to wait a long time for the 9:30 bus.
 
 I was hoping to take an earlier bus to feel more relaxed about the connection in Puntarenas.
@@ -409,7 +409,7 @@ I arrived, played Monopoly, ate diner, watched a movie, slept.
 
 I feel like I'm missing a couple of days. I should have used dates instead of sequential numbers.
 
-While I was away, the internet had stoped working all the time.
+While I was away, the internet had stopped working all the time.
 There is a modem in the hostel, then a wifi router, and then a repeater in the house.
 All the steps from the ISP to the repeater fail all the time.
 
@@ -431,14 +431,33 @@ Then we messed around getting WiFi to work, connecting a DVD player, playing Pyt
 
 We found that not all of them worked correctly, or the way we liked them, so we started hacking.
 While he doesn't really understand the flow and structure of the games yet,
-we where able to chnge the size, speed and some other parameters.
+we where able to change the size, speed and some other parameters.
 We made snake start slow and then get gradually faster.
 
 When I got tired of looking at this flickering low resolution CRT screen, I continued building the room upstairs.
 
 In the evening I was showing the wooden mouse I made to Tarsicio,
-and he said it would e fairly easy to make one out of one piece of solid wood.
+and he said it would be fairly easy to make one out of one piece of solid wood.
 So if we we can find enough people that would want to buy one, we will be making a few.
+
+### Day 18
+
+Today I did canopying.
+The idea is that you take a pulley and race down steel cables over the treetops.
+They start short, low, and slow, but the last one is 1km and reaches 85km/h.
+
+There is also a huge swing where you basically jump of a 10m high platform.
+
+Later I set up XBMC on the Raspi for watching DVDs.
+
+When I was going to bed, I heard a scream from a hostel guest.
+I went looking, and they had found a scorpion in their bed.
+Tarsicio took a cup and put it outside as if it where a boring spider.
+
+Apparently scorpions aren't dangerous here.
+It just hurts a little more than a bee sting.
+
+(mom, are you still reading?)
 
 ### Future
 
