@@ -459,6 +459,27 @@ It just hurts a little more than a bee sting.
 
 (mom, are you still reading?)
 
+### Day ???
+
+I neglected writing for a bit.
+I also did not do so much the last few days.
+When will I learn not to depend my day on other people.
+
+I worked on the Raspi media centre and building a [website for the hostel](http://casaalquimia.ga).
+
+I went to a big tree. It was actually two trees. Or a tree and an anti-tree. I don't know.
+Basically the tree grew around another tree that's now gone, so what remains is the hole where the other tree used to be.
+Through this hole you can climb 20m up in the tree.
+
+I'm in a bit of an Arnica mood.
+I keep hitting things in this house made for 1.70m people.
+
+One time I became a bit emotional after I hit my head.
+I cried, played piano and sat on a rock watching the sunset.
+
+I don't know what's up with all the Germans, but there are two new Workawayers.
+So that's fun.
+
 ### Future
 
 To be continued...
