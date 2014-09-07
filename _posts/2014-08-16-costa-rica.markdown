@@ -478,7 +478,21 @@ One time I became a bit emotional after I hit my head.
 I cried, played piano and sat on a rock watching the sunset.
 
 I don't know what's up with all the Germans, but there are two new Workawayers.
+They are 100% hippie, including dreadlocks, colorful clothes and no money.
 So that's fun.
+
+### Day ???+1
+
+I went to the Monteverde Cloud Forest Reserve with the hippies.
+We had to take the bus 7:30 in the morning, so Tarsicio left us some watermelon and slightly burned bread.
+
+The reserve was beautiful, but we do not have the same way of enjoying it.
+They stopped at every rock and plant to take a picture.
+I walked on slowly until I found a comfortable place to wait.
+
+At the end of the day, I had taken a dozen pictures, while each of them took over a hundred.
+
+We did not see many animals. Just one big black snake and one small animal that looked like a piglet.
 
 ### Future
 
