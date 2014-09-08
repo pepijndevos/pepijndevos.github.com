@@ -494,6 +494,43 @@ At the end of the day, I had taken a dozen pictures, while each of them took ove
 
 We did not see many animals. Just one big black snake and one small animal that looked like a piglet.
 
+### Day ???+2
+
+A day in which not so much happened, but which still was a good day.
+
+I noticed that when Tarsicio was talking with the new workawayers that I sometimes acted as a translator.
+Partially because I got used to his English, partially because I learned some Spanish.
+
+I also noticed I developed a different way of talking English when I talk to Tarsicio or other locals.
+I talk in keywords and try to avoid tricky conjugations while searching for words with Latin origin.
+
+With the kids -- who go to a bilingual school -- and the tourists I talk normal English.
+Or try to at least...
+
+This is my second to last day here, so I'm mostly finishing stuff and explain how they can do it themselves.
+
+I tried to get the external DVD drive going, which uses more power than the Raspi supplies.
+Tarsicio repeatedly suggested to attach a 9v adapter to the external DVD drive that backfeeds power to the Raspi.
+I told him it'd fry the Raspi, but who knows what will happen when I'm gone.
+
+Gudari is making a ping-pong robot.
+The launch mechanism works, but the feeder doesn't.
+I said we need a gearbox to make it slower, but he wanted to just lower the voltage to the motor.
+
+Fine, let's try.
+We tore a potentiometer from a broken TV and hooked it up to the motor.
+This kinda worked for a while until the pot was fried.
+
+### Day ???+3
+
+I woke up early, said goodby to the kids as the went to school, ate, and started packing.
+
+Delta was being obnoxious about my last name upon online checkin.
+I called them, and the support guy told me they had mangled my last name to "Vos De".
+That caused some stress, but I'm now checked in and have printed my boarding pass.
+
+I spent most of the morning finishing things and being nervous.
+
 ### Future
 
 To be continued...
