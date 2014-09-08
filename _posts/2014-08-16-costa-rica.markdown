@@ -523,9 +523,13 @@ This kinda worked for a while until the pot was fried.
 
 ### Day ???+3
 
-I woke up early, said goodby to the kids as the went to school, ate, and started packing.
+I woke up early, said goodbye to the kids as the went to school, ate, and started packing.
 
-Delta was being obnoxious about my last name upon online checkin.
+I feel very mixed about leaving.
+I miss my family, home, Dutch food and Dutch landscape,
+but I *will* miss this family, the house, the food and the landscape.
+
+Delta was being obnoxious about my last name upon online check-in.
 I called them, and the support guy told me they had mangled my last name to "Vos De".
 That caused some stress, but I'm now checked in and have printed my boarding pass.
 
