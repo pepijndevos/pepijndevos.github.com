@@ -523,7 +523,7 @@ This kinda worked for a while until the pot was fried.
 
 ### Day ???+3
 
-I woke up early, said goodbye to the kids as the went to school, ate, and started packing.
+I woke up early, said goodbye to the kids as they went to school, ate, and started packing.
 
 I feel very mixed about leaving.
 I miss my family, home, Dutch food and Dutch landscape,
