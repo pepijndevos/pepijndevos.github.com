@@ -535,6 +535,23 @@ That caused some stress, but I'm now checked in and have printed my boarding pas
 
 I spent most of the morning finishing things and being nervous.
 
+At around 2 I said goodbye to the family and the new workawayers, and took a taxi to the bus station.
+We thanked each other extensively for everything.
+I was cheerful most of the time, but as my home for the past 3 weeks disappeared around the corner, I was almost crying.
+
+I was less nervous for the bus than the previous time, but still a little.
+I was in the right bus, and I knew the bus stop I needed to go, so nothing to worry about, right?
+
+Until I figured that it didn't pass my stop at all when we where already halfway into San Jose.
+I got out somewhere, and took a bus back to Alajuela.
+Of course no one spoke English, so hands and feet all the way.
+
+In the bus I asked some stranger where to get off. Nothing looked familiar.
+We did not understand each other very well, but he ended up walking me all the way to the hotel.
+Wow.
+
+I ate a pizza and set an alarm for 3 AM.
+
 ### Future
 
 To be continued...
