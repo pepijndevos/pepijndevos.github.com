@@ -552,6 +552,34 @@ Wow.
 
 I ate a pizza and set an alarm for 3 AM.
 
+### Day ???+4
+
+I woke up at 3 AM as planned, took a cold shower (involuntarily) and went to the lobby.
+I took the shuttle to the airport as planned.
+
+For some reason you have to go through some extra hoops in San Jose to pay some tax, which means standing in line.
+After more standing in line, I reached the gate, breakfasted, got on the plane, landed it Atlanta.
+
+In Atlanta I had to go through a lot more lines where I had to show papers, fill in more papers, answer questions and show more papers.
+
+Somewhere in the middle of those lines, I figured my plane was going to leave in 20 minutes, with some more lines to go.
+Some airport staff told me to go to the Delta desk and get a new ticket.
+The Delta desk told me that I had been looking at the *boarding time* not *departure time*, so I would make it... if I hurried.
+
+They where already well into the boarding process when I arrived at the gate.
+No lunch for me I guess.
+
+The plane to Detroit was almost empty, so I had a whole row to myself to relax.
+Detroit itself is miles and miles of suburban sprawl.
+I wonder how you'd find back your own house. Memorize the number I guess.
+
+The airport itself was nice. Because this was a domestic flight, there where no lines.
+Just walk to the other gate, get some food, and wait.
+
+I'm now on the plane to Schiphol, with about 6 hours to go.
+I hope to get some sleep after diner has been served.
+"tomorrow" will be a tough day.
+
 ### Future
 
 To be continued...
