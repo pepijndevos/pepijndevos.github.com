@@ -580,6 +580,11 @@ I'm now on the plane to Schiphol, with about 6 hours to go.
 I hope to get some sleep after diner has been served.
 "tomorrow" will be a tough day.
 
-### Future
+### Day ???+5
 
-To be continued...
+This story doesn't have a happy ending.
+As soon as I stepped out of the plane I felt a little sick.
+At work I threw up.
+I went home and spent the rest of the day in bed.
+
+Still, I had a great time. And while I feel miserable, I'm quite cheerful.
