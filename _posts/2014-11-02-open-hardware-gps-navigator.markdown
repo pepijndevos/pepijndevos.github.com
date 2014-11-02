@@ -54,6 +54,6 @@ It turns out that the reason is that at the edge of every cluster(4KB), it needs
 
 But knowing that my file is contiguous, I could use a low-level function to read raw blocks. This was a **major** improvement, and allows maps at low zoom levels to be drawn in under a second.
 
-The current status is that it can draw a map based on your location, show your speed and some other metrics, and zoom in and out.
+The current status is that it can draw a map based on your location, show your speed and some other metrics, and zoom in and out. [Source code lives here](https://github.com/pepijndevos/bicycle_gps)
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/QvVO6pY9WNY" frameborder="0" allowfullscreen> </iframe>
