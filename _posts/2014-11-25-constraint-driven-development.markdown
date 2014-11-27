@@ -22,13 +22,13 @@ Someone told me it fits on a floppy, which I found is true.
 
 Consequently, it contains wonderful things like this.
 
-    /*
-    ** [A recursive backpropagation algorithm with backtracking, employing
-    ** skip-list lookup and round-robin caching, emitting stack operations
-    ** on-the-fly for a stack-based interpreter -- and all of that in a meager
-    ** kilobyte? Yep, compilers are a great treasure chest. Throw away your
-    ** textbooks and read the codebase of a compiler today!]
-    */
+    
+ > [A recursive backpropagation algorithm with backtracking, employing
+ > skip-list lookup and round-robin caching, emitting stack operations
+ > on-the-fly for a stack-based interpreter -- and all of that in a meager
+ > kilobyte? Yep, compilers are a great treasure chest. Throw away your
+ > textbooks and read the codebase of a compiler today!]
+    
 
 Once upon a time, Guy Steele set a high tax on special forms (syn-tax, ha, ha...),
 and consequently invented Scheme.
