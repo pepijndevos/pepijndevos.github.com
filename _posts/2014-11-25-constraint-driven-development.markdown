@@ -32,7 +32,7 @@ Consequently, it contains wonderful things like this.
 
 Once upon a time, Guy Steele set a high tax on special forms (syn-tax, ha, ha...),
 and consequently invented Scheme.
-Later,`John Shutt thought that wasn't enough, and invented Kernel.
+Later, John Shutt thought that wasn't enough, and invented Kernel.
 Clojure on the onther hand, is only constrained to be practical.
 
 What is your favourite piece of constrained software?
