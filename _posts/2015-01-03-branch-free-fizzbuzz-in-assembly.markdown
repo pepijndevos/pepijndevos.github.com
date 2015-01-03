@@ -9,7 +9,7 @@ categories:
 I came across [this post](http://gigasquidsoftware.com/blog/2014/11/13/clojure-fizzbuzz-without-conditionals/) that discusses ways to write FizzBuzz in Clojure without using conditionals. However, most if not all of the solutions still do a lot of branching behind the scenes. Think of hash lookups for example.
 
 So I asked to myself, how can I write a FizzBuzz solution with no branches at all?
-Probably not in Clojure; you can't easily tell where its branching or not.
+Probably not in Clojure; you can't easily tell where it is branching or not.
 
 The only way to be absolutely sure is to write it in assembly. So I did.
 I never did assembly before, so it might be terrible code.
