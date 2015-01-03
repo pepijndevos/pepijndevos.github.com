@@ -29,7 +29,7 @@ To compile on a 64 bit machine:
 
 {% highlight bash %}
 nasm -f elf64 fizzbuzz.asm
-ln -o fb fizzbuzz.o
+ld -o fb fizzbuzz.o
 ./fb
 {% endhighlight %}
 
