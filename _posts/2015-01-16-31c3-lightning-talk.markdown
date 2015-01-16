@@ -13,6 +13,6 @@ I’ve been putting off writing this post for far to long, because I’m to busy
 
 [Slides](http://wishfulcoding.nl/edentifier.pdf)
 
-{% highlight pyton %}
+{% highlight python %}
 {% include code/usbedent.py %}
 {% endhighlight %}
