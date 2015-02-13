@@ -6,7 +6,7 @@ categories:
 - arduino
 ---
 
-<iframe width=“560” height=“315” src=“https://www.youtube.com/embed/XlqMkfmCZfM” frameborder=“0” allowfullscreen> </iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XlqMkfmCZfM" frameborder="0" allowfullscreen> </iframe>
 
 Isn’t it frustrating that some of the Pokemon in the first generation Game Boy games are [exclusive to one of the games](http://bulbapedia.bulbagarden.net/wiki/Pokémon_Red_and_Blue_Versions#Version_exclusives)?
 There is no way to get Oddish in Blue and no way to get Bellsprout in Red.
