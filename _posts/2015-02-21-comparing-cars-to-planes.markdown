@@ -26,7 +26,7 @@ The controls of a plane are slightly more difficult than the car, but there aren
 
 Planes live in this dual world. They can drive on the ground and use the infrastructure, but it’s really kind of awkward to drive your plane.
 
-The [in-air infrastructure](https://www.youtube.com/watch?v=KSuBiVHLPYo) is mind—blowing, but sometimes you need to land to get stuff done.
+The [in-air infrastructure](https://www.youtube.com/watch?v=KSuBiVHLPYo) is mind-blowing, but sometimes you need to land to get stuff done.
 
 ### Conclusion
 
