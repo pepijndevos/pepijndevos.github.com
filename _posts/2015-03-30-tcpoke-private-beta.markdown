@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TCPoke Private Beta
+title: TCPoke Beta
 categories:
 ---
 
