@@ -152,12 +152,14 @@ li p {
 
 #search {
 	position: absolute;
+        z-index: 0;
 	top: 20px;
 	right: 20px;
 }
 
 @media (max-width:1100px) {
         aside {
+            z-index: 1;
             left: 0;
             width: 100%;
             padding-top: 0;
@@ -165,7 +167,7 @@ li p {
         aside #chain {
             margin-left: 50px;
             position: relative;
-            margin-bottom: -70px;
+            margin-bottom: -110px;
         }
 
         aside #drawer {
