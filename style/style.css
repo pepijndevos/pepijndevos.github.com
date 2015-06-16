@@ -149,6 +149,19 @@ li p {
 	right: 20px;
 }
 
+/* ipython */
+
+.cell .output_subarea {
+  overflow: hidden;
+}
+
+.cell .prompt {
+  float: left;
+  margin-left: -60px;
+  width: 60px;
+  text-align: right;
+}
+
 /* pygments */
 .hll { background-color: #ffffcc }
 .c { color: #408080; font-style: italic } /* Comment */
