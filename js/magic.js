@@ -1,5 +1,3 @@
-var timeout = false;
-
 function search(data) {
 	var results = document.getElementById("searchresults");
 	results.innerHTML = "";
@@ -37,6 +35,15 @@ function run() {
 		this.appendChild(script);
 		return false;
 	}
+
+        var drawer = document.getElementById("drawer");
+        document.getElementById("chain").onclick = function(event) {
+            if(drawer.className == "open") {
+                drawer.className = "";
+            } else {
+                drawer.className = "open";
+            }
+        }
 }
 
 window.onload = run;

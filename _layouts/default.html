@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="readability-verification" content="3hEySDTZsM3WZZACwSUg4M39hFupkschurJmMTVV"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
 		<title>{{ page.title }} - {{ site.title }}</title>
 
@@ -38,25 +39,27 @@
 		</div>
 		
 		<aside>
-			<img src="/style/chain.jpg" id="chain" alt="Click to scroll" />
-			<h4><a href="/about.html">About</a></h4>
-			<h4><a href="http://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via=pepijndevos">Share this page on Twitter</a></h4>
-			{% if site.related_posts %}
-			<h4>Remotely related posts</h4>
-			<ul>
-				{% for post in site.related_posts limit:3 %}
-				<li><a href="{{ post.url }}">{{ post.title }}</a></li>
-				{% endfor %}
-			</ul>
-			{% endif %}
-			<h4>Follow me with</h4>
-			<ul>
-				<li><a href="http://twitter.com/pepijndevos">Twitter</a></li>
-				<li><a href="http://www.facebook.com/pepijndevos">Facebook</a></li>
-				<li><a href="http://github.com/pepijndevos">Github</a></li>
-				<li><a href="/atom.xml">Atom</a></li>
-			</ul>
-      <p style="width:200px;">Psst! I'm looking for a job at the intersection of software and the physical world.</p>
+                        <div id="drawer">
+                            <h4><a href="/about.html">About</a></h4>
+                            <h4><a href="http://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via=pepijndevos">Share this page on Twitter</a></h4>
+                            {% if site.related_posts %}
+                            <h4>Remotely related posts</h4>
+                            <ul>
+                                    {% for post in site.related_posts limit:3 %}
+                                    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                                    {% endfor %}
+                            </ul>
+                            {% endif %}
+                            <h4>Follow me with</h4>
+                            <ul>
+                                    <li><a href="http://twitter.com/pepijndevos">Twitter</a></li>
+                                    <li><a href="http://www.facebook.com/pepijndevos">Facebook</a></li>
+                                    <li><a href="http://github.com/pepijndevos">Github</a></li>
+                                    <li><a href="/atom.xml">Atom</a></li>
+                            </ul>
+                            <p style="width:200px;">Psst! I'm looking for a job at the intersection of software and the physical world.</p>
+                        </div>
+			<img src="/style/chain.jpg" id="chain" alt="Click to open menu" />
 		</aside>
 		{% include search.html %}
 		<footer>&copy; 2010 Pepijn de Vos</footer>
