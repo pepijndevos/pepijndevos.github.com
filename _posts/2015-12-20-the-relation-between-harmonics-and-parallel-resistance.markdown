@@ -51,7 +51,7 @@ So what if instead of starting with $$\sqrt[12]{2}$$, we start with integer mult
 
 $$ \frac{1}{1}, \frac{2}{1}, \frac{3}{2}, \frac{4}{2}, \frac{5}{3}, \frac{6}{3}, \frac{7}{4}, \frac{8}{4}, \frac{9}{5} \ldots $$
 
-Pluggin that into the parallel resistance equation, we can begin to search for exact harmonics giving exact harmonics.
+Plugging that into the parallel resistance equation, we can begin to search for exact harmonics giving exact harmonics.
 
 {% highlight matlab %}
 harm = 1:31;
@@ -97,7 +97,7 @@ And we can indeed verify that two resistors with a 2:1 ratio give a fifth (3:2):
 
 $$f=\frac{1 + 2}{1 \cdot 2}=\frac{3}{2}$$
 
-Likewise a resistor ratio for a firth gives a major third (5:3)
+Likewise a resistor ratio for a fifth gives a major third (5:3)
 
 $$f=\frac{1 + \frac{3}{2}}{1 \cdot \frac{3}{2}}=\frac{5}{3}$$
 
