@@ -102,3 +102,17 @@ Likewise a resistor ratio for a fifth gives a major third (5:3)
 $$f=\frac{1 + \frac{3}{2}}{1 \cdot \frac{3}{2}}=\frac{5}{3}$$
 
 Math, music, physics. So beautiful.
+
+**Update:**
+
+As pointed out by Darius Bacon, this might not be a complete surprise, as there is a striking similarity between parallel resistance and the [harmonic mean](https://en.wikipedia.org/wiki/Harmonic_mean).
+
+$$H = \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \cdots + \frac{1}{x_n}} \\
+R_\mathrm{total} = \frac{1}{\frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n}}\\$$
+
+Wikipedia also has the following to say about the [harmonic series](https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)):
+
+> Its name derives from the concept of overtones, or harmonics in music: the wavelengths of the overtones of a vibrating string are 1/2, 1/3, 1/4, etc., of the string's fundamental wavelength. **Every term of the series after the first is the harmonic mean of the neighbouring terms**; the phrase harmonic mean likewise derives from music.
+
+$$\sum_{n=1}^\infty\,\frac{1}{n} \;\;=\;\; 1 \,+\, \frac{1}{2} \,+\, \frac{1}{3} \,+\, \frac{1}{4} \,+\, \frac{1}{5} \,+\, \cdots$$
+
