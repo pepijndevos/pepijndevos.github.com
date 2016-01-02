@@ -96,14 +96,10 @@ aside li {
 	top: 0;
 	left: -600px;
 	z-index: -1;
-        -webkit-animation:spin 600s linear infinite;
-        -moz-animation:spin 600s linear infinite;
-        animation:spin 600s linear infinite;
+        animation: spin 600s steps(3600) infinite;
 }
 
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@keyframes spin { 100% { transform:rotate(360deg); } }
 
 .alignleft {
 	float: left;
