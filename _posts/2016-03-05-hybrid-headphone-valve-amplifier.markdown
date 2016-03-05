@@ -43,20 +43,6 @@ But valves are always biased with negative voltages, even though a positive volt
 
 As can be seen, for positive grid voltages, the control grid starts to leak current to the cathode, which is undesirable. But as described in the linked PDF, this current itself can be used to bias the valve.
 
-### Initial design
-
-Initially, I'm mostly going to use the design of the linked headphone amp and iterate based on that. There is one major change though.
-
-While transistors operated in the saturated region don't depend on drain/collector voltage, valve anode current depends linearly on anode voltage.
-
-As described, the linked headphone amplifier uses a variable resistor that is tuned such that at rest the output voltage sits at the center of the available range, meaning there is only 6v across the valve instead of 12v.
-
-Instead I used a current mirror so that there is a constant 11.4v across the valve. The current is then mirrored to the other BJT, where it drops over the resistor connected to the buffer to create the output signal.
-
-Normal cathode biassing is used for now, but grid-leak biassing will also be tested later.
-
-![Initial amp design](/images/valve/schematic1.png)
-
 ### Class war
 
 I read a lot about the advantages and disadvantages of A-class, B-class and AB-class amplifiers, but most of it is not very scientific.
@@ -99,10 +85,42 @@ From this you can clearly see that odd B-class harmonics are identical to the A-
 
 Of coures, you can build either class with very low distortion, but for the same biasing/distortion level, B-class will have less overall distortion, but concentrated entirely in odd harmonics. Meanwhile, A-class has a more balanced harmonic distribution, which might sound more pleasing if the overall distortion is low enough.
 
+### Initial design
+
+Initially, I'm mostly going to use the design of the linked headphone amp and iterate based on that. There is one major change though.
+
+While transistors operated in the saturated region don't depend on drain/collector voltage, valve anode current depends linearly on anode voltage.
+
+As described, the linked headphone amplifier uses a variable resistor that is tuned such that at rest the output voltage sits at the center of the available range, meaning there is only 6v across the valve instead of 12v.
+
+Instead I used a current mirror so that there is a constant 11.4v across the valve. The current is then mirrored to the other BJT, where it drops over the resistor connected to the buffer to create the output signal.
+
+Normal cathode biasing is used for now, but grid-leak biasing will also be tested later.
+
+![Initial amp design](/images/valve/schematic1.png)
+
+### AB-class design
+
+The gain stage for this design is unchanged, but an AB-class output stage is added.
+
+It turns out the input impedance of the output stage is $$1k//1k=500\Omega$$, which created a nice current divider with the current mirror. So I had to add another follower stage as a buffer.
+
+![Initial amp design](/images/valve/schematic2.png)
+
 ### Execution
 
-The initial design was built and successfully amplified the output of my brothers electric guitar to a headphone. There is some power supply hum and a high-pitches noise on the output though. So further testing is needed.
+I built the first design and after making sure it looks okay on the oscilloscope I connected it to an electric guitar and an old pair of headphones, and it worked!
 
-![Amp output](/images/valve/Valve_signal.PNG)
+Initially I used a cheap wall wart to power the amplifier, but this gave a lot of noise and hum. Now I switched to an old PC power supply, which is not perfect either, but at least the 50Hz hum is gone.
+
+For the A-class circuit the THD is about 1% to 2% depending on god knows what.
+
+![Amp output](/images/valve/Valve_A_THD.PNG)
+
+The AB-class circuit does not have the nice space-heater output stage, and performs slightly worse than the A-class circuit with a THD of around 2% to 3%.
+
+Interestingly, the harmonics are about the same. Both have strong even harmonics and nearly no odd harmonics. Whether these harmonics are caused by the gain or the output stage remains to be seen. So much for theory I guess.
+
+![Amp output](/images/valve/Valve_AB_THD.PNG)
 
 To be continued...
