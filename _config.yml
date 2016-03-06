@@ -1,4 +1,4 @@
-highlighter: pygments
+highlighter: rouge
 paginate: 3
 markdown: kramdown
 
