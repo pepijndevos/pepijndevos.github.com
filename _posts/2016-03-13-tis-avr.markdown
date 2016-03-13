@@ -1,0 +1,51 @@
+---
+layout: post
+title: TIS-AVR
+categories:
+- avr
+- arduino
+- raspberrypi
+- python
+- c
+- gaming
+---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SeCm93f2GXo" frameborder="0" allowfullscreen> </iframe>
+
+Last week I played some [TIS-100](http://www.zachtronics.com/tis-100/), an assembly puzzle game where you are left to debug a fantasy computer with only the manual to guide you.
+
+The TIS-100 is composed of many small nodes running a very limited assembly language with only one addressable register. Every node can however read and write data to its 4 neighbors.
+
+After finishing the game, I remembered [this talk by Chuck Moore](http://www.infoq.com/presentations/power-144-chip) on programming a grid of tiny Forth computers, not entirely unlike TIS-100, except more practical.
+
+What if you could make an actual TIS-100? Not just an emulator, but an actual thing that sits on your desk. I set out to try.
+
+I went to the [electronics store](https://www.scintilla.utwente.nl/nl/stores) and asked for a hand full of Attiny chips, which cost about one Euro each. They gave me some Attiny25, with 2Kb of flash, 128 bytes of ram, and 6 output pins.
+
+I figured that with 4 neighbors and a clock line, I'd have exactly enough pins. But I'd have to do bi-directional communication over a single wire. So I decided on a pull-up design.
+
+For now I'll use the Raspberry Pi for input and output of the grid, but there is no reason this task can't be delegated to another AVR chip and some buttons and 7-segment displays.
+
+After a day of hacking, I can program 2 Attinies to double a number and pass it on. To run the more advanced puzzles, I'll need a better way to upload code and more Attinies. I have yet to implement the stack memory node as well.
+
+This is the code the two node currently run. (hardcoded)
+
+{% highlight C %}
+Command program[15] = {
+  {MOVr, UP, ACC},
+  {ADDr, ACC, 0},
+  {MOVr, ACC, DOWN},
+  {JMP, 0, 0}
+};
+{% endhighlight %}
+
+When you send a number, this is what happens.
+
+{% highlight bash %}
+pi@raspberrypi ~ $ sudo python tis-console.py 
+Number: 9
+done sending
+Result:  36
+{% endhighlight %}
+
+[The source code is on Github](https://github.com/pepijndevos/TIS-AVR)

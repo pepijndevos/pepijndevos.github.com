@@ -19,6 +19,6 @@ This is not a new idea, but one that was previously considered impossible. The G
 
 This trick is specific to the first and maybe second generation of Pokemon games, and it is a lot slower than a direct Link Cable, but it works nonetheless!
 
-It’s not quite ready yet, so a post with more details is coming soon. Keep an eye on my [RSS](http://pepijndevos.nl/atom.xml), [Twitter](http://twitter.com/pepijndevos) or [Youtube](https://www.youtube.com/channel/UCsHqIpVIUniKlk1Wmr_Ag6w).
+It’s not quite ready yet, so a post with more details is coming soon. Keep an eye on my [RSS](http://pepijndevos.nl/feed.xml), [Twitter](http://twitter.com/pepijndevos) or [Youtube](https://www.youtube.com/channel/UCsHqIpVIUniKlk1Wmr_Ag6w).
 
 The gist of it is that a Teensy puts the Game Boy in slave mode and forwards the data over USB HID to a Chrome App that uses WebRTC to transfer the data over the internet.
