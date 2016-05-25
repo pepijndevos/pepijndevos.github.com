@@ -26,6 +26,8 @@ You could say that a bird is so perfect it could only have been designed by an o
 
 But they are still just concepts applied to observations. Models that help us think about our universe. But [the map is not the territory](https://en.wikipedia.org/wiki/Map%E2%80%93territory_relation), which for me means that a model should not be judged by its accuracy, but by how useful it is to think about a problem.
 
+Ancient Greek medicine, which centered about balancing the [four bodily humours](https://en.wikipedia.org/wiki/Humorism), often lead to treatments that would do the right thing for what we currently consider the wrong reason. It must have been a very useful model that saved countless lives up until after the middle ages despite its inaccuracy.
+
 Maxwell's equations might describe the whole domain of electromagnetism very accurately, but using it to design an electric circuit is impractical. The equations of Ohm and Kirchhoff will serve you better.
 
 One day science might make a map that *is* the territory (they seem to be trying very hard at least), but it will not help you think about ethical and moral dilemma or the meaning of life. The stories told in your spiritual book of choice are much more practical for those kinds of problems.
