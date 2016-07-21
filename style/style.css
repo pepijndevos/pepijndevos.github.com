@@ -119,6 +119,22 @@ pre {
 	font-weight: normal;
 }
 
+blockquote {
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-style: italic;
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+
 .gist {
     font-size: 80%;
 }
