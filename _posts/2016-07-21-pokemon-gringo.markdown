@@ -22,7 +22,7 @@ It's kind of glitchy and broken, but the [diff](https://github.com/pret/pokered/
 
 Next up I modified Bill's Arduino state machine to recognize the new menu item and added some GPS code. Again, it took a few hours, but the [diff](https://github.com/pepijndevos/arduino-boy/compare/pokemon_go) is again relatively small. (Except for this huge chunk of Pokemon level and location data I extracted from pokered)
 
-But at this point I only had the code running in GBG/Gambatte (which I even [modified](https://gist.github.com/pepijndevos/801b676be479cd2df4b8b4d236220b4e) to emulate BIll's Arduino), so I had to order a [flash cart](http://store.kitsch-bent.com/product/usb-64m-smart-card) to load the modified ROM onto my Gameboy. After camping on the doormat for a week, ignoring friends and family and only leaving the house outside delivery hours, today I finally received the cart and could begin testing on real hardware.
+But at this point I only had the code running in BGB/Gambatte (which I even [modified](https://gist.github.com/pepijndevos/801b676be479cd2df4b8b4d236220b4e) to emulate BIll's Arduino), so I had to order a [flash cart](http://store.kitsch-bent.com/product/usb-64m-smart-card) to load the modified ROM onto my Gameboy. After camping on the doormat for a week, ignoring friends and family and only leaving the house outside delivery hours, today I finally received the cart and could begin testing on real hardware.
 
 ![First boot](/images/pokmongringo.jpg)
 
