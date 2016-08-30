@@ -8,7 +8,7 @@ categories:
 
 Pokemon GO for old '90 kids based on Pokemon Gold[^1].
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9bPK5u8G4lk" frameborder="0" allowfullscreen> </iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T-5NcJOQtjA" frameborder="0" allowfullscreen> </iframe>
 
 When I did [Pokemon Gringo](/2016/07/21/pokemon-gringo.html) I used Pokemon Red with an Arduino, GPS, and external battery. It worked, but it was kind of unwieldy and unreliable.
 
