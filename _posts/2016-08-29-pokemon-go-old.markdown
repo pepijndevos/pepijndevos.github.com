@@ -14,9 +14,11 @@ When I did [Pokemon Gringo](/2016/07/21/pokemon-gringo.html) I used Pokemon Red 
 
 This hack solves all those problems. It's based on Pokemon Crystal, and relies on a pedometer that is directly connected and powered by the Game Boy.
 
-Unlike Pokemon Gringo, where you just see a blank screen and get random Pokemon battles, Pokemon GO Old is the complete Pokemon game in full sound and color, except you have to be physically walking to walk in the game.
+Unlike Pokemon Gringo, Pokemon GO Old features the complete Pokemon game-play in full sound and color, except you have to be physically walking to walk in the game.
 
-I made one other small change as a joke.
+This means you get to hatch eggs by walking! Assuming a game step equals one meter[^2], it'd take [1Km (Magikarp) to 10Km (Dratino)](http://www.psypokes.com/gsc/breeding.php) to hatch an egg.
+
+I made one other small change to bring character selection up to date with current standards.
 
 ![choose your style](/images/gbstep/poke.gif)
 
@@ -41,4 +43,5 @@ The Game Link cable connects directly to the LIS3DH, but a small circuit is requ
 ![buffer](/images/gbstep/buffer.png)
 
 [^1]: Actually Crystal, but everything for the pun.
+[^2]: You take about 2 game steps in a real step, but no steps during battles.
 
