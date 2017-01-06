@@ -9,7 +9,10 @@ With hundreds of blog posts and github repositories, you'd be forgiven for only 
 
 Just some things I wrote for my own entertainment.
 
- * [TCPoke](/TCPoke/) allows you to connect your Game Boy to the Internet and trade Pokemon. It spans everything form custom hardware, z80 assembly, embedded C++, full-stack web development, and a bit of entrepreneurship. It grew from [one hack](/2015/02/13/catch-em-all.html) and lead to [several other](/2016/08/29/pokemon-go-old.html) Game Boy projects.
+ * [TCPoke](/TCPoke/) allows you to connect your Game Boy to the Internet and trade Pokemon. It spans everything form custom hardware, z80 assembly, embedded C++, full-stack web development, and a bit of entrepreneurship. 
+      * [Bill's Arduino](/2015/02/13/catch-em-all.html) laid the groundwork for Game Link spoofing.
+      * [GB Paint](/2016/08/09/game-boy-paint.html) deepened my knowledge about assembly programming and the Game Boy hardware.
+      * [Pokemon Go Old](/2016/08/29/pokemon-go-old.html) used that knowledge to make a Pokemon Go clone on the Game Boy.
  * [Bicycle GPS](/2014/11/02/open-hardware-gps-navigator.html) Using a custom file format and lots of optimizations, I was able to render gigabytes of OpenStreetMap data on a kilobyte-sized Arduino Mega.
  * [Dwergmuis](https://www.flickr.com/photos/pepijndevos/sets/72157642384113763) I made my own computer mouse. It's not rocket science, but I'm proud of the result.
  * [Solar System Simulation](/2015/02/05/simulating-the-solar-system.html) A Processing sketch that simulates the solar system based on data form NASA.
