@@ -6,16 +6,16 @@ I hereby claim:
 
   * I am an admin of http://pepijndevos.nl
   * I am pepijndevos (https://keybase.io/pepijndevos) on keybase.
-  * I have a public key with fingerprint 3B65 F224 6FBE DE18 FCE8  2311 4636 9C5D E962 3F94
+  * I have a public key ASBpP2Q0oF7CcBPSYl0l_NpOp8w0ugwR7RtEfAIINUWqHwo
 
-To claim this, I am signing this object:
+To do so, I am signing this object:
 
 {
     "body": {
         "key": {
-            "fingerprint": "3b65f2246fbede18fce8231146369c5de9623f94",
+            "eldest_kid": "0120693f6434a05ec27013d2625d25fcda4ea7cc34ba0c11ed1b447c02083545aa1f0a",
             "host": "keybase.io",
-            "key_id": "46369c5de9623f94",
+            "kid": "0120693f6434a05ec27013d2625d25fcda4ea7cc34ba0c11ed1b447c02083545aa1f0a",
             "uid": "d48a4dba60388d2769531684b5872200",
             "username": "pepijndevos"
         },
@@ -26,41 +26,25 @@ To claim this, I am signing this object:
         "type": "web_service_binding",
         "version": 1
     },
-    "ctime": 1407786098,
-    "expire_in": 157680000,
-    "prev": "5c7661ee89f6296f1c8bdf2ddf0d898b48dd6d9ff3014cc58e181edc7aa9a2a7",
-    "seqno": 5,
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.18"
+    },
+    "ctime": 1487673533,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1487673497,
+        "hash": "9f1ae5b1ef9e4fab717b3cb1a507fb7ea1b6c17fd42ba50cb518ece9ace9223bf5c7669d456d316e1c81461dd4507dcae33962132b0c085d2964e826813480fe",
+        "seqno": 910097
+    },
+    "prev": "b247bbd3e46ac3a6aced4407a26b7b13d5f1afd4874d38b55d00c54863cdc371",
+    "seqno": 13,
     "tag": "signature"
 }
 
-with the aforementioned key, yielding the PGP signature:
+which yields the signature:
 
------BEGIN PGP MESSAGE-----
-Version: GnuPG/MacGPG2 v2.0.20 (Darwin)
-Comment: GPGTools - https://gpgtools.org
-
-owGbwMvMwMXoZjYn9mWS/RTG0we+JzEEv5SprFZKyk+pVLKqVspOBVNpmXnpqUUF
-RZl5JUpWSsZJZqZpRkYmZmlJqSmphhZpyakWRsaGhiZmxmaWyaYpqZZmRsZpliZK
-OkoZ+cUgHUBjkhKLU/Uy84FiQE58ZgpQFIv6UrBEiolFoklKUqKZgbGFRYqRuZml
-qbGhmYVJkqmFuZGRgQFIYXFqUV5ibipQdUFqQWZWXkpqWX6xUq2OElCiLDM5FeRs
-kO2YivTycoAGFBTll+Qn5+cA5TJKSgqsQFpLKgtAastTk+KhpsQnZealAD0P1FCW
-WlScmZ+nZGUIVJlckgky1tDEwNzcwszA0kJHKbWiILMoNT4TpMLU3MzCAAhA1qSW
-AY00TTY3MzNMTbWwTDMzsjRLM0y2SEpJM0pJSTNIsbC0SDKxSEkxS7FMSzM2MDRJ
-Tja1AAarYWpKsnliomWiUaK5EshfhXn5SlamQGcmpgONLM5Mz0ssKS1KVarl6mSS
-YWFg5GJgY2UCxR8DF6cALFYfywswNL/7GRe8rLI/4VHjJcb3l6T9VgWXr5/ckXdM
-ofLyJ5ObzX8+6J9OunHQQfdOYuKRbXk/ur6J5z1ccJTLr3+Tfat+3YUlUTyPWhRm
-3hU6nKNtunpvmbfJqbpXSxSOdO85Y7PuDvPxu7nlPY+M//rGZtzlufN6hv73qTXs
-++v6u/76SH4KqNO1eThpDr9oaJbSOv6qKZoHn6s7yhgd+WXFoFXgGLzJ1S1PV//0
-xj97zL9l2t+La55yb8Pqm9pt1qlhN1VZzk8M+hpYeTbbxPHAlvJKjjtlD26vZp9h
-fpElT+TE3cK0FvPL8Zf+JpSLS+44JMzmeCk6vZPnU+alNzPaBZqNufN1DlzXW2Ib
-/33nQ8dfy5om3o1/d2/9pd1moZzHr3ckuv3cebwgmWVCge6NZwYxwcbXYnuKdl7h
-LeztWH01SmjNySvH+B2vNpyfIKLe0ty88LjclKeBFct/zM1V+zNf/Vb12mNZc7aU
-68w/EPxa8O+Dleq5czf2vFl7eHV/Z8+pyL4opk/yZp9TGGXCTG7aZNseSjxXUJD3
-cN36YPU+syu3bsY8P/ZyUduqCHW7IHXO1b4Z51prHoaVOWZu+pn06WsTY6Js01V5
-9+RDk1d0MS3cu/H1mtcKB9d8EpGZlHHYO9bBiDfse6S+1bl3y5PnyXn13Ba97cu3
-WcN43nrDykfvz6/2DxSfO2di6KEQw3dBVWsc9Bf3NsX8AwA=
-=ilpE
------END PGP MESSAGE-----
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgaT9kNKBewnAT0mJdJfzaTqfMNLoMEe0bRHwCCDVFqh8Kp3BheWxvYWTFAvl7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwNjkzZjY0MzRhMDVlYzI3MDEzZDI2MjVkMjVmY2RhNGVhN2NjMzRiYTBjMTFlZDFiNDQ3YzAyMDgzNTQ1YWExZjBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNjkzZjY0MzRhMDVlYzI3MDEzZDI2MjVkMjVmY2RhNGVhN2NjMzRiYTBjMTFlZDFiNDQ3YzAyMDgzNTQ1YWExZjBhIiwidWlkIjoiZDQ4YTRkYmE2MDM4OGQyNzY5NTMxNjg0YjU4NzIyMDAiLCJ1c2VybmFtZSI6InBlcGlqbmRldm9zIn0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJwZXBpam5kZXZvcy5ubCIsInByb3RvY29sIjoiaHR0cDoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMTgifSwiY3RpbWUiOjE0ODc2NzM1MzMsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTQ4NzY3MzQ5NywiaGFzaCI6IjlmMWFlNWIxZWY5ZTRmYWI3MTdiM2NiMWE1MDdmYjdlYTFiNmMxN2ZkNDJiYTUwY2I1MThlY2U5YWNlOTIyM2JmNWM3NjY5ZDQ1NmQzMTZlMWM4MTQ2MWRkNDUwN2RjYWUzMzk2MjEzMmIwYzA4NWQyOTY0ZTgyNjgxMzQ4MGZlIiwic2Vxbm8iOjkxMDA5N30sInByZXYiOiJiMjQ3YmJkM2U0NmFjM2E2YWNlZDQ0MDdhMjZiN2IxM2Q1ZjFhZmQ0ODc0ZDM4YjU1ZDAwYzU0ODYzY2RjMzcxIiwic2Vxbm8iOjEzLCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQJMFOKvuw6xsszSB+BBIwVbIw0jeShk2gri98jf4ybobPCqZpDCcSKuCklG/Kei5rD+jhg6uTzootwDe3uyRygeoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCDHvK/IX2AOPlf2yVGpVwQgwMKFcy3fbV47nooqGtCa2KN0YWfNAgKndmVyc2lvbgE=
 
 And finally, I am proving ownership of this host by posting or
 appending to this document.
