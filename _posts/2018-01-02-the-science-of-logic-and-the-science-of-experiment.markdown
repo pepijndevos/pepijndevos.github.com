@@ -21,10 +21,10 @@ One step down are experiments that others have done and verified, that make a lo
 
 Then there are things that I have no idea about, one way or another. In these cases it just comes down to who I trust. Ideally, peer-reviewed journals should provide a high degree of trust, but in the face of the current reproducibility crisis, prestige-driven research, and questionable industry ties, one might start to wonder how trustworthy some research really is.
 
-I have absolutely no clue about quarks, quantum entanglement, black matter, the big bang, and many other things. It's just so far removed from anything I can see and touch. I have no reason to doubt these things, so I trust them to be more or less true until a better story comes around.
+I have absolutely no clue about quarks, quantum entanglement, black matter, the big bang, and many other things. When you start telling me the world is really 12 dimensions but they're rolled up in a ball, that's very, very far removed from anything I can see and touch. I have no reason to doubt these things, so I trust them to be more or less true until a better story comes around.
 
-I have absolutely no clue if vaccines cause autism. Scientific community mostly says no, (to say yes would probably ruin your career), anecdotal evidence (from educators I personally know) says yes. I'll worry about that debate when I have children, as I don't really know or care.
+A more problematic case is the Healthcare industry, which makes money as long as you're not healthy. There is a lot of questionable and contradictory information out there form all sides. So it's not surprising there is an antivacc movement that trusts anecdotal evidence above published research.
 
-And finally, there are things where the scientific community kind of misses the point, in my opinion. To call homeopathy a placebo effect is correct as far as I'm concerned, but it glosses over some remarkable detail: The way you think about a medicine apparently influences how well you feel.
+And finally, there are things where the scientific community kind of misses the point. It might be that homeopathy is just placebo effect, but it glosses over some remarkable detail: The way you think about a medicine apparently influences how well you feel.
 
 This seems to me like a profound concept, indicating that body and mind influence each other. This is what I would call the holistic axiom, that everything influences everything. It underpins many alternative concepts such as homeopathy and astrology, that have elevated the study of these connections to an art form.
