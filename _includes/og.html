@@ -16,7 +16,7 @@
   <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
 {% endif %}
 {% if page.image %}
-  <meta content="{{ page.image }}" property="og:image">
+  <meta content="{{ site.url }}{{ page.image }}" property="og:image">
 {% endif %}
 {% if page.tags %}
   {% for tag in page.categories %}
