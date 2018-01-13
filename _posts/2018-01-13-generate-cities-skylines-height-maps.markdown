@@ -15,7 +15,7 @@ However, the readme on the files explained the data sources and the file format 
 
 ![comparison](/images/heightmap.gif)
 
-My script is based on exactly the same SRTM3 data als used by [terrain.party](http://terrain.party) (amongst other sources), but produces much nicer shorelines as well as smoothing the raw data to avoid that pixelated look. There are also a lot of other parameters to tweak.
+My script is based on exactly the same [SRTM3](https://www2.jpl.nasa.gov/srtm/) data als used by [terrain.party](http://terrain.party) (amongst other sources), but produces much nicer shorelines as well as smoothing the raw data to avoid that pixelated look. There are also a lot of other parameters to tweak.
 
 After some searching, I found the [Mapzen's S3 bucket](https://aws.amazon.com/public-datasets/terrain/) which offers easy access to the void-filled, 30m resolution SRTM3. But the real key to smooth shorelines is the [SRTM Water Body Data](https://dds.cr.usgs.gov/srtm/version2_1/SWBD/SWBD_Documentation/Readme_SRTM_Water_Body_Data.pdf), which I used to mask out the water with a negative altitude. As a finishing touch I applied a light Gaussian blur to the upscaled data to remove the hard edges.
 
@@ -23,4 +23,4 @@ After some searching, I found the [Mapzen's S3 bucket](https://aws.amazon.com/pu
 
 Initially I developed the script under Linux, but switching to Windows for testing with the actual game was surprisingly painless, once I installed Anaconda. Anaconda takes care of compiling all the annoying C extensions, which is a huge relief. I highly recommend it.
 
-For my personal use, some parameters and assumptions were just hardcoded, but I've since added a simple command-line interface so yo can adjust the size of the map, how much blur is applied, height scale and offset, and disable shoreline fixes.
+For my personal use, some parameters and assumptions were just hardcoded, but I've since added a simple command-line interface so you can adjust the size of the map, how much blur is applied, height scale and offset, and disable shoreline fixes.
