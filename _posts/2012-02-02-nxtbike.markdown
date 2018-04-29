@@ -1,0 +1,29 @@
+---
+author: pepijndevos
+comments: true
+date: 2012-02-02 18:12:41+00:00
+excerpt: None
+layout: post
+link: http://studl.es/2012/02/nxtbike/
+slug: nxtbike
+title: NXTbike
+wordpress_id: 137
+categories:
+- studl.es
+- Building Instructions
+---
+
+I designed this robot to experiment with so-called "single track vehicle dynamics", or in other words, balancing on a bike.
+
+The challenge with designing a motorcycle like this is keeping he wheelbase short, and positioning the steering motor in a sturdy way.
+
+The program for this robot is based on the principle of "steer into fall", which means that if the bike leans over to the right, it needs to steer right to correct that.
+
+A problem that I have with this robot is detecting the angle of the robot. The ultrasonic sensor is not precise enough and my floor not uniform enough to use the light sensor, like the <a href="http://www.philohome.com/nxtway/nxtway.htm">NXTway</a> does.
+
+If you have a very uniform floor, you could use <a href="https://gist.github.com/1505699">my code</a>, but it is probably best to get a <a href="http://www.hitechnic.com/cgi-bin/commerce.cgi?preadd=action&amp;key=NGY1044">HiTechnic gyro</a> with the <a href="http://www.mathworks.com/matlabcentral/fileexchange/27694">software</a> from this guy:
+
+<iframe width="500" height="281" src="http://www.youtube.com/embed/o7nSQ2ycGX4" frameborder="0" allowfullscreen> </iframe>
+
+If you want to build this model, you need some extra wheels, check the <a href="http://dl.dropbox.com/u/10094764/LEGO%20Creations/parts/nxtbike.html">parts list</a>.
+<h2><a href="https://www.dropbox.com/s/zuu1tz5188d5wj5/nxtbike.pdf?dl=0">Download building instructions</a></h2>

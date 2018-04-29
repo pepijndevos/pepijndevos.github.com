@@ -1,0 +1,103 @@
+---
+author: pepijndevos
+comments: true
+date: 2016-01-14 19:36:46+00:00
+excerpt: None
+layout: post
+link: http://studl.es/2016/01/theremin/
+slug: theremin
+title: Theremin
+wordpress_id: 570
+categories:
+- studl.es
+---
+
+I made another silly thing. I came across a musical instrument called a Theremin. The real deal uses a really cool concept where your body and 2 antennas act as a capacitor in an LC circuit. By changing the distance between your body and the antennas, the capacitance changes, which changes the resonance frequency and modifies the pitch and amplitude of the output signal.
+
+This thing is much more silly. It uses the IR sensor to measure the distance to your hand and generates a tone based on that. It works nothing like the real thing.
+
+The sound quality of the EV3 is terrible, because it's just a small speaker attached to a PWM port with a low-pass filter.
+
+The IR sensor is slow, inaccurate and discrete. So you can do none of the slides and vibrato you can do with a Theremin. At first I tried to smooth the input to get a more natural sound, but that made it even slower and impossible to tune. So in the end I mapped the discrete input steps to discrete notes, so that it at least sounds in tune. You still can't play anything on it though.
+
+<iframe width="500" height="281" src="http://www.youtube.com/embed/ZxxRhr02vbA" frameborder="0" allowfullscreen> </iframe>
+
+I wrote the code for this in C on ev3dev. I use ev3c to talk to the sensors and libasound to generate the sound. This took a while to get working.
+{% highlight C %}
+#include &quot;ev3c.h&quot;
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+#include &lt;stdint.h&gt;
+#include &quot;alsa/asoundlib.h&quot;
+
+static char *device = &quot;default&quot;;                        /* playback device */
+snd_output_t *output = NULL;
+unsigned char buffer[800];                          /* some random data */
+
+int main(void)
+{
+  int err;
+  unsigned int i;
+  snd_pcm_t *handle;
+  snd_pcm_sframes_t frames;
+  if ((err = snd_pcm_open(&amp;handle, device, SND_PCM_STREAM_PLAYBACK, 0)) &lt; 0) {
+          printf(&quot;Playback open error: %s\n&quot;, snd_strerror(err));
+          exit(EXIT_FAILURE);
+  }
+  if ((err = snd_pcm_set_params(handle,
+                                SND_PCM_FORMAT_U8,
+                                SND_PCM_ACCESS_RW_INTERLEAVED,
+                                1,
+                                8000,
+                                1,
+                                500000)) &lt; 0) {   /* 0.5sec */
+          printf(&quot;Playback open error: %s\n&quot;, snd_strerror(err));
+          exit(EXIT_FAILURE);
+  }
+
+  const double interval = pow(2, 1.0/12.0);
+  const double R=8000; // sample rate (samples per second)
+  double F=440; // frequency of middle-C (hertz)
+  double Fp = F;
+  double V=127; // a volume constant
+  double t; // doudle counter, yeaaaa
+
+
+  //Loading all sensors
+  ev3_sensor_ptr sensors = ev3_load_sensors();
+  ev3_sensor_ptr prox1 = sensors;
+  ev3_mode_sensor(prox1,0);
+  ev3_open_sensor(prox1);
+  while(1)
+  {
+    ev3_update_sensor_val(prox1);
+    Fp = F;
+    F=220*pow(interval, prox1-&gt;val_data[0].s32/4);
+    t*=Fp/F; // scale time with frequency change
+    // this is to maintain a continuous sine
+
+    fprintf(stderr, &quot;%d, %f\n&quot;, prox1-&gt;val_data[0].s32, F);
+    
+    for ( i=0; i&lt;800; i++ ) {
+      t+=1;
+      buffer[i] = (sin(t*2*M_PI*F/R)+1)*V;
+    }
+
+    //printf(&quot;%d\n&quot;, snd_pcm_avail(handle));
+    frames = snd_pcm_writei(handle, buffer, sizeof(buffer));
+    if (frames &lt; 0)
+            frames = snd_pcm_recover(handle, frames, 0);
+    if (frames &lt; 0) {
+            printf(&quot;snd_pcm_writei failed: %s\n&quot;, snd_strerror(frames));
+            break;
+    }
+    if (frames &gt; 0 &amp;&amp; frames &lt; (long)sizeof(buffer))
+            printf(&quot;Short write (expected %li, wrote %li)\n&quot;, (long)sizeof(buffer), frames);
+  }
+  //Let's delete the list in the very end. It will also close the
+  //sensors
+  ev3_delete_sensors(sensors);
+  snd_pcm_close(handle);
+  return 0;
+}
+{% endhighlight %}
