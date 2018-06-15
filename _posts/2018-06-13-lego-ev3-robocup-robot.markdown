@@ -1,6 +1,7 @@
 ---
 layout: post
 title: LEGO EV3 RoboCup Robot
+image: /images/robocup/legoteamtwente.jpg
 categories:
 - studl.es
 - Robots
