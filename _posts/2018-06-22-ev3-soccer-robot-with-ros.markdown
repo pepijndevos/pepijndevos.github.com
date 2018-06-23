@@ -27,7 +27,7 @@ So at this point I was learning about Dockerfiles and base images and Qemu and R
 
 ![graph](/images/robocup/rosgraph.png)
 
-So after you're three levels deep in workspaces that you have `source`d, you can begin creating your own packages, by -- you guessed it -- more package management. So you edit your package XML file for the dependencies of your package and run the CMake-based build tool. You also need to run CMake on Python projects to resolve dependencies and generate more code.
+So after you're three levels deep in workspaces that you have `source`d, you can begin creating your own packages, by -- you guessed it -- more package management. So you edit your package XML file for the dependencies of your package and run `rosmake` which is like CMake for ROS. You also need to run `rosmake` on Python projects to resolve dependencies and generate more code.
 
 In exchange for all this work, ROS provides a lot of powerful tools, like `roscd`, which is like `cd` but for ROS, `rosed`, which is like `vim` but for ROS, and `rosrun` which is like running your code, but for ROS. I think you can guess what `rosls` is for.
 
@@ -66,9 +66,9 @@ ROS has a `joy` package, to read joysticks, and a `teleop_twist_joy` package tha
 </launch>
 {% endhighlight %}
 
-*Now* I can finally start writing code on the EV3. So I copy the Python code from last time, and replace the joystick code with `rospy` listener code. As I get ready to test my code, it dawns on my that `rospy` is Python 2, while `ev3dev-lang-python` is Python 3. I go back to my Docker image and change it to Python 3. An hour later it crashes with an Unicode error, and another hour later with a package version mismatch.
+*Now* I can finally start writing code on the EV3. So I copy the Python code from last time, and replace the joystick code with `rospy` listener code. As I get ready to test my code, it dawns on my that `rospy` is Python 2, while `ev3dev-lang-python` is Python 3. I go back to my Docker image and change it to Python 3. An hour later it crashes with an Unicode error, and another hour later with a package version mismatch. The next day it [finally works](https://hub.docker.com/r/pepijndevos/ev3dev-ros/), but it seems to be missing half the packages.
 
-I consider writing my node in C++, but worry about all the CMakefiles and package management needed to get `ev3dev-lang-c++` into the ROS universe. I consider my alternatives, and without further package management, I manage to use a Vala/GTK/GObject binding called `Ev3devKit` from Python 2.
+I consider writing my node in C++, but worry about all the package management needed to get `ev3dev-lang-c++` into the ROS universe. I consider my alternatives, and without further package management, I succeed in using a Vala/GTK/GObject binding called `Ev3devKit` from Python 2.
 
 {% highlight python %}
 import gi
