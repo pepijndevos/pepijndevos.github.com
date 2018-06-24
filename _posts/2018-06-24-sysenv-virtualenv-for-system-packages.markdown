@@ -25,10 +25,10 @@ In the Python world this is pretty much the standard. You make a `virtualenv`, `
 
 Of course you can run everything in a VM, a Docker image, or a `chroot`. But these typically provide isolation that I don't want or need. They also have a lot of overhead in RAM, disk space, and most importantly, effort on my part. However, the git-like overlay filesystems used by Docker gave me an idea.
 
-What if I made a `chroot`, but instead of putting an entire Debian insallation inside it, make an overlay on my own system. The only trouble is that special directories like `/proc`, `/sys`, and `/dev` should work as usual, and preferably my `/home` folder should also persist outside the `chroot`.
+What if I made a `chroot`, but instead of putting an entire Debian installation inside it, make an overlay on my own system. The only trouble is that special directories like `/proc`, `/sys`, and `/dev` should work as usual, and preferably my `/home` folder should also persist outside the `chroot`.
 
 The solution turns out to be relatively simple: My `/home` and all the special directories are mounted with `mount --bind`. All system directories like `/lib` and `/bin` are mounted with `mount -t overlay`.
 
-It works great for from-source installs and proprietary software. It also works for `apt-get`, but I'm sure weird things will happen once you upgrade your system. Just nuke the env and start over, once it gets wonky.
+It works great for from-source installs and proprietary software. It also works for `apt-get`, but I'm sure weird things will happen once you upgrade your system. Once it gets wonky, just nuke the env and start over.
 
 [Get the code here](https://github.com/pepijndevos/sysenv), pull requests welcome.
