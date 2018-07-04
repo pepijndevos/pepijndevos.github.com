@@ -82,7 +82,7 @@ def pyidct(y):
     z3 = z4 + y[2] * (r[2] - r[6]);
     a0 = z0 + z3; a3 = z0 - z3;
     a1 = z1 + z2; a2 = z1 - z2;
-    return np.array([a0, a1, a2, a3, b0, b1, b2, b3])
+    #return np.array([a0, a1, a2, a3, b0, b1, b2, b3])
 
     x[0] = a0 + b0; x[7] = a0 - b0;
     x[1] = a1 + b1; x[6] = a1 - b1;
@@ -91,7 +91,7 @@ def pyidct(y):
     return x
 {% endhighlight %}
 
-From this code and staring at the paper, I learned a few things. First of all **figure 1 is wrong**. The rotate block should be `sqrt(2)c6` instead of `c1`. Another small detail is the dashed lines, meaning that **some butterflies are upside down**. Another one is the rotate block symbol. It says `kcn`, which are the `k` and `n` in the equation, **not** the one in the DCT equation, which confused me a lot. So for `sqrt(2)c6` you just substitute `sqrt(2)` and 6 in the rotation block. I noted down some more insights in response to a [two year old question about the paper on the DSP StackExchange](https://dsp.stackexchange.com/questions/28209/fast-dct-implementation/50223#50223)
+From this code and staring at the paper, I learned a few things. First of all **figure 1 is wrong**. The rotate block should be `sqrt(2)c6` instead of `sqrt(2)c1`. Another small detail is the dashed lines, meaning that **some butterflies are upside down**. Another one is the rotate block symbol. It says `kcn`, which are the `k` and `n` in the equation, **not** the one in the DCT equation, which confused me a lot. So for `sqrt(2)c6` you just substitute `sqrt(2)` and 6 in the rotation block. I noted down some more insights in response to a [two year old question about the paper on the DSP StackExchange](https://dsp.stackexchange.com/questions/28209/fast-dct-implementation/50223#50223)
 
 Having implemented the forward DCT from the paper, I moved on to the inverse. All information the paper has about this is "just do everything backwards". Thanks, paper. It turns out you use the **same** blocks, but in the reverse order, except... the rotate block `n` becomes `-n`. The inverse cosine transform has a negative angle, and this translates to `cos(-x)=cos(x)`, `sin(-x)=-sin(x)`.
 
