@@ -62,7 +62,7 @@ There is no conventional control flow in Bobcat. It has quotations (which compil
 
 One noteworthy feature is that there is actually a separate stack per type. I think this is a good trade-off for a DSL, compared to the homogeneous stack of words seen in most stack-based languages. This limits your ability to have generic words like `swap` and `dup`, but allows dealing with many _things_, without too much stack juggling. Those details are mostly handled in the host language.
 
-Funny detail: I implemented is the [comma operator](https://suhr.github.io/papers/calg.html), which is like executing words in parallel. Much like Clojure's `juxt`.
+A funny detail I implemented is the [comma operator](https://suhr.github.io/papers/calg.html), which is like executing words in parallel. Much like Clojure's `juxt`.
 
 As a small example, something simple like `2 dupi addi 5 muli` will compile to the following (which GCC can basically optimize to `*out_0=20`)
 
