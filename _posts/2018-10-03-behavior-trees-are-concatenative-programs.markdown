@@ -25,7 +25,7 @@ So my [first implementation](https://github.com/pepijndevos/behavior3go) applied
 
 ![functional behavior tree](/images/bt/functionalbt.png)
 
-However, this seemed way to specific, and did not really solve the problem of passing parameters around between nodes. Once I had generalized the list of messages to a parameter stack, the realization struck me that I was doing concatenative programming! I repeat:
+However, this seemed way too specific, and did not really solve the problem of passing parameters around between nodes. Once I had generalized the list of messages to a parameter stack, the realization struck me that I was doing concatenative programming! I repeat:
 
 ### Behavior Trees are Concatenative Programs
 
