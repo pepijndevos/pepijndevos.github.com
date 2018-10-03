@@ -90,6 +90,6 @@ void dupi (int const a, int* b, int* c) {
 }
 {% endhighlight %}
 
-What is sill missing is a more powerful way to work with quotations, which are at the moment honestly useless and broken outside of function definitions and behavior tree nodes. And a really big omission in this design is interactive programming. I want this quite badly, so maybe some day there will be a fo(u)rth implementation, which will be more like Forth.
+What is sill missing is a more powerful way to work with quotations, which are at the moment useless and broken outside of function definitions and behavior tree nodes. And a really big omission in this design is interactive programming. I want this quite badly, so maybe some day there will be a fo(u)rth implementation, which will be more like Forth.
 
 But for now, I've started my masters and a new job, so I had to put a halt to this development. However, I still think this is a powerful concept that will allow writing more expressive, small, testable behavior trees.
