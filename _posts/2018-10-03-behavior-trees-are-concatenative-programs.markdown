@@ -9,7 +9,7 @@ categories:
 
 I have previously talked about [how I got pulled into building soccer robots at Roboteam Twente](/2018/06/13/lego-ev3-robocup-robot.html). During the summer holiday I spent a lot of time thinking about their code and about ways to improve it. During this time I wrote 3 different behavior tree implementations, and stumbled upon something that I've not seen in any of the literature on behavior trees. (Behavior trees are basically state machines on steroids)
 
-The main problem I was trying to solve is that over time, the leaf nodes that should contain the "how" had gotten increasingly large and complex over time, and it was desired to split those up in smaller tasks.
+The main problem I was trying to solve is that over time, the leaf nodes that should contain the "how" in a tree of "what" had gotten increasingly large and complex, and it was desired to split those up in smaller tasks.
 
 ![Behavior tree - C++ language barrier](/images/bt/languagebarries.png)
 
