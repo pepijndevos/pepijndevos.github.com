@@ -135,6 +135,10 @@ blockquote p {
   display: inline;
 }
 
+figure.highlight {
+  margin: 0;
+}
+
 .gist {
     font-size: 80%;
 }
