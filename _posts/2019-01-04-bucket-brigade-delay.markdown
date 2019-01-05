@@ -21,3 +21,24 @@ I did not build that exact circuit, but kind of used it as a hookup guide for th
 To be honest, the current circuit sounds quite bad and is not very flexible. It just adds a fixed delay and loops it back on itself, going from inaudible to metallic to oscillating in the blink of an eye. The best sound I got out of it is the click track when it's almost oscillating and becomes this funny tone by itself. Maybe all of the filtering in the reference circuit make it a lot better, but I have some other ideas.
 
 I have like 5 of these delay chips, so it'd be fun to chain them together for a longer delay. The other thing is the clock generator: You can disconnect the RC and drive the oscillator externally. I'm thinking I could create an external clock, and modulate that with an LFO to create a tremolo effect.
+
+**Update**: Tremolo works like a charm. I simply drove the clock with an Arduino as follows. Then I played a sine wave and some acoustic guitar into it for demonstration.
+
+{% highlight C++ %}
+void setup() {
+}
+
+void loop() {
+  int i;
+  for(i=0; i<2000; i+=30) {
+    tone(2, 40000+i);
+    delay(1);
+  }
+  for(i=2000; i>0; i-=30) {
+    tone(2, 40000+i);
+    delay(1);
+  }
+}
+{% endhighlight %}
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sUe6rcgrbo8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
