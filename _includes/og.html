@@ -18,6 +18,9 @@
 {% if page.image %}
   <meta content="{{ site.url }}{{ page.image }}" property="og:image">
 {% endif %}
+{% if page.excerpt %}
+  <meta content="{{ page.excerpt | strip_html }}" property="og:description">
+{% endif %}
 {% if page.tags %}
   {% for tag in page.categories %}
   <meta content="{{ tag }}" property="article:tag">
