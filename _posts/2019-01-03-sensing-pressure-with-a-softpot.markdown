@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Sensing pressure with a SoftPot
+image: /images/synth/pressure.PNG
 categories:
 - music
 - electronics

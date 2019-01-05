@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Bucket Brigade Delay
+image: /images/synth/ballofwires.jpg
 categories:
 - music
 - electronics
