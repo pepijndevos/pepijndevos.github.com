@@ -17,6 +17,8 @@
 {% endif %}
 {% if page.image %}
   <meta content="{{ site.url }}{{ page.image }}" property="og:image">
+{% else %}
+  <meta content="{{ site.url }}/style/icon.png" property="og:image">
 {% endif %}
 {% if page.excerpt %}
   <meta content="{{ page.excerpt | strip_html }}" property="og:description">
