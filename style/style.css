@@ -93,7 +93,7 @@ aside li {
 
 #wheel-img {
 	position: fixed;
-	top: 0;
+	top: 100px;
 	left: -600px;
 	z-index: -1;
         animation: spin 600s steps(3600) infinite;
