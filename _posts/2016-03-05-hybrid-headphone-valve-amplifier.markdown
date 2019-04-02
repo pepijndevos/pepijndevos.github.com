@@ -65,10 +65,10 @@ $$I_D=C_0\left(e^{\frac{q}{Kt}V_{be}}-1\right)$$
 
 If you squint a bit, you could say that the output current is an e-power of the input voltage. Taking a cosine for the input, we can formulate equations for A-class and B-class amps.
 
-$$\begin{align}
+$$\begin{aligned}
 f_a(x)&=e^{cos(x)}\\
 f_b(x)&=\frac{1}{2}(e^{cos(x)}-e^{-cos(x)})
-\end{align}$$
+\end{aligned}$$
 
 To take a look at the harmonics we can calculate the Fourier series for these functions. Except the indefinite integral of this equation does not exist. So instead I kindly asked my CPU to perform the following integral numerically for me. (the sine coefficients are trivially 0 since $$f(x)=f(-x)$$)
 

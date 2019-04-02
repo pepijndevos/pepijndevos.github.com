@@ -31,10 +31,10 @@ Since the only difference between the two setups is the frequency, the resistanc
 
 Using an online calculator, I found that the inductance of 4m (10m back and forth divided by 5) copper wire is 3&mu;H, and the resistance of the lamps follows from their rated voltage and wattage.
 
-$$\begin{align}
+$$\begin{aligned}
 W&=VI=\frac{V^2}{R}\\
 R&=\frac{V^2}{W}=14.4\Omega
-\end{align}$$
+\end{aligned}$$
 
 So a more accurate representation of the situation is below.
 
@@ -42,22 +42,22 @@ So a more accurate representation of the situation is below.
 
 From this the AC voltage for any of the lamps can be calculated. For a single lamp at the end of a 10m wire, it would mean
 
-$$\begin{align}
+$$\begin{aligned}
 V_{n1}(j\omega)&=\frac{V_{in}R_1}{j\omega L_5+R_1}\\
 V_{n1}(j\cdot 2\pi 100000)&=\frac{12\cdot 14}{j\cdot 628318 \cdot 30\cdot 10^{-6}+14}\\
 V_{n1}(j\cdot 628318)&=\frac{168}{j\cdot 18+14}\\
 \left|V_{n1}(j\cdot 628318)\right|&=\frac{168}{\sqrt{18^2+14^2}}=7V\\
-\end{align}$$
+\end{aligned}$$
 
 For all 5 lamps it gets a bit hairy.
 
-$$\begin{align}
+$$\begin{aligned}
 V_{n1}(j\omega)&=V_{n2}(j\omega)\frac{R_1}{j\omega L_5+R_1}\\
 V_{n2}(j\omega)&=V_{n3}(j\omega)\frac{R_2//(R_1+j\omega L_5)}{R_2//(R_1+j\omega L_5)+j\omega L_4}\\
 V_{n3}(j\omega)&=V_{n4}\frac{\ldots}{\ldots+j\omega L_3}\\
 V_{n4}(j\omega)&=V_{n5}\frac{\ldots}{\ldots+j\omega L_2}\\
-V_{n5}(j\omega)&=12V\
-\end{align}$$
+V_{n5}(j\omega)&=12V
+\end{aligned}$$
 
 But simulation gives the following result, only 4V on the lamp at the end.
 
