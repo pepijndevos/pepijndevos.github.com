@@ -166,13 +166,6 @@ li p {
 	text-align: center;
 }
 
-#search {
-	position: absolute;
-        z-index: 0;
-	top: 20px;
-	right: 20px;
-}
-
 /* ipython */
 
 .cell .output_subarea {
