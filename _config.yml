@@ -1,3 +1,4 @@
+plugins: [jekyll-paginate]
 highlighter: rouge
 paginate: 3
 markdown: kramdown
