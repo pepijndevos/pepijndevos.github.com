@@ -25,7 +25,7 @@ Quick Bond Graph primer if you're too lazy to read the Wikipedia page. Se is a s
 
 ![mechanical boost converter](/images/cvt/mechanical.svg)
 
-I'm not sure if those are even remotely sane mechanical symbols, so I added labels just in case. The motor spins up a flywheen, and then when the clutch engages it winds up the spring. Then when the clutch is disengaged, the ratched keeps the spring wound up, driving the output while the motor can once more spin up the flywheel.
+I'm not sure if those are even remotely sane mechanical symbols, so I added labels just in case. The motor spins up a flywheel, and then when the clutch engages it winds up the spring. Then when the clutch is disengaged, the ratched keeps the spring wound up, driving the output while the motor can once more spin up the flywheel.
 
 It works exactly analogous to the boost converter, and also suffers from the same problems. Most ciritically, switching/clutching losses. I imagine applying PWM to you clutch will at best wear it down quickly, and maybe just make it go up in smoke. Like with a MOSFET, the transition period where there is a nonzero effort and flow on the clutch, there is power loss and heat.
 
