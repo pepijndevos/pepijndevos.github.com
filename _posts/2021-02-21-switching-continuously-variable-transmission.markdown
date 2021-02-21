@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Switching Continuously Variable Transmission
+image: /images/cvt/lego.jpg
 categories:
 - Robots
 - lego
