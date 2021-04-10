@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Tight Integration with Decoupled Simulators
+title: "SimServer: Tight Integration with Decoupled Simulators"
 image: /images/simserver/ringing.png
 categories:
--mosaic
--spice
+- mosaic
+- spice
 ---
 
 I am working on Mosaic, a modern, open source schematic entry and simulation program for IC design. With a strong focus on simulation, I want to offer deep integration with the simulator, but also be able to run it on a beefy server and shield my program from simulator crashes. To this end, I have developed an RPC abstraction for interfacing with simulators remotely.
