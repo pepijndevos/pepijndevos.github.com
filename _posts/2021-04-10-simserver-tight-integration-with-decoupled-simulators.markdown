@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SimServer: tight integration with decoupled simulators"
+title: Tight Integration with Decoupled Simulators
 image: /images/simserver/ringing.png
 categories:
 -mosaic
