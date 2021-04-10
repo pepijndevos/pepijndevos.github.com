@@ -28,7 +28,7 @@ For the RPC library I settled on Cap'n Proto, but the next question is, what doe
 
 So I currently have 3 implementations of the `run` interface, and on top of that Ngspice implements the `tran`, `op`, and `ac` interfaces, with more to follow. I hope that in the future [JuliaSpice](https://juliacomputing.com/media/2021/03/darpa-ditto/) will be a simulator that provides even deeper integration.
 
-Please check out the code, and let me know your thoughts: https://github.com/NyanCAD/SimServer (How to expose simulator configuration and other functionality? Can we do remote cosimulation? Any other interesting usecases?)
+Please check out the code, and let me know your thoughts: [github.com/NyanCAD/SimServer](https://github.com/NyanCAD/SimServer) (How to expose simulator configuration and other functionality? Can we do remote cosimulation? Any other interesting usecases?)
 
 Meanwhile, here is a demo of the example Python client running a transient and AC simulation on my VPS.
 
