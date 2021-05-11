@@ -22,8 +22,9 @@ My plan is to make some very simple proof of concepts in various GUI toolkits to
  * React + TypeScript
  * Elm
  * Yew (Rust wasm)
- * ClojureScript?
- * GTK/Qt?
+ * ClojureScript
+ * Kotlin
+ * GTK/Qt
 
 I will consider the following criteria
 
@@ -220,3 +221,50 @@ Of course, unless you as the author break basic shit. Don't do that.
 Honestly the "churn" item is there because of the JS ecosystem.
 Somehow they managed to build an ecosystem on top of a language that's backwards compatible decades into the past, where as soon as you look away for a second your code bitrots away.
 I hope that by sticking to the tried and true, I can avoid some of that. The big libraries seem to be here to stay.
+
+### Elm
+
+For the remaining browser based solutions I will take a more lightweight approach.
+Obviously all of them inherit the same performance characteristics when it comes to rendering HTML.
+The plotting and notebook benchmarks are mainly about integrating libraries.
+So for the browser based solutions I'll be mainly looking at the strength of the package ecosystem or interop with the JS ecosystem.
+
+And frankly Elm just doesn't cut it.
+They take a pretty hardball stance on interop, requiring the package ecosystem to be pure Elm, and only allowing top-level "ports" to talk to JS code.
+I had a look at plotting/charting libraries in Elm and none of them have been updated in the last 3 years.
+
+### Rust + Yew
+
+The main concerns for me here are compile times and once again interop. I will try to plot a thing and see how it goes.
+In Rust the dominant plotting library seems to be Plotters, but it's fairly low-level and does not have built in pan/zoom.
+Instead I'll try using Plotly again.
+
+Interop in Yew is similar to calling a C function.
+There are example templates for bindgen and parcel, so you can just npm install things.
+I went with the parcel one, which told me once more there are a billion outdated dependencies and security vunerabilities.
+If you want to use the JS ecosystem you have to deal with the JS ecosystem. Obvious but true.
+
+Running the example template is easy enough. It even reloads and recompiles automatically, though it's not hot module reload, just a page refresh.
+On this small example, compile times are short, not sure it'll stay that way.
+A tendency of JSX-like Rust macros is that they require an ever-increasing recursion limit and result in slow compile times.
+
+After several hours of trying to integrate Plotly, I can confidently say: screw that.
+
+### ClojureScript
+
+I used to do a lot of Clojure some years ago but never really got into ClojureScript.
+Clojure has always had good interop, and a functional programming approach without static typing.
+Not having static types reduces friction, but makes debugging harder.
+I'm once more just going to try to integrate Plotly and see how it goes.
+
+The official website list several abandoned projects which is not a good look.
+I asked about it on Slack and and they maintain that once software is done it requires no updates ever. It's perfect, don't touch.
+Which is honestly kinda refreshing compared to JS land where you have to burn everythig to the ground perpetualy.
+But you also have to be realistic about it, if a project has a bunch of open issues and PRs it's maybe not as perfect as you say.
+
+Anyway, once I found the not-abandoned version of Figwheel it was pretty sweet.
+With a few `lein` commands you have a running webapp with state-maintaining hot module reload and no pesky Webpack Yarn mess in sight.
+Adding plotly was as simple as adding `[cljsjs/plotly "1.45.3-0"]` and creating a plot as simple as `(.newPlot js/Plotly "plot" (clj->js [{:x [1 2 3 4], :y [1 2 3 4], :type "scatter"}]))`
+I will want to wrap that in a nice Reagent component, or wrap `react-plotly.js` eventually, but it's a pretty good start.
+
+![clojurescript plotly](/images/guibench/cljs_plotly.png)
