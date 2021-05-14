@@ -1,30 +1,33 @@
 ---
 layout: post
-title: "Evaluating GUI toolkits: React, Elm, Yew, ClojureScript, Flutter"
+title: "Evaluating GUI toolkits: Flutter, React, Elm, Yew, ClojureScript, Kotlin"
 categories:
 - mosaic
 ---
 
 For Mosaic, my open source schematic entry and simulation tool, I'm reevaluating the choice of GUI toolkit, and along with that the implementation language.
-The original plan was to use Rust and GTK, but I'm slowly comming around to the idea that if its feasible performance wise to make a webapp, that there is great value in that.
+The original plan was to use Rust and GTK, but I'm slowly coming around to the idea that if its feasible performance wise to make a web app, that there is great value in that.
 
 On the one hand IC designers are a conservative bunch and it's great to have a good desktop app, but on the other hand EDA tools can be notoriously hard to set up and manage to the point where most commercial IC design happens via remote desktop.
-Having a the option to a webapp allows you to have a snappy interface without all the hassle, and as eFabless demonstrated allows people to do IC design without signing an NDA.
+Having a the option to a web app allows you to have a snappy interface without all the hassle, and as eFabless demonstrated allows people to do IC design without signing an NDA.
 
 I kind of want the option to run as a desktop app or as a web app. So what are my options?
 I think the most common one is to use Electron, which everyone likes to hate on, but in fact I'm typing up this blogpost in an Electron app and I can't complain.
 Another option would be Flutter, which has web and desktop targets.
 And finally, some desktop GUI toolkits can be ran in a browser, which I'll almost dismiss right away because they don't behave like a proper web app.
 
+This last point is worth reiterating on, because people keep suggesting canvas based systems such as Dear ImGui and Makepad.
+These systems break basic expectations like being able to select text, tab through form fields, search, use onscreen keyboards, screen readers... the list is endless.
+I will not write software that breaks basic expectations and is inaccessible to some people.
+
 My plan is to make some very simple proof of concepts in various GUI toolkits to see how they stack up. I plan to look at
 
  * Flutter (Not Electron!)
- * React + TypeScript
+ * TypeScript + React
  * Elm
- * Yew (Rust wasm)
- * ClojureScript
- * Kotlin
- * GTK/Qt
+ * Rust + Yew
+ * ClojureScript + Reagent
+ * Kotlin + React
 
 I will consider the following criteria
 
@@ -52,7 +55,7 @@ To continue on that point, I tried to access the app with a screen reader and on
 On Linux I managed to push the "enable accessibility" button, but all the actions in the email app are just "push button clickable" without further description.
 They do bring up the on-screen keyboard in the compose window and increasing the magnification in Firefox did work, so there are *some* things they managed not to break.
 
-On my desktop performance seemed good, but on my phone it is super janky. (jank seems to be the favourite word in the Flutter community) Curious to see how performance will hold up with my benchmarks.
+On my desktop performance seemed good, but on my phone it is super janky. (jank seems to be the favorite word in the Flutter community) Curious to see how performance will hold up with my benchmarks.
 
 #### Schematic
 
@@ -73,7 +76,7 @@ The first was very fancy but doesn't seem to offer panning and zooming.
 The next gave a compile error because it's not null safe and I'm not a savage.
 The next is a commercial package which is a instant no-go for an open source project.
 Then I [posted](https://stackoverflow.com/questions/67404580/how-can-i-make-a-line-chart-in-flutter-that-can-be-panned-and-zoomed) on Stack Overflow and moved on.
-I also had a look at the Discord server but it seems like the #help channel is just noobs like me asking questions with noone giving answers.
+I also had a look at the Discord server but it seems like the #help channel is just noobs like me asking questions with no one giving answers.
 
 #### Notebook
 
@@ -89,7 +92,7 @@ The async http and websocket code to connect to the IPython kernel was pleasant,
 
 ![flutter ipython app](/images/guibench/flutter_kernel.png)
 
-So while I got a good imperssion of async programming, I wasn't able to get syntax highlighting to work, and am worried about how I will handle anything other than plaintext output.
+So while I got a good impression of async programming, I wasn't able to get syntax highlighting to work, and am worried about how I will handle anything other than plaintext output.
 One of the main powers of notebooks is being able to embed figures and even interactive widgets.
 Without a Webview to reuse parts of the Jupyter frontend this becomes a difficult proposition.
 
@@ -118,7 +121,7 @@ I was about to just go back to Makefiles and script tags when someone pointed ou
 I'm sure it has a bunch of things I don't need but at least it gets me a good setup with little hassle.
 
 I had a look at [nextron](https://github.com/saltyshiomix/nextron) for making an Electron app with Next.js but it crashed while downloading the internet.
-Aint nobody got time for that. I'll start with a plain webapp.
+Aint nobody got time for that. I'll start with a plain web app.
 
 Next.js worked as advertised and had me editing a React app in TypeScript with hot reload in no time.
 TypeScript is basically just JavaScript with type annotations, so it's fine but not amazing.
@@ -153,7 +156,7 @@ You see, Next.js tries to be all fancy with sever side rendering, and Plotly doe
 I'm not particularly interested in any of the features Next.js offers, I just don't want to deal with all the boilerplate of setting it up manually.
 In the end it turns out you have to use some [dynamic import](https://nextjs.org/docs/advanced-features/dynamic-import) loophoole to avoid SSR and the resulting "document not found" errors from Plotly trying to access the DOM.
 
-From there it's smooth sailing to generate a bunch of datapoints and plot them.
+From there it's smooth sailing to generate a bunch of data points and plot them.
 Subplots were a small puzzle, but actually fine.
 The interactive interface is very good, easy to pan and zoom around.
 
@@ -179,10 +182,10 @@ For now I'll just try to follow the example though.
 I tried with Yarn and that gave errors but then I tried with `npm install; npm run build` and it worked. Don't ask me...
 Npm told me there are `28 vulnerabilities (1 moderate, 27 high)`, so packages must be upgraded and the churn must continue.
 
-It's a bit of a different setup though, wher the JS is compiled and then served with a Python script that is a subclass of Jupyter server.
+It's a bit of a different setup though, where the JS is compiled and then served with a Python script that is a subclass of Jupyter server.
 That takes care of the kernels of course, but doesn't give you the fancy hot reload.
 I wonder if could somehow rig hot reloading into the bundled JS served by Python, but that's for later.
-For now I just want to see if I interact with the notebook from the outside.
+For now I just want to see if I can interact with the notebook from the outside.
 
 I found it quite hard to find good documentation on how to interface with the notebook, so I settled for just poking around a bit.
 The `commands.ts` file provides some guidance for what sort of actions are available.
@@ -213,7 +216,7 @@ Like how Flutter just has a pan-zoom container, while I had a big struggle to ma
 Performance was honestly super impressive compared to Flutter.
 Where Flutter compiled as a native Linux app struggled to pan and zoom 100 mosfets, Firefox just kept going with 5k of them.
 I wasn't able to compare plotting performance because Flutter just doesn't seem to have a suitable plotting library, but the results with Plotly were quite impressive.
-Granted, I had to switch to a canvast backend and disable hover behaviour, but 10M points is no joke.
+Granted, I had to switch to a canvas backend and disable hover behavior, but 10M points is no joke.
 
 HTML allows you to select text! Amazing, I know, right? React wins the doesn't-break-basic-shit badge.
 Of course, unless you as the author break basic shit. Don't do that.
@@ -240,31 +243,94 @@ In Rust the dominant plotting library seems to be Plotters, but it's fairly low-
 Instead I'll try using Plotly again.
 
 Interop in Yew is similar to calling a C function.
-There are example templates for bindgen and parcel, so you can just npm install things.
-I went with the parcel one, which told me once more there are a billion outdated dependencies and security vunerabilities.
+There are example templates for webpack and parcel, so you can just npm install things.
+I went with the parcel one, which told me once more there are a billion outdated dependencies and security vulnerabilities.
 If you want to use the JS ecosystem you have to deal with the JS ecosystem. Obvious but true.
 
 Running the example template is easy enough. It even reloads and recompiles automatically, though it's not hot module reload, just a page refresh.
 On this small example, compile times are short, not sure it'll stay that way.
 A tendency of JSX-like Rust macros is that they require an ever-increasing recursion limit and result in slow compile times.
 
-After several hours of trying to integrate Plotly, I can confidently say: screw that.
+After several hours of trying to integrate Plotly by fiddling with annotations, I can confidently say: screw that.
 
 ### ClojureScript
 
 I used to do a lot of Clojure some years ago but never really got into ClojureScript.
 Clojure has always had good interop, and a functional programming approach without static typing.
 Not having static types reduces friction, but makes debugging harder.
+
+In particular, Clojure has mostly useful default behaviour for handing `nil` rather than forcing you to handle `Maybe` results, until you get a null pointer exception and you're in for a mystery hunt.
+The tooling seems not as mature as some other languages.
+There seem to be two major Clojure/ClojureScript VS Code extensions, neither of which supports debugging ClojureScript.
+The on I tried complained about me using VIM mode...
+
 I'm once more just going to try to integrate Plotly and see how it goes.
 
-The official website list several abandoned projects which is not a good look.
+The official website lists several abandoned projects which is not a good look.
 I asked about it on Slack and and they maintain that once software is done it requires no updates ever. It's perfect, don't touch.
-Which is honestly kinda refreshing compared to JS land where you have to burn everythig to the ground perpetualy.
+Which is honestly kinda refreshing compared to JS land where you have to burn everything to the ground perpetually.
 But you also have to be realistic about it, if a project has a bunch of open issues and PRs it's maybe not as perfect as you say.
 
-Anyway, once I found the not-abandoned version of Figwheel it was pretty sweet.
-With a few `lein` commands you have a running webapp with state-maintaining hot module reload and no pesky Webpack Yarn mess in sight.
-Adding plotly was as simple as adding `[cljsjs/plotly "1.45.3-0"]` and creating a plot as simple as `(.newPlot js/Plotly "plot" (clj->js [{:x [1 2 3 4], :y [1 2 3 4], :type "scatter"}]))`
-I will want to wrap that in a nice Reagent component, or wrap `react-plotly.js` eventually, but it's a pretty good start.
+At first I went with Leiningen and Figwheel based on my experience from a few years back,
+but along the way learned from friendly community members that these days tools-deps is the standard way to bundle apps and shadow-cljs is the new hotness when it comes to ClojureScript tooling.
+Both Figwheel and shadow-cljs offer a nicely integrated development environment with state preserving hot code reload and a REPL into the running app but shadow-cljs has better integration with npm.
+
+I created a new project with `npx create-cljs-project cljsplotly` and from there added Reagent (a react wrapper) and copied some example code.
+Compiling and running the project is as simple as `npx shadow-cljs watch frontend`, and its not even like there is a ton of boilerplate, just the simple config files for npm and shadow-cljs.
+Then I added `react-plotly.js` as a regular npm dependency.
+After that I was able to import the library with `["react-plotly.js$default" :as PlotComponent]`, and define it as a reagent component with `(def plot (r/adapt-react-class PlotComponent))`, which can then simply be used like so `[plot {:data (clj->js [{:x [1 2 3 4], :y [1 2 3 4], :type "scatter"}])}]`.
 
 ![clojurescript plotly](/images/guibench/cljs_plotly.png)
+
+### Kotlin
+
+I wasn't even planning on covering this option, but it popped up along the way and I figured I might as well check it out.
+I mainly know Kotlin as a very pragmatic "better java", and have used it once in this capacity.
+Apparently it now also supports native and JS targets, with what looks to be favorable options.
+
+Right away the first struggle is the tooling. The [setup page](https://kotlinlang.org/docs/js-project-setup.html) only refers to IntelliJ with some mentions of the actual Gradle stuff.
+I'm sure you can use plain Gradle to do it, but for getting started, not ideal.
+It seems that the VS Code plugins are comparatively basic.
+So I guess I'm installing IntelliJ and figure out another workflow later if needed.
+
+Setting up a project was easy.
+From there things got a bit confusing.
+There is a debugger, but it debugs the JVM server process.
+You can use the browser debugger, but sourcemaps aren't working for me. (this turns out to be because you have to us the `LEGACY` compiler for that)
+It has hot code reload, but not state preserving, it just reloads the page.
+
+Installing an npm dependency is pretty easy, but then you run into the exact same problems as with Rust where you have to add some externs with magic annotations to declare the JS interface.
+The tutorial for adding a React component has the following helpful information on the matter
+
+> Because JavaScript imports/exports isn't the simplest topic, it can sometimes be tricky to find the correct combination between annotations to get the Kotlin compiler on the same page as us.
+
+Again, I tried for a good while and asked on Slack.
+A day later a suggestion came in and after a bith more back and forth I managed to get it to work.
+I still do not understand why or how, and how I would go about future JS interactions.
+I also had a bunch of trouble just making a JS object to pass to the component.
+In short the interop story isn't very obvious.
+
+![kotlin plotly](/images/guibench/kotlin_plotly.png)
+
+### Conclusion
+
+I had high hopes for Flutter, but it was pretty disappointing across the board. Poor performance, poor accessibility, poor libraries.
+
+Browser performance when drawing 5k SVGs was amazing, and so was Plotly performance when drawing 10M points, once I used the right settings.
+So the web is definitely the way forward.
+
+React is good, TypeScript is a minor improvement over JavaScript, but honestly the worst part is the tooling and quirky browser APIs.
+If I have to, I'm sure I can make it work. Not sure it'll be the most enjoyable thing in the world though.
+
+I dismissed Elm for lack of libraries. Rust and Kotlin seemed interesting, but their hot code reload does not maintain state, there is no REPL, and I had a lot of trouble making JS interop work.
+I'm sure they work well for some people, but I just could not make them work well for me.
+
+ClojureScript was a very pleasant homecoming. I had kind of stopped using Clojure because a lot of what I do these days is either scientific Python/Julia scripts or embedded C/C++/Rust, but it's a nice language.
+The community was very helpful and welcoming, with some old friends still around.
+It has by far the nicest toolchain and workflow of all the compile-to-js systems I tried, and the only one that can come close to TypeScript in JS interop.
+
+So in the end I think the competition is between ClojureScript and TypeScript.
+I had a lot more fun with ClojureScript, but of course it's a less widely used language.
+TypeScript, for better or worse, is more mainstream and closer to JavaScript.
+
+![silly plot of languages](/images/guibench/js.png)
