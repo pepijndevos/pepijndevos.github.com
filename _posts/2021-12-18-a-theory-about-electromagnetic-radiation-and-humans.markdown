@@ -2,6 +2,7 @@
 layout: post
 title: A Theory About Electromagnetic Radiation and Humans
 categories:
+- emf
 ---
 
 In alternative circles people tend to be worried about the harmful effects of electromagnetic radiation (EMR/EMF, or just "radiation"), which scientists tend to dismiss because is's it's not _ionizing_ radiation. That is, it's not powerful enough to smash your atoms to bits.
@@ -12,7 +13,7 @@ It is really quite simple. Any current creates a field and any field creates a c
 
 Let's unpack that a little bit.
 
-Things like Electrocardiography and Electroencephalography measure the electric signals emitted by your heard and brain respectively. You can build a DIY EEG device with some wires and an instrumentation amplifier. Electrical muscle stimulation on the other hand, applies electricity to your muscles to activate them.
+Things like Electrocardiography and Electroencephalography measure the electric signals emitted by your heart and brain respectively. You can build a DIY EEG device with some wires and an instrumentation amplifier. Electrical muscle stimulation on the other hand, applies electricity to your muscles to activate them.
 
 It's often said everyone designs antennas, but only some design them intentionally. Everything that can carry a current is an antenna weather you want it or not. It is fundamental to electricity that every current creates a field, and every field creates a current.
 
