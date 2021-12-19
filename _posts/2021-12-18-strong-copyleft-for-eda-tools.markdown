@@ -31,8 +31,6 @@ The interesting bit here is the Making of Products. We'll get back to the defini
 
 Section 3 is typical copyleft stuff about modifying the Covered Source, but section 4 reads
 
-> 4 Making and Conveying Products
->
 > You may Make Products, and/or Convey them, provided that You either
 provide each recipient with a copy of the Complete Source or ensure
 that each recipient is notified of the Source Location of the Complete
