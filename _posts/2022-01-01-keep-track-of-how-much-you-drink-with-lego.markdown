@@ -3,9 +3,9 @@ layout: post
 title: "Keep track of how much you drink with Lego"
 image: "https://github.com/pepijndevos/gnome-water-status/raw/main/ldraw/scale_lc.png"
 categories:
--Building Instructions
--lego
--arduino
+- Building Instructions
+- lego
+- arduino
 ---
 
 It's important to stay hydrated, but hard to know how much you are actually drinking.
