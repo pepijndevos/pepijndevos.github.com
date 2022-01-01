@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Keep track of how much you drink with Lego
-image: https://github.com/pepijndevos/gnome-water-status/raw/main/ldraw/scale_lc.png
+title: "Keep track of how much you drink with Lego"
+image: "https://github.com/pepijndevos/gnome-water-status/raw/main/ldraw/scale_lc.png"
 categories:
 -Building Instructions
 -lego
