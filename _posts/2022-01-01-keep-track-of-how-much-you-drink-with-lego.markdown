@@ -52,7 +52,7 @@ All I had to do was change the icons a bit and make it read form the TTY... righ
 Well turns out reading a TTY from Gnome JavaScript is a bit painful because there don't seem to be any functions to configure it.
 It would also randomly close and reset for some reason.
 In the end I shelled out to `stty` to set up the TTY to not block and then just get the whole contents of it.
-In the process I learned that you JS extension can definitely hang and crash your entire Gnome shell. Great design that.
+In the process I learned that a JS extension can definitely hang and crash your entire Gnome shell. Great design that.
 
 So that's it, right? Throw the code on Github, job done. Well, except I decided that in the name of reproducibility, I should make building instructions for the Lego cup holder.
 I used to sell Lego Mindstorms building instructions, so I've done it before... many years ago.
