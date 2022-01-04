@@ -71,7 +71,7 @@ For some reason Bricklink Studio did not render the parts list in the building i
 
 Update: I have now hooked up my smart cupholder to InfluxDB using the `tail` input using the following Telegaf configuration.
 
-[InfluxDB dashboard](/images/waterinflux.png)
+![InfluxDB dashboard](/images/waterinflux.png)
 
 ```
 [[inputs.tail]]
