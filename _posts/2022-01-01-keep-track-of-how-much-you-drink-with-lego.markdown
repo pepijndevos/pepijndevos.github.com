@@ -31,7 +31,7 @@ I did this simply by taking a measuring cup and pouring 100ml of water at a time
 Repeat a few times with a few different cups and determine the scale factor.
 
 The cup holder had to go through several design iterations.
-The first ones had either too much friction, inconsistent weight measurement, or just weren't structurally stable enough.
+The first ones had either too much friction, inconsistent weight measurement, or just [weren't structurally stable enough](https://twitter.com/pepijndevos/status/1476557951171182592?s=20).
 The load cell is not a Lego part, so the tricky part was making the cup rest *only* on the load cell.
 I used a Technic Flex-System Hose inserted into Technic Plates, which just about align with the load cell screw holes.
 
@@ -68,3 +68,21 @@ The second challenge was making the flexible hoses.
 I tried to open the model with LPub3D, which did render the submodel instructions, but did not show the flexible hose correctly because LeoCAD uses a non-standard format for those.
 Then I installed Bricklink Studio under Wine, and redid the flexible hose there.
 For some reason Bricklink Studio did not render the parts list in the building instructions, so I ended up going back to LPub3D to render the final building instructions. Phew!
+
+Update: I have now hooked up my smart cupholder to InfluxDB using the `tail` input using the following Telegaf configuration.
+
+[InfluxDB dashboard](/images/waterinflux.png)
+
+```
+[[inputs.tail]]
+  files = ["/dev/ttyACM0"]
+
+  # this avoid seeks on the tty
+  from_beginning = true
+  pipe = true
+
+  # parse csv
+  data_format = "csv"
+  csv_column_names = ["cup present", "current weight", "last weight", "weight difference", "total consumed"]
+  csv_delimiter = ";"
+```
