@@ -2,6 +2,9 @@ plugins: [jekyll-paginate]
 highlighter: rouge
 paginate: 3
 markdown: kramdown
+kramdown:
+   math_engine: katex
+
 
 permalink: "/:year/:month/:day/:title.html"
 
