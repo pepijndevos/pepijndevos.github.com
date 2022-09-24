@@ -230,14 +230,11 @@ li p {
 
 @media (prefers-color-scheme: dark) {
     #wheel-img {
-        filter: invert();
-    }
-    #chain {
-        filter: invert(50%);
+        filter: invert() brightness(0.2);
     }
     body {
         color: lightgray;
-        backdrop-filter: invert() brightness(0.3);
+        background-color: #151515;
     }
     a {
         color: rgb(224, 141, 46);
