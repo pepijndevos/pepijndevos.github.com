@@ -228,6 +228,25 @@ li p {
     }
 }
 
+@media (prefers-color-scheme: dark) {
+    #wheel-img {
+        filter: invert();
+    }
+    #chain {
+        filter: invert(50%);
+    }
+    body {
+        color: lightgray;
+        backdrop-filter: invert() brightness(0.3);
+    }
+    a {
+        color: rgb(224, 141, 46);
+    }
+    h1, h2, h3, h1 a, h2 a, h3 a {
+        color: lightgray;
+    }
+}
+
 /* pygments */
 .hll { background-color: #ffffcc }
 .c { color: #408080; font-style: italic } /* Comment */
