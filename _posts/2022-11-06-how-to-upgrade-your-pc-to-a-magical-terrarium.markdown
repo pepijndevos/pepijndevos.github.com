@@ -6,7 +6,7 @@ categories:
  - art
 ---
 
-When I built my PC I did not want any of that RGB stuff, but the case I landed on had a glass sidepanel and it would be a shame if everything wast just pitch black inside. So I decided to turn it into a magical terrarium.
+When I built my PC I did not want any of that RGB stuff, but the case I landed on had a glass sidepanel and it would be a shame if everything was just pitch black inside. So I decided to turn it into a magical terrarium.
 
 ![A PC case with a blue glowing dragonfly inside](/images/terrarium/case.jpeg)
 
