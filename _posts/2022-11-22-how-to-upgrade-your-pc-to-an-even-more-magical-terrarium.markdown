@@ -11,7 +11,7 @@ After showing it to a friend he told me about this video by DIY Perks where he m
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/D5LjGFkpApw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
 
-So we set out to add some mushrooms to my computer. One super cool thing my friend added is to used glow in the dark powder instead of paint, and to use UV LEDs. This way your mushrooms are glow in the dark, and keep glowing even if you turn off your PC. Magical!
+So we set out to add some mushrooms to my computer. One super cool thing my friend added is to use glow in the dark powder instead of paint, and to use UV LEDs. This way your mushrooms are glow in the dark, and keep glowing even if you turn off your PC. Magical!
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/d_L2LMn6k3I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
 
