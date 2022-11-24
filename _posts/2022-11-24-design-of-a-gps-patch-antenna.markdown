@@ -4,6 +4,7 @@ title: Design of a GPS patch antenna
 image: /images/antenna/gps_sao.jpg
 categories:
  - electronics
+ - emf
 ---
 
 At MCH I met up with a few maps people and worked on a GPS app for the badge. After that I decided I should make my own add-on with a GPS antenna, and that I wanted to design and print the antenna on a PCB. I succeeded, and here is the story.
