@@ -5,7 +5,7 @@ categories:
 - lego
 ---
 
-Sometimes I film my projects, and sometimes I'd like to use my hands while filming. Usually this means propping up my phone on some random objects to point it roughly in the right direction. To improve this situation, I decided to build a Lego smartphone tripod from parts of the [Lego 42121 Heavy-Duty Excavator](https://www.lego.com/en-us/kids/sets/technic/heavy-duty-excavator-ceb230f900224d91f20861627fffb3a9). Here is a video, where I use an extra janky potato setup to film the tripod, sorry about the quality, better pictures below.
+Sometimes I film my projects, and sometimes I'd like to use my hands while filming. Usually this means propping up my phone on some random objects to point it roughly in the right direction. To improve this situation, I decided to build a Lego smartphone tripod from parts of the [Lego 42121 Heavy-Duty Excavator](https://www.lego.com/en-us/product/heavy-duty-excavator-42121). Here is a video, where I use an extra janky potato setup to film the tripod, sorry about the quality, better pictures below.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/24sqIlDy-a4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen> </iframe>
 
