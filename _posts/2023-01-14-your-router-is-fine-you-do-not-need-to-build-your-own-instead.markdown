@@ -62,7 +62,7 @@ pci	0000:01:00.0	vfio-pci
 pci	0000:01:00.1	vfio-pci
 ```
 
-Then I decided I wanted to use dnsmasq as bot the DNS and DHCP server, which has the benefit that you can access your devices by their hostname. I settled on the following `/etc/dnsmasq.conf` which binds to the VPP bridge interface, ignores, `resolv.conf`, uses Google DNS, a .lan domain, adds DHCP hosts to the DNS, sets the gateway to VPP, and the DHCP server to itself.
+Then I decided I wanted to use dnsmasq as both the DNS and DHCP server, which has the benefit that you can access your devices by their hostname. I settled on the following `/etc/dnsmasq.conf` which binds to the VPP bridge interface, ignores, `resolv.conf`, uses Google DNS, a .lan domain, adds DHCP hosts to the DNS, sets the gateway to VPP, and the DHCP server to itself.
 
 ```
 interface=lstack
