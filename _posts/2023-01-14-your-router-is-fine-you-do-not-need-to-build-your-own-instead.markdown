@@ -167,9 +167,9 @@ Note that without the `poll-sleep-usec` command, the CPU will be at 100% all the
 
 One significant difference in my config is that my ISP requires a VLAN of 300 on the WAN port, which was another struggle.  The solution is that you have to set up a sub-interface like `GigabitEthernet1/0/0.300` which will add the VLAN tag on outbound traffic and strip it on inbound trafffic. You then have to use this subinterface for all further setup.
 
-While initially I tested VPP as a _secondary_ router behind the ISP router, this VLAN struggle had to happen while my girfriend was without internet, another moment of realisation: I am now managing a sever exposed to the public internet, and if there is an issue we're without internet access. Do I want that kind of responsibility for fun?
-
 ### Sinking the costs
+
+While initially I tested VPP as a _secondary_ router behind the ISP router, the VLAN struggle had to happen while my girfriend was without internet, another moment of realisation: I am now managing a sever exposed to the public internet, and if there is an issue we're without internet access. Do I want that kind of responsibility for fun?
 
 Is there any way I can justify this project? Time to do some testing.
 First I ran [speedtest.net](https://www.speedtest.net/) on the ISP router and the VPP router, and the results are pretty much indistinguishable. [Around 8ms latency and 930Mbps up and down](https://www.speedtest.net/result/14120405093).
