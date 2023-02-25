@@ -18,7 +18,7 @@ We'll basically need to do 3 things
 
 * Compile Julia into ARM machine code
 * Link the machine code into an .mpy library
-* Run said library on PrBricks
+* Run said library on PyBricks
 
 ### Run native code on PyBricks
 
