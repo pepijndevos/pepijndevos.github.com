@@ -37,7 +37,7 @@ Then, a small victory: running C code! Now onto Julia.
 
 ### Compile Julia into ARM machine code
 
-For the first part I used the amazing [AVRCompiler.jl](https://github.com/Seelengrab/AVRCompiler.jl) which ties into GPUCompiler.jl which ties into LLVM. Long story short, we can abuse the machinery Julia has for running code on the GPU for generating machine code for other architectures.
+For the first part I used the amazing [AVRCompiler.jl](https://github.com/Seelengrab/AVRCompiler.jl) which ties into GPUCompiler.jl which ties into LLVM. Long story short, we can abuse the machinery Julia has for running a static subset of Julia on the GPU for generating machine code for other architectures.
 
 All I did was compile Julia from source[^1] while adding `ARM` to the supported architectures, and changed the target triple in AVRCompiler to the one I found by by copying the [CFLAGS from PyBricks](https://github.com/pybricks/pybricks-micropython/blob/830579b255b526779c1ec29c20dd4286bdff9080/bricks/_common/arm_none_eabi.mk#L130) and asking LLVM:
 
