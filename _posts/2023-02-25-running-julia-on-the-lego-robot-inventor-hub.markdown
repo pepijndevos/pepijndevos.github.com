@@ -8,7 +8,7 @@ categories:
 
 Someone asked if anyone had any experience interfacing Lego Mindstorms with Julia, and I was like **this is right up my alley**, so I got a little bit very much nerdsniped into making this work.
 
-You see, the sensible thing would be to just run Julia on the EV3 which runs a full Linux, but the *modern* approach would be to run Julia on the Robot Inventor Hub, which is an STM32 running a MicroPython firmware.
+You see, the sensible thing would be to just run Julia on the EV3 which runs a full Linux, but the *modern* approach would be to run Julia on the Robot Inventor/Spike Prime Hub, which is an STM32 running a MicroPython firmware.
 
 Here is the game plan. Lacking a MicroJulia implementation and the resources to write a completely custom firmware, we're going to compile Julia functions into MicroPython extension modules and run them on [PyBricks](https://github.com/pybricks/pybricks-micropython).
 
