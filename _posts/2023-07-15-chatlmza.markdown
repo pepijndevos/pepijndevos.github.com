@@ -1,0 +1,87 @@
+---
+layout: post
+title: ChatLMZA
+categories:
+- python
+- machinelearning
+---
+
+I came across a random [tweet](https://twitter.com/goodside/status/1679358632431853568), found a [Wikipedia page](https://en.wikipedia.org/wiki/Hutter_Prize) and bumped into some smart people and long story short, apparently **compression is equivalent to general intelligence**.
+
+So, how do you build ChatGPT with data compression? What if you compress a large corpus of text to build up the encoding table, then you compress your prompt and append some random data and decompress the random data, and hope it decompresses to something sensible.
+
+It feels vaguely similar to [diffusion](https://en.wikipedia.org/wiki/Diffusion_model), but what do I know. Look, this is just a dumb idea, let's just see what happens ok? Well, here is my progress so far. It's kind of whack but it's hilarious to me that it produces something resembling words.
+
+```python
+import nltk
+import lzma
+import random
+
+my_filters = [
+    {"id": lzma.FILTER_LZMA2, "preset": 9 | lzma.PRESET_EXTREME},
+]
+lzc = lzma.LZMACompressor(lzma.FORMAT_RAW, filters=my_filters)
+
+corp = nltk.corpus.reuters.raw().encode()
+out1 = lzc.compress(corp)
+
+corp = ' '.join(nltk.corpus.brown.words()).encode()
+out2 = lzc.compress(corp)
+
+corp = nltk.corpus.gutenberg.raw().encode()
+out3 = lzc.compress(corp)
+
+out_end = lzc.flush()
+
+lzd = lzma.LZMADecompressor(lzma.FORMAT_RAW, filters=my_filters)
+
+lzd.decompress(out1)
+lzd.decompress(out2)
+lzd.decompress(out3)
+# mess around to avoid LZMAError: Corrupt input data
+lzd.decompress(out_end[:-344])
+# insert prompt????
+print(lzd.decompress(random.randbytes(50)).decode(errors="ignore"))
+```
+
+Here are a few runs. Note how the start is always `, and tri`, usually completing it into some word. Are we doing some primitive accidental "prompting" or just flushing the buffer? Either way, not bad for mere seconds of "training"!
+
+```
+$ python train.py 
+, and triof billioerse,
+But
+ht and see th,
+Thy smile, in to be happy,
+Wmson,
+Over tout as aThy smile;t as aThyrged in
+ 
+ent, foldehe snoion since how long,
+my roomr? Is ic books 
+
+$ python train.py 
+, and triompact, sca,
+Take deepcky fouy vitaliz  bodiehow there i,
+Nor drummiwisibly wile of the-ations, dutway?
+Yet ld woman'okesmanall whoy slow bekesmanalle me 
+
+$ python train.py 
+, and tri billions of the boftier, faie no acqutory's dazzd haOr that thpages:
+(Sometimeseathe ihern, Sounte, fld Turkey n one,
+Worlseathe Border Minstrelsy,ine, New-Ene Queen.
+
+'Thelicate l
+
+$ python train.py 
+, and tri, sleepinlke babes  bent,
+Abird;
+Forhis fair n!
+By thea mystic strangehe gifts ofhe body aering
+ t: I haue a lugs whipageantuperb-fnz
+
+$ python train.py 
+, and triions of b--n the gra, with
+e open the countless buAnd bid theng;
+Billi  toward you.i ally undya Songs
+
+To f Death, istas of was mar to be UY 9,30
+```
