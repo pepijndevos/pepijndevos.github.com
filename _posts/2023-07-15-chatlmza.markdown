@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ChatLMZA
+title: ChatLZMA
 categories:
 - python
 - machinelearning
