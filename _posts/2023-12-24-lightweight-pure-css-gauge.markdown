@@ -74,3 +74,38 @@ Below is a codepen to play with the code. I hope it's useful to someone.
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+After a bit of chatting on the Recurse Center Zulip, I came up with the following alternative gradients that provide a 3D effect or that goes from red to orange to green. The 3D one works by adding a transparent black gradient to the radial part. The colourful one works by making a fixed backdrop and a transparent-grey gradient on top that reveals the underlying one.
+
+![3d](/images/gauge/3d.png) ![red orange green](/images/gauge/red_orange_green.png)
+
+```css
+  background:
+    conic-gradient(from -135deg,
+      transparent 270deg,
+      white 270deg),
+    radial-gradient(
+      var(--background) 0 var(--cutout),
+      #0002 calc(var(--cutout)),
+      #0000 calc(var(--cutout) + 15px),
+      #0002 calc(var(--cutout) + 30px),
+      #0000 calc(var(--cutout) + 30px) 100%),
+    conic-gradient(from -135deg,
+      var(--color) calc(270deg*var(--value)),
+      grey calc(270deg*var(--value)) 270deg,
+      transparent 270deg);
+
+  background:
+    radial-gradient(
+      var(--background) 0 var(--cutout),
+      transparent var(--cutout) 100%),
+    conic-gradient(from -135deg,
+      transparent calc(270deg*var(--value)),
+      grey calc(270deg*var(--value)) 270deg,
+      transparent 270deg),
+    conic-gradient(from -135deg,
+      red 0,
+      orange 135deg,
+      lime 270deg,
+      transparent 270deg);
+```
