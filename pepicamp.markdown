@@ -13,15 +13,30 @@ Email [info@hetappelnest.nl](mailto:info@hetappelnest.nl) to let the campsite kn
 
 ### How to get there
 
-Idk, put the address in your navigation or look for a train or bus. If you want to come by public transit [9292](https://9292.nl/) tends to be more reliable than Google Maps within the Netherlands. Big cities nearby are Hengelo and Enschede, which have international trains and Flexibus and such.
+The address is
 
-Maybe we can coordinate that people who come by car can pick up people form the station or bus stop, TDB.
+Haarweg 1
+7495 PK Delden
+
+The intercity trains from Schiphol/Amsterdam and Berlin stop in Hengelo, from where you can take a local train to Delden.
+From the direction of Brussels you'll want to transfer in Roosendaal or Breda to Zutphen and from there take a local train to Delden.
+Flexibus stops in Enschede, from where you can get a train to Hengelo, and then a local train to Delden.
+
+I'd like to coordinate to pick people up by car, but if that doesn't work out for some reason:
+From Delden you would take bus 98 in the direction of Almelo and get off at Bushalte De Rustende Jager, Bentelo.
+From there it's a 15 minute walk.
+
+![walking route](/images/walkingroute.png)
+
+I recommend using [9292](https://9292.nl/) for planning bus and train trips within the Netherlands.
 
 ### What to do
 
 Hang out with friends and do normal camping things. There is nice nature and maybe some museums, we'll see.
 
 I want to stress that there are other people on the campsite so campsite etiquette applies. This is not the place for loud parties, if there is to be any chance at all for a Pepicamp 2025.
+
+p.s. there is no wishful coding involved, that's just the name of my blog
 
 ### What to bring
 
