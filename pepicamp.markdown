@@ -15,7 +15,7 @@ Email [info@hetappelnest.nl](mailto:info@hetappelnest.nl) to let the campsite kn
 
 The address is
 
-Haarweg 1
+Haarweg 1  
 7495 PK Delden
 
 The intercity trains from Schiphol/Amsterdam and Berlin stop in Hengelo, from where you can take a local train to Delden.
