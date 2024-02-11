@@ -11,6 +11,27 @@ Join the [Telegram group](https://t.me/+X6zMWIetcGs3MTI8) to let me know you're 
 
 Email [info@hetappelnest.nl](mailto:info@hetappelnest.nl) to let the campsite know you're coming. Make sure to mention my name, the dates, and amount of people & tents & campers. It's entirely possible to stay longer or shorter if you'd like.
 
+### What does it cost
+
+The [pricing page](https://hetappelnest.nl/camping/tarieven/) of the campsite lists about &euro;20 per tent per night, depending if you want electricity and how many people share a tent.
+
+If you don't own any camping gear, it seems you could buy the essentials for around &euro;70, see below.
+
+### What to bring
+
+Normal camping things. Some essentials:
+
+- [tent](https://www.decathlon.nl/p/kampeertent-voor-2-personen-mh100/_/R-p-303295)
+- [sleeping bag](https://www.decathlon.nl/p/slaapzak-voor-kamperen-arpenaz-15/_/R-p-339032) (& pillow)
+- [air mattress](https://www.decathlon.nl/p/luchtbed-voor-de-camping-air-basic-70-cm-1-persoon/_/R-p-310045) (& pump)
+- mug, plate & cutlery
+- toothbrush
+
+And of course whatever else you need for your own comfort and entertainment.
+
+I plan to come by car and pass by Decathlon to buy some campsite cooking equipment.
+If you need me to buy you anything, let me know.
+
 ### How to get there
 
 The address is
@@ -37,9 +58,3 @@ Hang out with friends and do normal camping things. There is nice nature and may
 I want to stress that there are other people on the campsite so campsite etiquette applies. This is not the place for loud parties, if there is to be any chance at all for a Pepicamp 2025.
 
 p.s. there is no wishful coding involved, that's just the name of my blog
-
-### What to bring
-
-Normal camping things.
-
-I'd like to coordinate cooking, details TBD.
