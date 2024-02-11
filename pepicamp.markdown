@@ -27,10 +27,12 @@ Normal camping things. Some essentials:
 - mug, plate & cutlery
 - toothbrush
 
-And of course whatever else you need for your own comfort and entertainment.
+And of course whatever else you need for your own comfort and entertainment, maybe some game, a picnic blanket, or a powerbank for you phone or something.
+A more exhaustive list of stuff you might consider bringing can be found on the [CCC how to survive page](https://events.ccc.de/camp/2023/infos/how-to-survive.html).
 
-I plan to come by car and pass by Decathlon to buy some campsite cooking equipment.
-If you need me to buy you anything, let me know.
+I plan to come by car and pass by Decathlon to buy some campsite cooking equipment to cook together.
+
+As long as there is space in my car I'd be happy to take orders for some extra camping equipment.
 
 ### How to get there
 
