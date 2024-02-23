@@ -7,7 +7,7 @@ categories:
 - music
 ---
 
-Bear with me while I tell you a bit about some cool music instruments.
+I built my own electro-mechanical music instrument by combining ideas from some of the coolest instruments I know of:
 
 A theremin is an electronic instrument that you play by moving your hands in the air. It uses an analog circuit with two tuned oscillators, one of which is modulated by the antenna impedance which is perturbed by the presence of your body in the near field. The slight frequency differences are fed into a mixer to produce an audible frequency.
 

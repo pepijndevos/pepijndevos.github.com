@@ -7,9 +7,9 @@ categories:
 - css
 ---
 
-The other day I was helping my brother with the second version of his performance installation [DEMARRAGE](http://jurriaandevos.nl/demarrage/), which involves serving a dashboard from an ESP32 that measures the energy produced by two dynamo bikes.
+The other day I was helping my brother with the second version of his performance installation [DEMARRAGE](http://jurriaandevos.nl/demarrage/), which involves serving a web page from an ESP32 that displays the energy produced by two dynamo bikes.
 
-For this dashboard we wanted a simple gauge, so I figured a solution would be an internet search away. But all the examples I found seemed really complicated, with verbose markup, opaque CSS, and sometimes an entire JS library. So I decidede to make my own.
+For this page we wanted a simple gauge, so I figured a solution would be an internet search away. But all the examples I found seemed really complicated, with verbose markup, opaque CSS, and sometimes an entire JS library. So I decidede to make my own.
 
 ![a dashboard showing a simple CSS gauge](/images/gauge/dashboard.png)
 
