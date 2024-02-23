@@ -37,6 +37,11 @@
                             <!--<h4><a href="/about.html">About</a></h4>-->
                             <h4><a href="/projects.html">Interesting Projects</a></h4>
                             <h4><a href="http://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via=pepijndevos">Share this page on Twitter</a></h4>
+                            <form action="https://duckduckgo.com">
+                                <label for="search">Search</label>
+                                <input type="search" name="q" id="search" />
+                                <input type="hidden" name="sites" value="pepijndevos.nl" />
+                            </form>
                             {% if site.related_posts %}
                             <h4>Remotely related posts</h4>
                             <ul>

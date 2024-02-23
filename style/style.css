@@ -213,7 +213,7 @@ li p {
         }
 }
 
-@media (min-width:1100px) {
+@media (min-width:1400px) {
     body {
         width: 1100px;
         margin: 0 auto;
