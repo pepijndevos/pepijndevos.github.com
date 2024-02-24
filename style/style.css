@@ -45,7 +45,7 @@ aside #chain {
         left: 0;
 }
 
-article, header, footer {
+article, header, footer, .giscus {
 	max-width: 500px;
 	padding: 20px 60px;
 	text-align: center;
