@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Lithopedia part 1: intro and clay experiments"
+title: "Library 2000 part 1: intro and clay experiments"
 categories:
-- lithopedia
+- lib2k
 - cnc
 ---
 
