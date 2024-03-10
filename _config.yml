@@ -12,4 +12,5 @@ title: "Wishful Coding"
 tagline: "Didn't you ever wish your<br>computer understood you?"
 url: "http://pepijndevos.nl"
 
-lsi: true
+# seems to prefer longer posts
+lsi: false
