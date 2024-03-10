@@ -18,6 +18,5 @@ group :jekyll_plugins do
   gem "jekyll-relative-links"
 
   gem "jekyll-feed"
-  gem "jekyll-archives"
   gem "classifier-reborn"
 end

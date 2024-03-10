@@ -5,10 +5,12 @@
 	</section>
 	<div class="meta">
 		<div class="author vcard"><span class="fn">Pepijn de Vos</span></div>
-		<div><time class="updated" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_long_string }}</time></div>
+		<div><time class="updated" datetime="{{ post.date | date_to_xmlschema }}">
+            <a href="/archive.html#{{post.date | date: '%Y'}}">{{ post.date | date_to_long_string }}</a>
+        </time></div>
 		<div class="tags">
 			{% for cat in post.categories %}
-			<a href="/category/{{ cat | slugify}}" rel="tag">{{ cat }}</a>
+			<a href="/tags.html#{{ cat }}" rel="tag">{{ cat }}</a>
 			{% endfor %}
 		</div>
 	</div>
