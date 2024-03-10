@@ -20,5 +20,4 @@ group :jekyll_plugins do
   gem "jekyll-feed"
   gem "jekyll-archives"
   gem "classifier-reborn"
-  gem 'jekyll-archives'
 end

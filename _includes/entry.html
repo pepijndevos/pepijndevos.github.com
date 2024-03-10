@@ -8,7 +8,7 @@
 		<div><time class="updated" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_long_string }}</time></div>
 		<div class="tags">
 			{% for cat in post.categories %}
-			<a href="/tags.html#{{ cat }}" rel="tag">{{ cat }}</a>
+			<a href="/category/{{ cat | slugify}}" rel="tag">{{ cat }}</a>
 			{% endfor %}
 		</div>
 	</div>

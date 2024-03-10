@@ -1,0 +1,15 @@
+---
+layout: default
+title: Archive
+---
+<article>
+	<h2>{{ page.title }}</h2>
+	<section>
+    <ul>
+        {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+        {% for year in postsByYear %}
+        <li><a href="/{{ year.name }}">{{ year.name }} ({{ year.items | size}} posts)</a></li>
+        {% endfor %}
+    </ul>
+	</section>
+</article>
