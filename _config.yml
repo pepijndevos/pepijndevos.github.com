@@ -1,8 +1,9 @@
-plugins: [jekyll-paginate]
 highlighter: rouge
 paginate: 3
 markdown: kramdown
-
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
 
 permalink: "/:year/:month/:day/:title.html"
 
@@ -10,6 +11,4 @@ title: "Wishful Coding"
 tagline: "Didn't you ever wish your<br>computer understood you?"
 url: "http://pepijndevos.nl"
 
-gems:
-  - jekyll-paginate
-  - jekyll-feed
+lsi: true
