@@ -6,3 +6,4 @@
 *.out
 /_site
 .AppleDouble
+.jekyll-metadata

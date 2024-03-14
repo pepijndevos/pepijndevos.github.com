@@ -1,17 +1,16 @@
 <article class="hentry">
-	<h2 class="entry-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-	<section class="entry-content">
-	{{ content }}
-	</section>
-	<div class="meta">
-		<div class="author vcard"><span class="fn">Pepijn de Vos</span></div>
-		<div><time class="updated" datetime="{{ post.date | date_to_xmlschema }}">
-            <a href="/archive.html#{{post.date | date: '%Y'}}">{{ post.date | date_to_long_string }}</a>
+    <h2 class="entry-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <section class="entry-content">
+    {{ content }}
+    </section>
+    <div class="meta">
+        <div class=published-time>Published on <time class="updated" datetime="{{ post.date | date_to_xmlschema }}">
+            <a href="/archive.html#{{post.date | date: '%Y'}}">{{ post.date | date_to_long_string }}</a>.
         </time></div>
-		<div class="tags">
-			{% for cat in post.categories %}
-			<a href="/tags.html#{{ cat }}" rel="tag">{{ cat }}</a>
-			{% endfor %}
-		</div>
-	</div>
+        <div class="tags">
+            {% for cat in post.categories %}
+            <a href="/tags.html#{{ cat }}" rel="tag" class=tag>{{ cat }}</a>
+            {% endfor %}
+        </div>
+    </div>
 </article>
