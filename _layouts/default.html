@@ -59,15 +59,16 @@
                         <a target="_blank" href="/feed.xml">RSS Feed</a>
                     </nav>
 
-                    <h4  style="margin-top: 1.5em;">Elsewhere on the internet...</h4>
+                    <h4>Elsewhere</h4>
                     <ul>
                             <!--<li><a href="http://eepurl.com/iKGOdY">Mailinglist</a></li>-->
                             <li><a href="http://twitter.com/pepijndevos" target="_blank">Twitter</a></li>
+                            <li><a href="https://freeradical.zone/@pepijndevos" target="_blank">Mastodon</a></li>
                             <li><a href="http://github.com/pepijndevos" target="_blank">Github</a></li>
                     </ul>
 
                     {% if site.related_posts %}
-                    <h4 style="margin-top: 1.5em;">Remotely related posts</h4>
+                    <h4>Remotely related posts</h4>
                     <ul>
                             {% for post in site.related_posts limit:3 %}
                             <li><a href="{{ post.url }}">{{ post.title }}</a></li>

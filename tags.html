@@ -5,11 +5,14 @@ title: Tags
 <article>
 	<h2>{{ page.title }}</h2>
 	<section>
-	{% for tag in site.categories %}
-	<h4 id="{{ tag[0] }}"><a href="#{{ tag[0] }}" style="font-size: 1.2em; color: var(--text)">{{ tag[0] }}</a></h4>
-	<ul>
+	{% for tag in site.categories reversed %}
+	<h4 id="{{ tag[0] }}" class="larger"><a href="#{{ tag[0] }}">{{ tag[0] }}</a></h4>
+	<ul style="list-style-type: none">
 		{% for post in tag[1] %}
-		<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+            <li>
+                <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a> –
+                <span class="smaller">{{ post.date | date: "%b %-d %Y" }}</span>
+            </li>
 		{% endfor %}
 	</ul>
 	{% endfor %}
