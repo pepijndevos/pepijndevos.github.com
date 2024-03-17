@@ -7,12 +7,12 @@ title: Archive
 	<section>
         {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
         {% for year in postsByYear %}
-        <h4 id="{{year.name}}"><a href="#{{ year.name }}" style="font-size: 1.2em; color: var(--text)">{{ year.name }}</a></h4>
+        <h4 id="{{year.name}}" class="larger"><a href="#{{ year.name }}">{{ year.name }}</a></h4>
         <ul style="list-style-type: none">
             {% for post in year.items %}
             <li>
                 <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a> –
-                <span style="font-size: 0.8em;">{{ post.date | date: "%b %-d" }}</span>
+                <span class="smaller">{{ post.date | date: "%b %-d" }}</span>
             </li>
             {% endfor %}
         </ul>

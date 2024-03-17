@@ -14,8 +14,8 @@ Author URI: http://pepijndevos.nl/
     --theme-light: rgba(240, 240, 247, 1); 
 
     --main-width: 620px; /* used to set the max-width of the main column of text */
-    --serif: Newsreader; 
-    --sans: Hind;
+    --body: Lora;
+    --fringe: Hind;
 }
 
 * {
@@ -38,6 +38,16 @@ Author URI: http://pepijndevos.nl/
 }
 
 @font-face {
+    font-family: 'Rowan';
+    src: url(Rowan.ttf);
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url(Lora.woff2);
+}
+
+@font-face {
   font-family: 'Hind';
   src: url(Hind.woff2) format('woff2');
 }
@@ -50,7 +60,7 @@ body, html {
     padding: 0;
     margin: 0;
     min-height: 100%;
-    font-family: var(--serif);
+    font-family: var(--body);
     background: var(--background);
     color: var(--text);
 }
@@ -69,7 +79,7 @@ aside {
   min-height: 100%;
   box-sizing: border-box;
   max-height: calc(100% + 120px);
-  font-family: var(--sans);
+  font-family: var(--fringe);
 }
 
 aside #chain {
@@ -114,7 +124,7 @@ article, header, footer, .giscus {
     margin-top: 2em;
     display: flex;
     justify-content: space-between;
-    font-family: var(--sans);
+    font-family: var(--fringe);
 }
 
 .pagination a {
@@ -160,7 +170,7 @@ footer {
 .meta {
     margin-top: 1.5em;
     text-align: left;
-    font-family: var(--sans);
+    font-family: var(--fringe);
 }
 
 .published-time {
@@ -208,12 +218,19 @@ h1, h2, h3, h1 a, h2 a, h3 a {
     text-decoration: none;
 }
 
+h4 a {
+    color: inherit;
+}
 
 h2, h3, h4 {
     margin: 2em 0em 1.2em 0em;
     scroll-margin-top: 1.5em;
     padding-bottom: 0px;
     line-height: 1.2em;
+}
+
+aside h4 {
+    margin-top: 1.5em;
 }
 
 h1 {
@@ -323,6 +340,14 @@ p{
     margin: 1.2em 0em;
 }
 
+.larger {
+    font-size: 1.2em;
+}
+
+.smaller {
+    font-size: 0.8em;
+}
+
 
 @media (prefers-color-scheme: dark) {
 
@@ -362,6 +387,7 @@ p{
 }
 
 
+@keyframes yoink { 0% { top: -2px; } 100% { top: 0px; } }
 
 @media (max-width:1100px) {
         aside {
@@ -380,6 +406,7 @@ p{
             position: relative;
             margin-bottom: -100px;
             cursor: pointer;
+            animation: yoink 0.2s ease-in 2s 4 alternate both;
         }
 
         aside #drawer {
