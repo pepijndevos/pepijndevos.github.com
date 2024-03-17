@@ -1,10 +1,12 @@
 source "https://rubygems.org"
 
 gem "jekyll"
+gem "json" # fixes missing package error
 
 # for classifier
-gem "numo-narray"
-gem "numo-linalg"
+#gem "classifier-reborn"
+#gem "numo-narray"
+#gem "numo-linalg"
 
 group :jekyll_plugins do
   gem "jekyll-coffeescript"
@@ -18,5 +20,4 @@ group :jekyll_plugins do
   gem "jekyll-relative-links"
 
   gem "jekyll-feed"
-  gem "classifier-reborn"
 end
