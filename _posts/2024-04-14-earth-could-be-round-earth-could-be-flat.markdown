@@ -22,7 +22,7 @@ Most flat earth models don't tend to have satisfactory explanations for sunset, 
 
 In this model the sun is still further away than the moon, so a solar eclipse is simply the moon moving in front of the sun as usual. In a lunar eclipse, the light of the sun has to bend so deep that it would touch the earth before it could bend back up to the moon.
 
-A lovely result from this flat earth model is that it clearly answers the questions what is below the earth: the singularity. Event better is that the density of the earth goes down the closer you get to the singularity, meaning the earth is in a sense hollow. Finally a grand unifying theory of hollow earth and flat earth models!
+A lovely result from this flat earth model is that it clearly answers the questions what is below the earth: the singularity. Even better is that the density of the earth goes down the closer you get to the singularity, meaning the earth is in a sense hollow. Finally a grand unifying theory of hollow earth and flat earth models!
 
 The downside of this model that physics isn't independent of location and direction. For example the atmosphere is denser in the middle of the disk. A simple equation like $$F=ma$$ becomes hellishly complicated if you want it to work everywhere.
 
