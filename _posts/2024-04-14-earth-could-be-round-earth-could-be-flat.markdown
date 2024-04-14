@@ -26,7 +26,7 @@ A lovely result from this flat earth model is that it clearly answers the questi
 
 The downside of this model that physics isn't independent of location and direction. For example the atmosphere is denser in the middle of the disk. A simple equation like $$F=ma$$ becomes hellishly complicated if you want it to work everywhere. There is also a magic Pacman teleportation point on the south pole.
 
-This model is internally consistent and impossible to falsify since it is simply a coordinate transform of conventional physics. You can't make any observations that would disagree with the model and agree with a spherical model since they are the same universe. It is not possible to measure which way of looking at things is "real" because all your observations and tools are curved in the same way. Therefore, the earth might be flat.
+This model is internally consistent and impossible to falsify since it is simply a coordinate transform of conventional physics. You can't make any observations that would disagree with the model and agree with a spherical model since they are the same universe. It is not possible to measure which way of looking at things is "real" because all your observations and tools are curved in the same way. Therefore, you could interpret the earth to be flat.
 
 With the combined skills in Blender and mathematics of me and my brother, we managed to implement the flat earth coordinate transformation in Blender geometry nodes so that you can make a 3D model and see what it looks like on a flat earth.
 
