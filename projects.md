@@ -9,7 +9,8 @@ With hundreds of blog posts and github repositories, you'd be forgiven for only 
 
 Just some things I did for my own entertainment.
 
- * [Lib2k](/2023/05/20/lithopedia-part-1-intro-and-clay-experiments.html) a library of clay tablets with media from the last couple of millenia
+ * [Lib2k](/2023/05/20/lithopedia-part-1-intro-and-clay-experiments.html) a library of clay tablets with media from the last couple of millenia.
+ * [GPS PCB antenna](2022/11/24/design-of-a-gps-patch-antenna.html) a GPS patch antenna on FR4 designed completely from scratch.
  * [TCPoke](/TCPoke/) allows you to connect your Game Boy to the Internet and trade Pokemon. It spans everything form custom hardware, z80 assembly, embedded C++, full-stack web development, and a bit of entrepreneurship. 
       * [Bill's Arduino](/2015/02/13/catch-em-all.html) laid the groundwork for Game Link spoofing.
       * [GB Paint](/2016/08/09/game-boy-paint.html) deepened my knowledge about assembly programming and the Game Boy hardware.
