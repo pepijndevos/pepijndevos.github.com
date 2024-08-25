@@ -28,7 +28,7 @@ F_y(y)&=\cos(\theta)kL(y)\\
 F_y(y)&=\cos(\theta)k2\sqrt{r^2+y^2\cos^2(\theta)}
 \end{aligned}$$
 
-This means that a rotated blade creates "leverage" where less force but a longer travel is required. To be precise, the travel is given by \\(\frac{2r}{\cos(\theta)}\\).
+This means that an angled blade creates "leverage" where less force but a longer travel is required. To be precise, the travel is given by \\(\frac{2r}{\cos(\theta)}\\).
 
 ![vertical component of cutting force](/images/guillotine/vertical_cut_force_plot.svg)
 
