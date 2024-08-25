@@ -49,6 +49,6 @@ W_x &= \mu k \tan(\theta)\int_{-r}^{r} L(u) du
 
 And indeed KnowArt experimentally found that the diagonal blade performed worse due to being pushed sideways.
 
-The one thing the diagonal blade has going for it is the one thing that is not easily captured in mathematics or tatami rolls: A diagonal blade as a horizontal component that creates a slicing motion rather than a chopping motion. And anyone who's done any amount of cooking knows from experience that this can help a lot.
+The one thing the diagonal blade has going for it is the one thing that is not easily captured in mathematics or tatami rolls: A diagonal blade has a horizontal component that creates a slicing motion rather than a chopping motion. And anyone who's done any amount of cooking knows from experience that this can help a lot.
 
 But the story goes that the real reason the blade is diagonal is that the king suggested it might help with people with fat necks. Ironically his own fat neck ended on the block some time later.
