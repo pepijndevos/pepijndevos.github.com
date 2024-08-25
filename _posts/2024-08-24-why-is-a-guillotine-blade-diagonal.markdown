@@ -13,13 +13,13 @@ This is a theoretical counterpart to an experimental collaboration between [Know
 
 A raised guillotine blade has a certain potential energy which is transferred to the contact point between the blade and the neck. So let's assume a frictionless spherical cow, I mean neck, and calculate the contact point, force, and energy as a function of the angle of the blade.
 
-The equation of a circle is given by $x^2+y^2=r^2$, so a horizontal blade intersecting the circle of radius $r$ at height $y$ intersects the circle at $x=\pm\sqrt{r^2+y^2}$. The length of the cut is therefore $L(y)=2\sqrt{r^2+y^2}$.
+The equation of a circle is given by \\(x^2+y^2=r^2\\), so a horizontal blade intersecting the circle of radius \\(r\\) at height \\(y\\) intersects the circle at \\(x=\pm\sqrt{r^2+y^2}\\). The length of the cut is therefore \\(L(y)=2\sqrt{r^2+y^2}\\).
 
-For a diagonal blade, we can rotate the reference frame to be aligned to the blade, such that the knife has a horizontal component of $y\sin(\theta)$ and a vertical component of $y\cos(\theta)$, creating a contact patch of $L(y\cos(\theta))=2\sqrt{r^2+y^2\cos^2(\theta)}$.
+For a diagonal blade, we can rotate the reference frame to be aligned to the blade, such that the knife has a horizontal component of \\(y\sin(\theta)\\) and a vertical component of \\(y\cos(\theta)\\), creating a contact patch of \\(L(y\cos(\theta))=2\sqrt{r^2+y^2\cos^2(\theta)}\\).
 
 ![rotated guillotine](/images/guillotine/geometry.svg)
 
-So now we can express the force from the contact area in terms of some constant $k$ as $F(y)=kL(y)$ perpendicular to the blade edge, resulting in a vertial and horizontal component:
+So now we can express the force from the contact area in terms of some constant \\(k\\) as \\(F(y)=kL(y)\\) perpendicular to the blade edge, resulting in a vertial and horizontal component:
 
 $$\begin{aligned}
 F_x(y)&=\sin(\theta)kL(y)\\
@@ -28,7 +28,7 @@ F_y(y)&=\cos(\theta)kL(y)\\
 F_y(y)&=\cos(\theta)k2\sqrt{r^2+y^2\cos^2(\theta)}
 \end{aligned}$$
 
-This means that a rotated blade creates "leverage" where less force but a longer travel is required. To be precise, the travel is given by $\frac{2r}{\cos(\theta)}$.
+This means that a rotated blade creates "leverage" where less force but a longer travel is required. To be precise, the travel is given by \\(\frac{2r}{\cos(\theta)}\\).
 
 ![vertical component of cutting force](/images/guillotine/vertical_cut_force_plot.svg)
 
@@ -36,11 +36,11 @@ To compute the total energy required for a cut, assuming the dominant force scal
 
 $$W_y = k \cos(\theta) \int_{-\frac{r}{\cos(\theta)}}^{\frac{r}{\cos(\theta)}} L(y\cos(\theta)) dy$$
 
-Now we can simplify by substituting $u=y\cos(\theta)$, $dy=\frac{du}{\cos(\theta)}$ and adjust the integration bounds accordingly, cancelling all $\theta$ terms!
+Now we can simplify by substituting \\(u=y\cos(\theta)\\), \\(dy=\frac{du}{\cos(\theta)}\\) and adjust the integration bounds accordingly, cancelling all \\(\theta\\) terms!
 
 $$W_y = k \int_{-r}^{r} L(u) du$$
 
-So just as much vertical energy is required to cut through the circle no matter the angle, but we're also excerting a horizontal force. If the guillotine blade is running on math bearings this is of no concern, but for a wooden sled there is a (Coulomb) friction of $F_c=\mu F_x$ giving
+So just as much vertical energy is required to cut through the circle no matter the angle, but we're also excerting a horizontal force. If the guillotine blade is running on math bearings this is of no concern, but for a wooden sled there is a (Coulomb) friction of \\(F_c=\mu F_x\\) giving
 
 $$\begin{aligned}
 W_x &= \mu k \sin(\theta) \int_{-\frac{r}{\cos(\theta)}}^{\frac{r}{\cos(\theta)}} L(y\cos(\theta)) dy\\
