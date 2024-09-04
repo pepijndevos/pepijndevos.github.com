@@ -5,11 +5,9 @@ categories:
 - history
 - mathematics
 ---
-[this is a public draft]
-
 This is a theoretical counterpart to an experimental collaboration between [KnowArt](https://www.youtube.com/@KnowArt) and [Proper Printing](https://www.youtube.com/@properprinting) to see if a diagonal guillotine blade cuts better than a horizontal one.
 
-[insert video's here]
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/53fSsfUjUeI?si=lC3MDF0hAtdnQhn6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 A raised guillotine blade has a certain potential energy which is transferred to the contact point between the blade and the neck. So let's assume a frictionless spherical cow, I mean neck, and calculate the contact point, force, and energy as a function of the angle of the blade.
 
@@ -17,7 +15,7 @@ The equation of a circle is given by \\(x^2+y^2=r^2\\), so a horizontal blade in
 
 For a diagonal blade, we can rotate the reference frame to be aligned to the blade, such that the knife has a horizontal component of \\(y\sin(\theta)\\) and a vertical component of \\(y\cos(\theta)\\), creating a contact patch of \\(L(y\cos(\theta))=2\sqrt{r^2+y^2\cos^2(\theta)}\\).
 
-![rotated guillotine](/images/guillotine/geometry.svg)
+![rotated guillotine](/images/guillotine/geometry.gif)
 
 So now we can express the force from the contact area in terms of some constant \\(k\\) as \\(F(y)=kL(y)\\) perpendicular to the blade edge, resulting in a vertial and horizontal component:
 
