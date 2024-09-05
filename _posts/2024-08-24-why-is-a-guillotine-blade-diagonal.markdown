@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Why is a Guillotine blade diagonal?
+title:  Why Are Guillotine Blades Angled? (analyzed) 
 categories:
 - history
 - mathematics
