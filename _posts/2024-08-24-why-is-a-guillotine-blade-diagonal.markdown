@@ -45,8 +45,42 @@ W_x &= \mu k \sin(\theta) \int_{-\frac{r}{\cos(\theta)}}^{\frac{r}{\cos(\theta)}
 W_x &= \mu k \tan(\theta)\int_{-r}^{r} L(u) du
 \end{aligned}$$
 
-And indeed KnowArt experimentally found that the diagonal blade performed worse due to being pushed sideways.
+But what about the pointy blade? I'm not glad you asked because the math is more messy. We can consider one half of the pointy blade at a rotated reference frame. So we get the same \\(L\\) as before, but now the blade stops at the tangent line of the blade angle, as follows. But then once the point of the blade exits the circle it becomes two flat sections, forming a piecewise function.
 
-The one thing the diagonal blade has going for it is the one thing that is not easily captured in mathematics or tatami rolls: A diagonal blade has a horizontal component that creates a slicing motion rather than a chopping motion. And anyone who's done any amount of cooking knows from experience that this can help a lot.
+![pointy blade geometry](/images/guillotine/desmos-graph.svg)
+
+For the first part we have half of a flat blade length \\(L\\), the uncut section \\(M\\), and the pointy blade section \\(N\\)
+
+$$\begin{aligned}
+L&=\sqrt{r^2-(\cos(\theta)h)^2} \\
+M&=\tan(\theta)\cos(\theta)h\\
+&=\sin(\theta)h \\
+N&=L-M \\
+&=\sqrt{r^2-(\cos(\theta)h)^2}-\sin(\theta)h
+\end{aligned}$$
+
+Giving us
+
+$$\begin{aligned}
+L_{tot} &=\begin{cases} 
+      2\left(\sqrt{r^2-\cos^2(\theta)h^2}-\sin(\theta)h\right) & -r < h \leq r \\
+      4\sqrt{r^2-\cos^2(\theta)h^2} & r < h \leq \frac{h}{\cos(\theta)} \\
+   \end{cases} \\
+F_y &= \cos(\theta)k L_{tot}
+\end{aligned}$$
+
+![pointy force](/images/guillotine/pointy_blade_cut_force.svg)
+
+For the total work, we already know the square root terms are independent of the angle. And since the sum of the integral is the same as the integral of the sum, we only need to concern ourselves with the \\(\sin(\theta)h\\) term.
+
+$$\begin{aligned}
+W_p &= k\cos(\theta)\sin(\theta)\int_{-r}^r h dh \\
+W_p &= k\cos(\theta)\sin(\theta)\left(\frac{1}{2}(-r)^2-\frac{1}{2}(r)^2\right) \\
+W_p &= 0
+\end{aligned}$$
+
+So all our blades take the same amount of work to cut through an uniform saussage, with the diagonal blades being worse due to friction. The brachistochrone blade is left as an exercise to the reader.
+
+But there is more to cutting than uniform math saussages. KnowArt indeed found that the diagonal blade seemed to perform worse than the flat blade due to friction. But the pointy blade performed better. The most likely explanation for this is that a horizontal slicing motion is beneficial for cutting. This makes intuitive sense to anyone who's done some cooking, and was also explained to me by a medical doctor relative as the difference between a sword and a sabre.
 
 But the story goes that the real reason the blade is diagonal is that the king suggested it might help with people with fat necks. Ironically his own fat neck ended on the block some time later.
