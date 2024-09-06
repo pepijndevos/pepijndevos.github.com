@@ -11,9 +11,9 @@ This is a theoretical counterpart to an experimental collaboration between [Know
 
 A raised guillotine blade has a certain potential energy which is transferred to the contact point between the blade and the neck. So let's assume a frictionless spherical cow, I mean neck, and calculate the contact point, force, and energy as a function of the angle of the blade.
 
-The equation of a circle is given by \\(x^2+y^2=r^2\\), so a horizontal blade intersecting the circle of radius \\(r\\) at height \\(y\\) intersects the circle at \\(x=\pm\sqrt{r^2+y^2}\\). The length of the cut is therefore \\(L(y)=2\sqrt{r^2+y^2}\\).
+The equation of a circle is given by \\(x^2-y^2=r^2\\), so a horizontal blade intersecting the circle of radius \\(r\\) at height \\(y\\) intersects the circle at \\(x=\pm\sqrt{r^2-y^2}\\). The length of the cut is therefore \\(L(y)=2\sqrt{r^2-y^2}\\).
 
-For a diagonal blade, we can rotate the reference frame to be aligned to the blade, such that the knife has a horizontal component of \\(y\sin(\theta)\\) and a vertical component of \\(y\cos(\theta)\\), creating a contact patch of \\(L(y\cos(\theta))=2\sqrt{r^2+y^2\cos^2(\theta)}\\).
+For a diagonal blade, we can rotate the reference frame to be aligned to the blade, such that the knife has a horizontal component of \\(y\sin(\theta)\\) and a vertical component of \\(y\cos(\theta)\\), creating a contact patch of \\(L(y\cos(\theta))=2\sqrt{r^2-y^2\cos^2(\theta)}\\).
 
 ![rotated guillotine](/images/guillotine/geometry.gif)
 
@@ -21,9 +21,9 @@ So now we can express the force from the contact area in terms of some constant 
 
 $$\begin{aligned}
 F_x(y)&=\sin(\theta)kL(y)\\
-F_x(y)&=\sin(\theta)k2\sqrt{r^2+y^2\cos^2(\theta)}\\
+F_x(y)&=\sin(\theta)k2\sqrt{r^2-y^2\cos^2(\theta)}\\
 F_y(y)&=\cos(\theta)kL(y)\\
-F_y(y)&=\cos(\theta)k2\sqrt{r^2+y^2\cos^2(\theta)}
+F_y(y)&=\cos(\theta)k2\sqrt{r^2-y^2\cos^2(\theta)}
 \end{aligned}$$
 
 This means that an angled blade creates "leverage" where less force but a longer travel is required. To be precise, the travel is given by \\(\frac{2r}{\cos(\theta)}\\).
