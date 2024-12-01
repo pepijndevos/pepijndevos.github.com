@@ -8,7 +8,7 @@ categories:
 So quantization is kinda bad lossy compression right? JPEG is good lossy compression.
 This may sound stupid, and maybe it is, but hear me out.
 
-I've read that LLM performance is usually constrained by memory bandwidth, and for us plebs also in memory size, and there is a precedent in for example [ZFS compression](https://www.zfshandbook.com/docs/advanced-zfs/compression/) which has shown to _increase_ disk performance because you're IO constrained rather than compute constrained.
+I've read that LLM performance is usually constrained by memory bandwidth, and for us plebs also by memory size, and there is a precedent in for example [ZFS compression](https://www.zfshandbook.com/docs/advanced-zfs/compression/) which has shown to _increase_ disk performance because you're IO constrained rather than compute constrained.
 So it might be beneficial to decompress LLM parameters on the fly, and if you're doing that you might want to use a good lossy compression algorithm instead of blunt quantization.
 [It is said that compression is equivalent to general inteligence](/2023/07/15/chatlmza.html), so in that sense lossy compression would be expected to reduce inteligence, so you'd want to get a good compression ratio with minimal loss.
 
