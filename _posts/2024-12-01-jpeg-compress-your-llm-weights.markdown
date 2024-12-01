@@ -24,7 +24,7 @@ Now, I don't expect LLM parameters to be "smooth" like image data, so naive JPEG
 
 BUT!
 
-You can reorder the collumns and rows of a matrix without affecting the result. It's like \(a+b+c=d \rightarrow c+b+a=d\).
+You can reorder the collumns and rows of a matrix without affecting the result. It's like \\(a+b+c=d \rightarrow c+b+a=d\\).
 So you could reorder your rows and columns to maximize clustering of similar values.
 Not sure how you'd do this, maybe just sort by vector sum, or some genetic algorithm, or [other cleverness](https://www.mathworks.com/help/matlab/math/sparse-matrix-reordering.html).
 
