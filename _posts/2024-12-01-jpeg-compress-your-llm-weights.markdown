@@ -1,4 +1,4 @@
----
+﻿---
 layout: post
 title: JPEG compress your LLM weights
 categories:
@@ -10,7 +10,7 @@ This may sound stupid, and maybe it is, but hear me out.
 
 I've read that LLM performance is usually constrained by memory bandwidth, and for us plebs also by memory size, and there is a precedent in for example [ZFS compression](https://www.zfshandbook.com/docs/advanced-zfs/compression/) which has shown to _increase_ disk performance because you're IO constrained rather than compute constrained.
 So it might be beneficial to decompress LLM parameters on the fly, and if you're doing that you might want to use a good lossy compression algorithm instead of blunt quantization.
-[It is said that compression is equivalent to general inteligence](/2023/07/15/chatlmza.html), so in that sense lossy compression would be expected to reduce inteligence, so you'd want to get a good compression ratio with minimal loss.
+[It is said that compression is equivalent to general intelligence](/2023/07/15/chatlmza.html), so in that sense lossy compression would be expected to reduce intelligence, so you'd want to get a good compression ratio with minimal loss.
 
 The way JPEG works is basically
 - break down the pixels in chunks - after decompression chunk boundaries are visible as JPEG artifacts.
@@ -24,7 +24,7 @@ Now, I don't expect LLM parameters to be "smooth" like image data, so naive JPEG
 
 BUT!
 
-You can reorder the collumns and rows of a matrix without affecting the result. It's like \\(a+b+c=d \rightarrow c+b+a=d\\).
+You can reorder the columns and rows of a matrix without affecting the result. It's like \\(a+b+c=d \rightarrow c+b+a=d\\).
 So you could reorder your rows and columns to maximize clustering of similar values.
 Not sure how you'd do this, maybe just sort by vector sum, or some genetic algorithm, or [other cleverness](https://www.mathworks.com/help/matlab/math/sparse-matrix-reordering.html).
 
