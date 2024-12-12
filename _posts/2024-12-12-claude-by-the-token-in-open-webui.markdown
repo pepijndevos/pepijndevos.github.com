@@ -19,7 +19,7 @@ That means if you use it only a little, it's cheaper than Claude Pro, and if you
 Surprisingly it also does better RAG than Claude, letting you do web searches and include more and bigger documents than would fit in the context window.
 
 Here is my Docker compose file to set it all up.
-It is modified from [ollama-intel-gpu](https://github.com/mattcurf/ollama-intel-gpu) to include LiteLLM.
+It is modified from [ollama-intel-gpu](https://github.com/mattcurf/ollama-intel-gpu) to include LiteLLM with an [Anthropic config.yaml](https://docs.litellm.ai/docs/providers/anthropic#2-start-the-proxy).
 But if you're on team green or red, you can just change the first image to use [`ollama/ollama`](https://hub.docker.com/r/ollama/ollama) I suppose.
 
 ```
