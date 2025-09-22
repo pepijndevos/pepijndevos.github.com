@@ -19,6 +19,8 @@ This is a thought experiment made real, as a thought experiment about what it me
 - I give this information to my reliable predictor and prepare the boxes accordingly.
 - You will be offered two boxes, a transparent one containing €10 and an opaque one that contains either €100 (if I predict that you will only choose the opaque box), or €0 (if I predict that you will take both boxes).
 - You take any money from your chosen box(es) and reflect on what happened. Any money in any remaining boxes goes back to the bank.
+
+
 #### Byrules
 To keep it fun for everyone:
 
