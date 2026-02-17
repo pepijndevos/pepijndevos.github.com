@@ -24,6 +24,6 @@ So the plan is simple, plug some FPGAs into Home Assistant, run a self-hosted ru
 
 For the addon I just forked an existing addon and added USB access and openFPGALoader: [home-assistant-github-runner-add-on](https://github.com/pepijndevos/home-assistant-github-runner-add-on)
 
-For the CI side, it basically just adds a sel-hosted step after our current bitstream generation that fetches the bitstream artifacts, uploads them, and diffs the UART output: [Add hardware-in-the-loop CI test infrastructure](https://github.com/YosysHQ/apicula/pull/461)
+For the CI side, it basically just adds a self-hosted step after our current bitstream generation that fetches the bitstream artifacts, uploads them, and diffs the UART output: [Add hardware-in-the-loop CI test infrastructure](https://github.com/YosysHQ/apicula/pull/461)
 
 I'm excited to bring this new level of reliability to Apicula, and curious if other projects could do something similar.
