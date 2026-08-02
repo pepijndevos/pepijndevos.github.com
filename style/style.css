@@ -14,8 +14,40 @@ Author URI: http://pepijndevos.nl/
     --theme-light: rgba(240, 240, 247, 1); 
 
     --main-width: 620px; /* used to set the max-width of the main column of text */
-    --body: Lora;
-    --fringe: Hind;
+    --body: Lora, Georgia, serif;
+    --fringe: Hind, system-ui, sans-serif;
+}
+
+/* keyboard affordances */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 2;
+}
+
+.skip-link:focus {
+    left: 0;
+    padding: 0.5em 1em;
+    background: var(--background);
+    outline: 3px solid var(--theme);
+}
+
+:focus-visible {
+    outline: 3px solid var(--theme);
+    outline-offset: 2px;
 }
 
 * {
@@ -87,6 +119,16 @@ aside #chain {
     top: 0;
     left: 2em;
     user-select: none;
+    /* it is a button now, but it should still look like a chain */
+    display: block;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+aside #chain img {
+    display: block;
 }
 
 article, header, footer, .giscus {
@@ -130,7 +172,7 @@ article, header, footer, .giscus {
 .pagination a {
     font-weight: 600;
     text-align: right;
-    padding: 0em 1em;
+    padding: 0.25em 1em;
 }
 
 .pagination a:first-child {
@@ -194,6 +236,8 @@ footer {
 nav a {
     margin-bottom: 0.35em;
     display: block;
+    padding: 0.15em 0;
+    min-height: 24px; /* WCAG 2.5.8 target size */
 }
 
 #drawer-contents {
@@ -229,8 +273,19 @@ h2, h3, h4 {
     line-height: 1.2em;
 }
 
-aside h4 {
-    margin-top: 1.5em;
+/* these are h2/h3 so the heading outline has no gaps, but they should still
+   read as small sidebar/index labels rather than page titles */
+aside h2 {
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: left;
+    margin: 1.5em 0em 1.2em 0em;
+}
+
+.index-heading {
+    font-family: inherit;
+    text-align: left;
 }
 
 h1 {
@@ -297,7 +352,7 @@ blockquote {
 }
 
 blockquote:before {
-  color: #aaa;
+  color: #767676;
   content: '“';
   font-size: 4em;
   position: absolute;
@@ -319,12 +374,14 @@ figure.highlight {
     font-size: 80%;
 }
 
+/* colour alone never carries the meaning here: <del> keeps its line-through
+   and <ins> its underline (WCAG 1.4.1) */
 del {
-    color: red;
+    color: #C00000;
 }
 
 ins {
-    color: green;
+    color: #006B00;
 }
 
 li{
@@ -363,8 +420,40 @@ p{
         filter: invert() brightness(0.2);
     }
 
-    #chain{
+    #chain img {
         filter: invert() brightness(0.75);
+    }
+
+    blockquote:before {
+        color: #999;
+    }
+
+    del {
+        color: #F09B94;
+    }
+
+    ins {
+        color: #8FD98F;
+    }
+
+}
+
+/* Honour the operating system's "reduce motion" setting. The spinning wheel
+   in particular is decorative and runs forever (WCAG 2.2.2 / 2.3.3). */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    #wheel-img {
+        animation: none !important;
+    }
+
+    aside #chain {
+        animation: none !important;
     }
 }
 
@@ -390,6 +479,12 @@ p{
 @keyframes yoink { 0% { top: -2px; } 100% { top: 0px; } }
 
 @media (max-width:1100px) {
+        /* the drawer is pinned to the top of the viewport here, so keep
+           anchor targets and focus scrolling clear of it (WCAG 2.4.11) */
+        html {
+            scroll-padding-top: 9rem;
+        }
+
         aside {
             z-index: 1;
             left: 0;
@@ -413,12 +508,17 @@ p{
             max-height: 0px;
             overflow: hidden;
             padding: 0px;
-            transition: max-height 0.4s linear;
+            /* visibility keeps the collapsed links out of the tab order, so
+               keyboard focus never lands on something nobody can see */
+            visibility: hidden;
+            transition: max-height 0.4s linear, visibility 0s linear 0.4s;
             border-bottom: grey 1px solid;
         }
 
         aside #drawer.open {
             max-height: 1200px;
+            visibility: visible;
+            transition: max-height 0.4s linear, visibility 0s linear 0s;
         }
 
 }
@@ -438,20 +538,20 @@ p{
 
 /* pygments */
 .hll { background-color: #ffffcc }
-.c { color: #408080; font-style: italic } /* Comment */
+.c { color: #3A7070; font-style: italic } /* Comment */
 .err { border: 1px solid #FF0000 } /* Error */
 .k { color: #008000; font-weight: bold } /* Keyword */
 .o { color: #666666 } /* Operator */
-.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cm { color: #3A7070; font-style: italic } /* Comment.Multiline */
 .cp { color: #BC7A00 } /* Comment.Preproc */
-.c1 { color: #408080; font-style: italic } /* Comment.Single */
-.cs { color: #408080; font-style: italic } /* Comment.Special */
+.c1 { color: #3A7070; font-style: italic } /* Comment.Single */
+.cs { color: #3A7070; font-style: italic } /* Comment.Special */
 .gd { color: #A00000 } /* Generic.Deleted */
 .ge { font-style: italic } /* Generic.Emph */
 .gr { color: #FF0000 } /* Generic.Error */
 .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .gi { color: #00A000 } /* Generic.Inserted */
-.go { color: #808080 } /* Generic.Output */
+.go { color: #5F5F5F } /* Generic.Output */
 .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
 .gs { font-weight: bold } /* Generic.Strong */
 .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
@@ -464,19 +564,19 @@ p{
 .kt { color: #B00040 } /* Keyword.Type */
 .m { color: #666666 } /* Literal.Number */
 .s { color: #BA2121 } /* Literal.String */
-.na { color: #7D9029 } /* Name.Attribute */
+.na { color: #5A6B1E } /* Name.Attribute */
 .nb { color: #008000 } /* Name.Builtin */
 .nc { color: #0000FF; font-weight: bold } /* Name.Class */
 .no { color: #880000 } /* Name.Constant */
-.nd { color: #AA22FF } /* Name.Decorator */
+.nd { color: #8B1FD0 } /* Name.Decorator */
 .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.ne { color: #A32B24; font-weight: bold } /* Name.Exception */
 .nf { color: #0000FF } /* Name.Function */
-.nl { color: #A0A000 } /* Name.Label */
+.nl { color: #6B6B00 } /* Name.Label */
 .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
 .nt { color: #008000; font-weight: bold } /* Name.Tag */
 .nv { color: #19177C } /* Name.Variable */
-.ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.ow { color: #8B1FD0; font-weight: bold } /* Operator.Word */
 .w { color: #bbbbbb } /* Text.Whitespace */
 .mf { color: #666666 } /* Literal.Number.Float */
 .mh { color: #666666 } /* Literal.Number.Hex */
@@ -498,3 +598,32 @@ p{
 .vg { color: #19177C } /* Name.Variable.Global */
 .vi { color: #19177C } /* Name.Variable.Instance */
 .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+@media (prefers-color-scheme: dark) {
+    /* the pygments palette below is tuned for a light background; without
+       these overrides syntax highlighting drops to 1.1:1 - 3.6:1 on the dark
+       code background (WCAG 1.4.3) */
+    .hll { background-color: rgba(255, 255, 255, 0.08) }
+    .c, .cm, .c1, .cs { color: #9AA8A8 }
+    .cp { color: #E0A96A }
+    .k, .kc, .kd, .kn, .kr, .kp { color: #7FC98A }
+    .o, .m, .mf, .mh, .mi, .mo, .il { color: #B8B8B8 }
+    .s, .sb, .sc, .sd, .s2, .sh, .s1, .sx, .sr { color: #E8918C }
+    .se, .si { color: #E0A96A }
+    .ss { color: #A8C8FF }
+    .na { color: #C7D96E }
+    .nb, .bp, .nt { color: #7FC98A }
+    .nc, .nf, .nn { color: #8FB8FF }
+    .no { color: #E0A96A }
+    .nd, .ow { color: #CFA0F0 }
+    .ne, .gr, .gt { color: #F09B94 }
+    .ni { color: #B8B8B8 }
+    .nl { color: #C9C96A }
+    .nv, .vc, .vg, .vi { color: #A8C8FF }
+    .kt { color: #F09B94 }
+    .w { color: #6A6A6A }
+    .gd { color: #F09B94 }
+    .gi { color: #8FD98F }
+    .go { color: #A8A8A8 }
+    .gh, .gu, .gp { color: #8FB8FF }
+}
