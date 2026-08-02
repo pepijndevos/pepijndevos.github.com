@@ -6,7 +6,7 @@ title: Tags
 	<h2>{{ page.title }}</h2>
 	<section>
 	{% for tag in site.categories reversed %}
-	<h4 id="{{ tag[0] }}" class="larger"><a href="#{{ tag[0] }}">{{ tag[0] }}</a></h4>
+	<h3 id="{{ tag[0] }}" class="larger index-heading"><a href="#{{ tag[0] }}">{{ tag[0] }}</a></h3>
 	<ul style="list-style-type: none">
 		{% for post in tag[1] %}
             <li>

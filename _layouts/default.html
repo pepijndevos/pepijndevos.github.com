@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -8,8 +8,8 @@
         <meta name="readability-verification" content="3hEySDTZsM3WZZACwSUg4M39hFupkschurJmMTVV"/>
         <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
-        <title>{{ page.title }} - {{ site.title }}</title>
-        <meta name="description" content="{{ site.tagline }}">
+        <title>{% if page.title and page.title != site.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+        <meta name="description" content="{{ site.tagline | replace: '<br>', ' ' | strip_html }}">
         <link rel="apple-touch-icon" sizes="180x180"  href="{{ site.url }}/style/icon.png"> 
         <link rel="icon" type="image/png" sizes="32x32" href="{{ site.url }}/style/icon.png"> 
         <link rel="icon" type="image/png" sizes="16x16"  href="{{ site.url }}/style/icon.png"> 
@@ -39,16 +39,9 @@
             onload="renderMathInElement(document.body);"></script>
     </head>
     <body>
-        <header>
-            <h1><a href="/">{{ site.title }}</a></h1>
-            <span>{{ site.tagline }}</span>
-        </header>
+        <a class="skip-link" href="#content">Skip to content</a>
 
-        <div class="hfeed">
-            {{ content }}
-        </div>
-        
-        <aside>
+        <aside aria-label="Site navigation">
             <div id="drawer">
                 <div id=drawer-contents>
                     <nav>
@@ -56,19 +49,19 @@
                         <!--<a href="/about.html">About me</a>-->
                         <a href="/projects.html">Interesting Projects</a>
                         <a href="/tags.html">Tags</a>
-                        <a target="_blank" href="/feed.xml">RSS Feed</a>
+                        <a href="/feed.xml">RSS Feed</a>
                     </nav>
 
-                    <h4>Elsewhere</h4>
+                    <h2>Elsewhere</h2>
                     <ul>
                             <!--<li><a href="http://eepurl.com/iKGOdY">Mailinglist</a></li>-->
-                            <li><a href="http://twitter.com/pepijndevos" target="_blank">Twitter</a></li>
-                            <li><a href="https://freeradical.zone/@pepijndevos" target="_blank">Mastodon</a></li>
-                            <li><a href="http://github.com/pepijndevos" target="_blank">Github</a></li>
+                            <li><a href="https://twitter.com/pepijndevos" rel="noopener">Twitter</a></li>
+                            <li><a href="https://freeradical.zone/@pepijndevos" rel="me noopener">Mastodon</a></li>
+                            <li><a href="https://github.com/pepijndevos" rel="noopener">Github</a></li>
                     </ul>
 
                     {% if site.related_posts %}
-                    <h4>Remotely related posts</h4>
+                    <h2>Remotely related posts</h2>
                     <ul>
                             {% for post in site.related_posts limit:3 %}
                             <li><a href="{{ post.url }}">{{ post.title }}</a></li>
@@ -76,28 +69,45 @@
                     </ul>
                     {% endif %}
 
-                    <form action="https://duckduckgo.com">
+                    <form action="https://duckduckgo.com" role="search">
+                        <label for="search" class="visually-hidden">Search this site</label>
                         <input type="search" name="q" id="search" placeholder="search" />
                         <input type="hidden" name="sites" value="pepijndevos.nl" />
                     </form>
-                    <a href="http://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via=pepijndevos" target="_blank">Share this page on Twitter!</a>
+                    <a href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ site.url }}{{ page.url }}&via=pepijndevos" rel="noopener">Share this page on Twitter!</a>
                 </div>
             </div>
-            <img src="/style/chain.png" id="chain" alt="Click to open menu" />
+            <button type="button" id="chain" aria-expanded="false" aria-controls="drawer">
+                <img src="/style/chain.png" alt="" />
+                <span class="visually-hidden">Menu</span>
+            </button>
         </aside>
-    <footer>&copy; {{ page.date | date: "%Y" }} Pepijn de Vos</footer>
-        <img id="wheel-img" src="/style/wheel.png" />
+
+        <header>
+            <h1><a href="/">{{ site.title }}</a></h1>
+            <span>{{ site.tagline }}</span>
+        </header>
+
+        <main id="content" class="hfeed">
+            {{ content }}
+        </main>
+
+    <footer>&copy; {{ site.time | date: "%Y" }} Pepijn de Vos</footer>
+        <img id="wheel-img" src="/style/wheel.png" alt="" />
     <script>
         var drawer = document.getElementById("drawer");
-        console.log("run");
-        document.getElementById("chain").onclick = function(event) {
-            console.log(event);
-            if(drawer.className == "open") {
-                drawer.className = "";
-            } else {
-                drawer.className = "open";
+        var chain = document.getElementById("chain");
+        chain.addEventListener("click", function() {
+            var open = drawer.className != "open";
+            drawer.className = open ? "open" : "";
+            chain.setAttribute("aria-expanded", open);
+            // the toggle sits after the panel in the DOM, so send focus into
+            // the panel rather than making people shift-tab backwards for it
+            if (open && window.matchMedia("(max-width: 1100px)").matches) {
+                var first = drawer.querySelector("a, input");
+                if (first) first.focus();
             }
-        }
+        });
     </script>
     </body>
 </html>
